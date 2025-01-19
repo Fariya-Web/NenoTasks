@@ -36,7 +36,7 @@ const Footer = () => {
                     </p>
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">
-                    <div className="grid grid-flow-col gap-5 text-2xl">
+                    <div className="flex items-center gap-5 text-2xl">
                         <a href='https://www.linkedin.com/in/fariya-khan-sana/'><FaLinkedinIn className='text-gray-600 hover:text-[#f07ffa] hover:text-4xl hover:pb-1' /></a>
                         <a href='https://github.com/Fariya-Khan-Web'><FaGithubAlt className='text-gray-600 hover:text-[#f07ffa] hover:text-4xl hover:pb-1' /></a>
                         <a href='https://www.facebook.com/fariyakhansana'><FaFacebookF className='text-gray-600  hover:text-[#f07ffa] hover:text-4xl hover:pb-1' /></a>
