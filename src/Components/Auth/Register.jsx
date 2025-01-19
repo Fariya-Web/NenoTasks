@@ -19,6 +19,8 @@ const Register = () => {
         const email = form.email.value
         const password = form.password.value
 
+        console.log(photo);
+
 
         if (!/[A-Z]/.test(password)) {
             return toast.warning('Password must contain at leaste one uppercase')
@@ -38,30 +40,31 @@ const Register = () => {
             .then(result => {
                 console.log(result.user)
                 setUser(result.user)
-                updateUserProfile({
-                    displayName: name,
-                    photoURL: photo
-                })
-                    .then(res => {
+                updateUserProfile(name, photo)
+                    .then(()=> {
+                        console.log('in update user');
                         const userInfo = {
                             name: name,
                             email: email,
                             photoUrl: photo
                         }
+                        navigate('/')
+                        toast.success('User created successfully')
                         // axiosPublic.post('/users', userInfo)
                         //     .then(res => {
                         //         if (res.data.acknowledged) {
-                                    navigate('/')
                         //             setLoading(false)
-                                    toast.success('User created successfully')
                         //         }
                         //     })
                         //     .catch(err => { console.log(err) })
                     })
-                    .catch(err => { console.log(err) })
+                    .catch(err => {
+                        console.log(err)
+                        toast.error("couldn't update user profile")
+                    })
             })
             .catch(err => console.log(err))
-            navigate('/')
+        navigate('/')
     }
 
 

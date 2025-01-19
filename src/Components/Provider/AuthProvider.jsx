@@ -22,9 +22,12 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUserProfile = (profileInfo) => {
+    const updateUserProfile = (name, photo) => {
         setLoading(true)
-        return updateProfile(auth.currentUser, profileInfo)
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
     }
 
     const loginWithEmailPass = (email, password) => {
