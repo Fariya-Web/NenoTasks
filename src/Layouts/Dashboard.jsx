@@ -1,23 +1,24 @@
 import React from 'react';
-import { GrMail, GrTask } from 'react-icons/gr';
+import { GrHistory, GrMail, GrTask } from 'react-icons/gr';
 import { HiMiniShoppingBag } from 'react-icons/hi2';
 import { IoMdHome } from 'react-icons/io';
 import { IoMenu } from 'react-icons/io5';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import logo from '../assets/logo/exchanging.png'
 import { ImSpoonKnife } from 'react-icons/im';
-import { FaBook, FaListUl } from 'react-icons/fa';
+import { FaBook, FaListUl, FaTasks } from 'react-icons/fa';
 import { MdGroups } from 'react-icons/md';
 import { TbNetwork } from 'react-icons/tb';
 import { BsCurrencyExchange, BsListTask } from 'react-icons/bs';
+import { RiPlayListAddLine } from 'react-icons/ri';
 
 const Dashboard = () => {
 
     // TODO- get isAdmin fron DB
     // const [isAdmin] = useAdmin()
     const isAdmin = false
-    const isWorker = true
-    const isBuyer = false
+    const isWorker = false
+    const isBuyer = true
     console.log(isAdmin)
 
     return (
@@ -78,19 +79,28 @@ const Dashboard = () => {
                         }
 
 
-                        {/* 
+                        {/* buyer routes */}
                         {
                             isBuyer &&
                             <div className='uppercase'>
-                                <li><NavLink to='/dashboard/userHome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />User Home</NavLink></li>
-                                <li><NavLink to='/dashboard/reservation' className={'py-3 my-1'}><FaCalendarAlt className='text-2xl' />Reservation</NavLink></li>
-                                <li><NavLink to='/dashboard/payHistory' className={'py-3 my-1'}><LuHistory className='text-2xl' />Payment history</NavLink></li>
-                                <li><NavLink to='/dashboard/cart' className={'py-3 my-1'}><MdShoppingCart className='text-2xl' />my cart</NavLink></li>
-                                <li><NavLink to='/dashboard/review' className={'py-3 my-1'}><VscFeedback className='text-2xl' />Add review</NavLink></li>
-                                <li><NavLink to='/dashboard/booking' className={'py-3 my-1'}><MdOutlineEditCalendar className='text-2xl' />my booking</NavLink></li>
+
+                                <li><NavLink to='/dashboard/buyerhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Buyer Home</NavLink></li>
+
+
+                                <li><NavLink to='/dashboard/addtask' className={'py-3 my-1'}><RiPlayListAddLine className='text-2xl' />Add new tasks</NavLink></li>
+
+
+                                <li><NavLink to='/dashboard/mytasks' className={'py-3 my-1'}><FaTasks className='text-2xl' />My Tasks</NavLink></li>
+
+
+                                <li><NavLink to='/dashboard/purchase' className={'py-3 my-1'}><BsCurrencyExchange className='text-2xl' />Purchase Coins</NavLink></li>
+
+
+                                <li><NavLink to='/dashboard/transactions' className={'py-3 my-1'}><GrHistory className='text-2xl' />Payment History</NavLink></li>
+
                             </div>
                         }
- */}
+
 
                         <hr className='my-10 bg-white h-1' />
 

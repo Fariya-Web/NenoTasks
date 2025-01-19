@@ -14,6 +14,11 @@ import WorkerHome from "../Components/DashboardPages/workerRoutes/WorkerHome";
 import Tasklist from "../Components/DashboardPages/workerRoutes/Tasklist";
 import Submission from "../Components/DashboardPages/workerRoutes/Submission";
 import Withdrawals from "../Components/DashboardPages/workerRoutes/Withdrawals";
+import BuyerHome from "../Components/DashboardPages/buyerRoutes/BuyerHome";
+import AddTask from "../Components/DashboardPages/buyerRoutes/AddTask";
+import MyTasks from "../Components/DashboardPages/buyerRoutes/MyTasks";
+import Purchase from "../Components/DashboardPages/buyerRoutes/Purchase";
+import Transaction from "../Components/DashboardPages/buyerRoutes/Transaction";
 
 
 const router = createBrowserRouter([
@@ -76,6 +81,28 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/withdrawals',
                 element: <Withdrawals/>
+            },
+
+            // buyer routes
+            {
+                path: '/dashboard/buyerhome',
+                element: <BuyerHome/>
+            },
+            {
+                path: '/dashboard/addtask',
+                element: <AddTask/>
+            },
+            {
+                path: '/dashboard/mytasks',
+                element: <MyTasks/>
+            },
+            {
+                path: '/dashboard/purchase',
+                element: <Purchase/>
+            },
+            {
+                path: '/dashboard/transactions',
+                element: <Transaction/>
             },
         ]
     },
