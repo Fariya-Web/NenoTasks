@@ -6,6 +6,7 @@ import Home from "../Layouts/Home";
 import Auth from "../Layouts/Auth";
 import Login from "../Components/Auth/Login";
 import Register from './../Components/Auth/Register';
+import Dashboard from "../Layouts/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,20 @@ const router = createBrowserRouter([
                 element: <Register/>
             },
         ]
+    },
+    {
+        path: "/dashboard",
+        element: <Dashboard/>,
+        // children: [
+        //     {
+        //         path: '/dashboard',
+        //         element: <Login/>
+        //     },
+        //     {
+        //         path: '/auth/register',
+        //         element: <Register/>
+        //     },
+        // ]
     },
     
 ]);

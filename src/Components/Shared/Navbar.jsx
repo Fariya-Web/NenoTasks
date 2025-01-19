@@ -26,7 +26,7 @@ const Navbar = () => {
         <>
             {
                 user &&
-                <li><Link className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
+                <li><Link to={'/dashboard'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
             }
             <li><a href='' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text '>Join as Developer</a></li>
             {
