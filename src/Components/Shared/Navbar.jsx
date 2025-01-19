@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Links } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -45,12 +45,12 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="text-lg font-medium">
-                        <div className="join  bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa] rounded-lg">
-                            <div className='join-item p-[2px] pr-[1px] my-auto rounded-lg'>
-                                <button className="p-[8px] px-4 bg-white bg-gradient-to-r from-[#6AAEFF]/35 to-[#f4b4fa]/35 hover:bg-gradient-to-r hover:from-[#6AAEFF]/70 hover:to-[#f4b4fa]/70 join-item">Login</button>
+                        <div className="join">
+                            <div className='join-item my-auto rounded-lg'>
+                                <Link to={'/auth'} className="p-2 px-4 bg-gradient-to-r from-[#6AAEFF]/35 to-[#f4b4fa]/35 hover:from-[#6AAEFF]/70 hover:to-[#f4b4fa]/70 join-item">Login</Link>
                             </div>
-                            <div className='join-item p-[2px]  my-auto rounded-lg'>
-                                <button className="p-2 px-4 bg-white bg-gradient-to-r from-[#6AAEFF]/30 to-[#f4b4fa]/35 hover:bg-gradient-to-r hover:from-[#6AAEFF]/70 hover:to-[#f4b4fa]/70 join-item">Register</button>
+                            <div className='join-item my-auto rounded-lg'>
+                                <Link to={'/auth/register'} className="p-2 px-4 bg-gradient-to-r from-[#6AAEFF]/30 to-[#f4b4fa]/35 hover:from-[#6AAEFF]/70 hover:to-[#f4b4fa]/70 join-item">Register</Link>
                             </div>
                         </div>
 
