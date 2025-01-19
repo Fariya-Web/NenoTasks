@@ -7,6 +7,9 @@ import Auth from "../Layouts/Auth";
 import Login from "../Components/Auth/Login";
 import Register from './../Components/Auth/Register';
 import Dashboard from "../Layouts/Dashboard";
+import AdminHome from "../Components/DashboardPages/adminRoutes/AdminHome";
+import AllUsers from "../Components/DashboardPages/adminRoutes/AllUsers";
+import AllTasks from "../Components/DashboardPages/adminRoutes/AllTasks";
 
 
 const router = createBrowserRouter([
@@ -37,16 +40,21 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <Dashboard/>,
-        // children: [
-        //     {
-        //         path: '/dashboard',
-        //         element: <Login/>
-        //     },
-        //     {
-        //         path: '/auth/register',
-        //         element: <Register/>
-        //     },
-        // ]
+        children: [
+            // admin routes
+            {
+                path: '/dashboard/adminhome',
+                element: <AdminHome/>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers/>
+            },
+            {
+                path: '/dashboard/alltasks',
+                element: <AllTasks/>
+            },
+        ]
     },
     
 ]);

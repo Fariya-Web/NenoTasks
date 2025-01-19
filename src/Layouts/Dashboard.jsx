@@ -3,14 +3,20 @@ import { GrMail } from 'react-icons/gr';
 import { HiMiniShoppingBag } from 'react-icons/hi2';
 import { IoMdHome } from 'react-icons/io';
 import { IoMenu } from 'react-icons/io5';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import logo from '../assets/logo/exchanging.png'
+import { ImSpoonKnife } from 'react-icons/im';
+import { FaBook, FaListUl } from 'react-icons/fa';
+import { MdGroups } from 'react-icons/md';
+import { TbNetwork } from 'react-icons/tb';
 
 const Dashboard = () => {
 
     // TODO- get isAdmin fron DB
     // const [isAdmin] = useAdmin()
-    const isAdmin = false
+    const isAdmin = true
+    const isWorker = false
+    const isBuyer = false
     console.log(isAdmin)
 
     return (
@@ -29,7 +35,7 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-gradient-to-br from-[#ecf2fa] to-[#d2e3fb] text-xl min-h-full w-80 p-4">
+                    <ul className="menu bg-gradient-to-br from-[#f1f5fb] to-[#d2e3fb] text-xl min-h-full w-80 p-4">
                         {/* Sidebar content here */}
 
                         <div className=' flex gap-4 mx-auto py-14'>
@@ -37,9 +43,45 @@ const Dashboard = () => {
                             <h2 className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</h2>
                         </div>
 
-                        
+                        {
+                            isAdmin &&
+                            <div className='uppercase'>
+                                <li><NavLink to='/dashboard/adminhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Admin Home</NavLink></li>
+                                
+                                <li><NavLink to='/dashboard/allusers' className={'py-3 my-1'}><MdGroups className='text-2xl' />All Users</NavLink></li>
+                                
+                                <li><NavLink to='/dashboard/alltasks' className={'py-3 my-1'}><TbNetwork className='text-2xl' />Manage Tasks</NavLink></li>
 
-                        <hr className='my-10' />
+                                
+                            </div>
+                        }
+
+                        {/* {
+                            isWorker &&
+                            <div className='uppercase'>
+                                <li><NavLink to='/dashboard/userHome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />User Home</NavLink></li>
+                                <li><NavLink to='/dashboard/reservation' className={'py-3 my-1'}><FaCalendarAlt className='text-2xl' />Reservation</NavLink></li>
+                                <li><NavLink to='/dashboard/payHistory' className={'py-3 my-1'}><LuHistory className='text-2xl' />Payment history</NavLink></li>
+                                <li><NavLink to='/dashboard/cart' className={'py-3 my-1'}><MdShoppingCart className='text-2xl' />my cart</NavLink></li>
+                                <li><NavLink to='/dashboard/review' className={'py-3 my-1'}><VscFeedback className='text-2xl' />Add review</NavLink></li>
+                                <li><NavLink to='/dashboard/booking' className={'py-3 my-1'}><MdOutlineEditCalendar className='text-2xl' />my booking</NavLink></li>
+                            </div>
+                        }
+
+                        {
+                            isBuyer &&
+                            <div className='uppercase'>
+                                <li><NavLink to='/dashboard/userHome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />User Home</NavLink></li>
+                                <li><NavLink to='/dashboard/reservation' className={'py-3 my-1'}><FaCalendarAlt className='text-2xl' />Reservation</NavLink></li>
+                                <li><NavLink to='/dashboard/payHistory' className={'py-3 my-1'}><LuHistory className='text-2xl' />Payment history</NavLink></li>
+                                <li><NavLink to='/dashboard/cart' className={'py-3 my-1'}><MdShoppingCart className='text-2xl' />my cart</NavLink></li>
+                                <li><NavLink to='/dashboard/review' className={'py-3 my-1'}><VscFeedback className='text-2xl' />Add review</NavLink></li>
+                                <li><NavLink to='/dashboard/booking' className={'py-3 my-1'}><MdOutlineEditCalendar className='text-2xl' />my booking</NavLink></li>
+                            </div>
+                        }
+ */}
+
+                        <hr className='my-10 bg-white h-1' />
 
                         {/* shared routes */}
                         <div className='uppercase'>
