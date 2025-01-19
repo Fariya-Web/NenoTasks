@@ -59,10 +59,10 @@ const Login = () => {
 
 
     return (
-        <div className='flex flex-col lg:flex-row lg:items-center justify-evenly shadow-2xl p-12 rounded-lg bg-white bg-opacity-35'>
+        <div className='blur-bg shadow-2xl p-12 rounded-lg'>
             
             <div className='relative lg:w-96'>
-                <h1 className='text-3xl font-bold text-center py-4'>Login</h1>
+                <h1 className='text-3xl font-bold text-center pt-3 pb-7'>Login</h1>
                 <form onSubmit={handleSubmit} className="">
                     <div className="form-control">
                         <label className="label">
@@ -100,7 +100,7 @@ const Login = () => {
                 </button> */}
 
                 <div className='text-center my-3'>
-                    <Link to={'/auth/register'} className='text-center hover:text-[#f07ffa]'>New here? Create a New Account</Link>
+                    <Link to={'/auth/register'} className='text-center'>New here? Create a <span className='hover:text-[#f07ffa]'>New Account</span></Link>
                     <p className='text-center my-4 text-gray-600'>Or sign in with</p>
                     <div className=' w-1/3 mx-auto mt-5 flex justify-between'>
                         <div className='border border-[#444444] rounded-full p-1 '>
