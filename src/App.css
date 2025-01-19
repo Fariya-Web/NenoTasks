@@ -1,9 +1,9 @@
 .blur-bg {
     background-color: transparent;
     backdrop-filter: blur(10px);
-    background-image: linear-gradient(140deg,
+    /* background-image: linear-gradient(140deg,
             rgba(106, 174, 255, 0.2),
-            rgba(252, 219, 255, 0.3));
+            rgba(252, 219, 255, 0.3)); */
 }
 .label{
     font-weight: 500;

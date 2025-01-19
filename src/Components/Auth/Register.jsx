@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css'
+import { toast } from 'react-toastify';
+
 
 const Register = () => {
 
@@ -49,9 +51,9 @@ const Register = () => {
                         // axiosPublic.post('/users', userInfo)
                         //     .then(res => {
                         //         if (res.data.acknowledged) {
-                        //             navigate('/')
+                                    navigate('/')
                         //             setLoading(false)
-                        //             toast.success('User created successfully')
+                                    toast.success('User created successfully')
                         //         }
                         //     })
                         //     .catch(err => { console.log(err) })
@@ -59,12 +61,13 @@ const Register = () => {
                     .catch(err => { console.log(err) })
             })
             .catch(err => console.log(err))
+            navigate('/')
     }
 
 
     return (
-        <div className='blur-bg shadow-2xl p-12 w-[94%] max-w-lg' >
-            
+        <div className='blur-bg shadow-2xl p-12 w-[94%] max-w-lg rounded-lg border' >
+
             <div className='relative md:w-96 mx-auto'>
                 <h1 className='text-3xl font-bold text-center py-4'>Sign Up</h1>
                 <form onSubmit={handleSubmit} className="">
@@ -78,6 +81,13 @@ const Register = () => {
 
                     <div className="form-control">
                         <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input type="email" name='email' placeholder="your email" className="input input-bordered" required />
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
                         <input type="url" name='photo' placeholder="your photo url" className="input input-bordered" required />
@@ -85,10 +95,16 @@ const Register = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text">Role</span>
                         </label>
-                        <input type="email" name='email' placeholder="your email" className="input input-bordered" required />
+                        <select type="url" name='photo' placeholder="your photo url" className="input input-bordered" required>
+                            <option selected disabled value="">Select a role</option>
+                            <option value="buyer">Buyer</option>
+                            <option value="woker">Worker</option>
+
+                        </select>
                     </div>
+
 
                     <div className="form-control">
                         <label className="label">
@@ -98,7 +114,7 @@ const Register = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa]">Sign in</button>
+                        <button className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Sign in</button>
                     </div>
                 </form>
                 <div className='text-center my-3'>

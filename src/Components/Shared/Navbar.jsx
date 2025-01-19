@@ -5,9 +5,9 @@ const Navbar = () => {
 
     const links =
         <>
-            <li><Link className='mx-3  text-lg  hover:bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Item 1</Link></li>
-            <li><Link className='mx-3  text-lg  hover:bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Parent</Link></li>
-            <li><a href='' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Join as Developer</a></li>
+            <li><Link className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Item 1</Link></li>
+            <li><Link className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Parent</Link></li>
+            <li><a href='' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Join as Developer</a></li>
         </>
 
     return (
@@ -35,7 +35,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to={'/'} className=" md:text-3xl font-bold text-xl  bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa] text-transparent bg-clip-text">NanoTasks</Link>
+                    <Link to={'/'} className=" md:text-3xl font-bold text-xl  bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-transparent bg-clip-text">NanoTasks</Link>
                 </div>
                 <div className=' flex items-center'>
 
@@ -47,10 +47,10 @@ const Navbar = () => {
                     <div className="text-lg font-medium">
                         <div className="join">
                             <div className='join-item my-auto rounded-lg'>
-                                <Link to={'/auth'} className="p-2 px-4 bg-gradient-to-r from-[#6AAEFF]/35 to-[#f4b4fa]/35 hover:from-[#6AAEFF]/70 hover:to-[#f4b4fa]/70 join-item">Login</Link>
+                                <Link to={'/auth'} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 join-item">Login</Link>
                             </div>
                             <div className='join-item my-auto rounded-lg'>
-                                <Link to={'/auth/register'} className="p-2 px-4 bg-gradient-to-r from-[#6AAEFF]/30 to-[#f4b4fa]/35 hover:from-[#6AAEFF]/70 hover:to-[#f4b4fa]/70 join-item">Register</Link>
+                                <Link to={'/auth/register'} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/30 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 join-item">Register</Link>
                             </div>
                         </div>
 

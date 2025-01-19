@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { TbEyeglass, TbEyeglassOff } from 'react-icons/tb';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => {
 
@@ -53,15 +54,15 @@ const Login = () => {
 
     }
 
-    // useEffect(() => {
-    //     loadCaptchaEnginge(6);
-    // }, [captchaInpLen === 0])
+    useEffect(() => {
+        loadCaptchaEnginge(6);
+    }, [captchaInpLen === 0])
 
 
     return (
-        <div className='blur-bg shadow-2xl p-12 rounded-lg'>
+        <div className='blur-bg shadow-2xl p-12  w-[94%] max-w-lg rounded-lg border'>
             
-            <div className='relative lg:w-96'>
+            <div className='relative md:w-96 mx-auto'>
                 <h1 className='text-3xl font-bold text-center pt-3 pb-7'>Login</h1>
                 <form onSubmit={handleSubmit} className="">
                     <div className="form-control">
@@ -77,17 +78,17 @@ const Login = () => {
                         <input type={show ? "text" : "password"} name='password' placeholder="password" className="input input-bordered" required />
                     </div>
 
-                    {/* <div className="form-control mt-4">
+                    <div className="form-control mt-4">
                         <label className="label ">
                             <LoadCanvasTemplate />
                         </label>
                         <div className='flex'>
                             <input ref={captchaRef} type="text" placeholder="type the text above" className="input w-full input-bordered" required />
                         </div>
-                    </div> */}
+                    </div>
 
                     <div className="form-control mt-6">
-                        <button disabled={false} className="btn bg-gradient-to-r from-[#6AAEFF] to-[#f4b4fa]">Login</button>
+                        <button disabled={false} className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Login</button>
                     </div>
                 </form>
 
@@ -95,9 +96,9 @@ const Login = () => {
                     {show ? <TbEyeglassOff /> : <TbEyeglass />}
                 </button>
 
-                {/* <button onClick={handleValidateCaptcha} className='absolute right-3 bottom-[214px] text-[#D1A054B3]'>
+                <button onClick={handleValidateCaptcha} className='absolute right-3 bottom-[214px] text-[#f07ffa]'>
                     {disable ? <MdCheckBoxOutlineBlank /> : <MdCheckBox />}
-                </button> */}
+                </button>
 
                 <div className='text-center my-3'>
                     <Link to={'/auth/register'} className='text-center'>New here? Create a <span className='hover:text-[#f07ffa]'>New Account</span></Link>
