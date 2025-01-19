@@ -7,12 +7,21 @@ import {
 import router from '../src/Routes/routes'
 import AuthProvider from './Components/Provider/AuthProvider';
 import { ToastContainer } from 'react-toastify';
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-    <ToastContainer />
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+      <ToastContainer />
+    </QueryClientProvider>
   </StrictMode>,
 )

@@ -8,23 +8,23 @@ const Footer = () => {
             <footer className="footer  text-base-content max-w-screen-2xl mx-auto p-10">
                 <nav>
                     <h6 className="footer-title text-lg">Services</h6>
-                    <a className="link link-hover hover:text-[#f07ffa] ">Branding</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Design</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Marketing</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Advertisement</a>
+                    <a className="link link-hover hover:text-[#8cbefa] ">Branding</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Design</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Marketing</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Advertisement</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title text-lg">Company</h6>
-                    <a className="link link-hover hover:text-[#f07ffa]">About us</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Contact</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Jobs</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Press kit</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">About us</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Contact</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Jobs</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Press kit</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title text-lg">Legal</h6>
-                    <a className="link link-hover hover:text-[#f07ffa] ">Terms of use</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Privacy policy</a>
-                    <a className="link link-hover hover:text-[#f07ffa]">Cookie policy</a>
+                    <a className="link link-hover hover:text-[#8cbefa] ">Terms of use</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Privacy policy</a>
+                    <a className="link link-hover hover:text-[#8cbefa]">Cookie policy</a>
                 </nav>
             </footer>
             <footer className="footer  text-base-content max-w-screen-2xl mx-auto border-t-2 border-white px-10 py-4">
@@ -37,9 +37,9 @@ const Footer = () => {
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">
                     <div className="flex items-center gap-5 text-2xl">
-                        <a href='https://www.linkedin.com/in/fariya-khan-sana/'><FaLinkedinIn className='text-gray-600 hover:text-[#f07ffa] hover:text-4xl hover:pb-1' /></a>
-                        <a href='https://github.com/Fariya-Khan-Web'><FaGithubAlt className='text-gray-600 hover:text-[#f07ffa] hover:text-4xl hover:pb-1' /></a>
-                        <a href='https://www.facebook.com/fariyakhansana'><FaFacebookF className='text-gray-600  hover:text-[#f07ffa] hover:text-4xl hover:pb-1' /></a>
+                        <a href='https://www.linkedin.com/in/fariya-khan-sana/'><FaLinkedinIn className='text-gray-600 hover:text-[#8cbefa] hover:text-4xl hover:pb-1' /></a>
+                        <a href='https://github.com/Fariya-Khan-Web'><FaGithubAlt className='text-gray-600 hover:text-[#8cbefa] hover:text-4xl hover:pb-1' /></a>
+                        <a href='https://www.facebook.com/fariyakhansana'><FaFacebookF className='text-gray-600  hover:text-[#8cbefa] hover:text-4xl hover:pb-1' /></a>
                     </div>
                 </nav>
             </footer>

@@ -121,7 +121,7 @@ const Register = () => {
                     </div>
                 </form>
                 <div className='text-center my-3'>
-                    <Link to={'/auth'} className='text-center '>Already registered?<span className='hover:text-[#f07ffa]'> Go to log in</span></Link>
+                    <Link to={'/auth'} className='text-center '>Already registered?<span className='hover:text-[#8cbefa]'> Go to log in</span></Link>
                     {/* <p className='text-center my-3 text-gray-600'>Or sign in with</p> */}
                     {/* <div className=' w-1/3 mx-auto flex justify-between'>
                         <div className='border border-[#444444] rounded-full p-1 '>

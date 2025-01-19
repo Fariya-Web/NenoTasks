@@ -101,7 +101,7 @@ const Login = () => {
                 </button>
 
                 <div className='text-center my-3'>
-                    <Link to={'/auth/register'} className='text-center'>New here? Create a <span className='hover:text-[#f07ffa]'>New Account</span></Link>
+                    <Link to={'/auth/register'} className='text-center'>New here? Create a <span className='hover:text-[#8cbefa]'>New Account</span></Link>
                     <p className='text-center my-4 text-gray-600'>Or sign in with</p>
                     <div className=' w-1/3 mx-auto mt-5 flex justify-between'>
                         <div className='border border-[#444444] rounded-full p-1 '>
@@ -109,7 +109,7 @@ const Login = () => {
                         </div>
 
                         <div className='border border-[#444444] rounded-full p-1 '>
-                            <FaGoogle className='text-xl text-[#444444] hover:text-[#f07ffa]' />
+                            <FaGoogle className='text-xl text-[#444444] hover:text-[#8cbefa]' />
                         </div>
 
                         <div className='border border-[#444444] rounded-full p-1'>
