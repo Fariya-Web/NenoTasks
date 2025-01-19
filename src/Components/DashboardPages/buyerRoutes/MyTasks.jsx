@@ -2,18 +2,56 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { AuthContext } from './../../Provider/AuthProvider';
+import worker from '../../../assets/icons/employee.png'
+import coin from '../../../assets/icons/coin.png'
+import { MdDelete } from 'react-icons/md';
+import { CiEdit } from 'react-icons/ci';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { AiOutlineDelete } from 'react-icons/ai';
+import Swal from 'sweetalert2';
 
 const MyTasks = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    console.log(user?.email);
     const axiosSecure = useAxiosSecure()
 
     const { data: mytasks = [], isLoading, refetch } = useQuery({
         queryKey: ['mytask'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/tasks/${user.email}`)
+            const res = await axiosSecure.get(`/tasks/${user?.email}`)
+            return res.data
         }
     })
+    console.log(mytasks);
+
+    const deleteAlert = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#8cbefa",
+
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/task/${id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.acknowledged) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "This task has been deleted.",
+                                icon: "success"
+                            });
+                            refetch()
+                        }
+                    })
+            }
+        });
+    }
 
     return (
         <div className='py-10'>
@@ -27,14 +65,15 @@ const MyTasks = () => {
                 <div className="overflow-x-auto rounded-xl my-8">
                     <table className="table table-zebra text-center ">
                         {/* head */}
-                        <thead className='bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-lg uppercase font-medium '>
+                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Task</th>
-                                <th>Buyer</th>
                                 <th>Worker Count</th>
                                 <th>Total Pay</th>
-                                <th>action</th>
+                                <th>Deadline</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody className='text-lg'>
@@ -43,9 +82,7 @@ const MyTasks = () => {
                                     <tr >
                                         <th>{index + 1}</th>
 
-                                        <td className='w-[28%] text-start font-medium'>{task.task_title}</td>
-
-                                        <td>{task.buyer_email}</td>
+                                        <td className='w-[24%] text-start font-medium'>{task.task_title}</td>
 
                                         <td>
                                             <div className='flex gap-1 items-center justify-center'>
@@ -61,7 +98,11 @@ const MyTasks = () => {
                                             </div>
                                         </td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td>{task.completion_date}</td>
+
+                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><CiEdit className=' hover:text-[#8cbefa]' /></button></td>
+
+                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><AiOutlineDelete className=' hover:text-[#8cbefa]' /></button></td>
 
                                     </tr>
                                 )

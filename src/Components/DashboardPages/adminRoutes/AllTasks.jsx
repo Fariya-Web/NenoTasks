@@ -64,7 +64,7 @@ const AllTasks = () => {
                 <div className="overflow-x-auto rounded-xl my-8">
                     <table className="table table-zebra text-center ">
                         {/* head */}
-                        <thead className='bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-lg uppercase font-medium '>
+                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Task</th>
