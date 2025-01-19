@@ -10,6 +10,10 @@ import Dashboard from "../Layouts/Dashboard";
 import AdminHome from "../Components/DashboardPages/adminRoutes/AdminHome";
 import AllUsers from "../Components/DashboardPages/adminRoutes/AllUsers";
 import AllTasks from "../Components/DashboardPages/adminRoutes/AllTasks";
+import WorkerHome from "../Components/DashboardPages/workerRoutes/WorkerHome";
+import Tasklist from "../Components/DashboardPages/workerRoutes/Tasklist";
+import Submission from "../Components/DashboardPages/workerRoutes/Submission";
+import Withdrawals from "../Components/DashboardPages/workerRoutes/Withdrawals";
 
 
 const router = createBrowserRouter([
@@ -53,6 +57,25 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/alltasks',
                 element: <AllTasks/>
+            },
+
+
+            // worker routes
+            {
+                path: '/dashboard/userhome',
+                element: <WorkerHome/>
+            },
+            {
+                path: '/dashboard/tasklist',
+                element: <Tasklist/>
+            },
+            {
+                path: '/dashboard/submissions',
+                element: <Submission/>
+            },
+            {
+                path: '/dashboard/withdrawals',
+                element: <Withdrawals/>
             },
         ]
     },
