@@ -18,7 +18,7 @@ const Dashboard = () => {
     // const [isAdmin] = useAdmin()
     const isAdmin = true
     const isWorker = false
-    const isBuyer = false
+    const isBuyer = true
     console.log(isAdmin)
 
     return (

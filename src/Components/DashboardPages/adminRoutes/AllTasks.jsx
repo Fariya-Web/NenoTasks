@@ -7,6 +7,7 @@ import { MdDelete, MdPerson } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import coin from '../../../assets/icons/coin.png'
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import worker from '../../../assets/icons/employee.png'
 
 const AllTasks = () => {
 
@@ -24,7 +25,31 @@ const AllTasks = () => {
 
 
     const deleteAlert = (id) => {
-        
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#8cbefa",
+
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                axiosSecure.delete(`/task/${id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.acknowledged) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "This task has been deleted.",
+                                icon: "success"
+                            });
+                            refetch()
+                        }
+                    })
+            }
+        });
     }
 
     return (
@@ -62,7 +87,7 @@ const AllTasks = () => {
                                         <td>
                                             <div className='flex gap-1 items-center justify-center'>
                                                 {task.required_workers}
-                                                <MdPerson />
+                                                <img className='w-6 h-6' src={worker} alt="" />
                                             </div>
                                         </td>
 

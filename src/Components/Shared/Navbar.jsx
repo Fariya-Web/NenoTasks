@@ -29,16 +29,23 @@ const Navbar = () => {
                 <li><Link to={'/dashboard'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
             }
             <li><a href='' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text '>Join as Developer</a></li>
+            {/* className="tooltip" data-tip="hello" */}
             {
                 user &&
                 <>
-                    <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src={user?.photoURL} />
+                    <div className='relative group'>
+                        <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img
+                                    alt="Tailwind CSS Navbar component"
+                                    src={user?.photoURL} />
+                            </div>
+                        </div>
+                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 rounded group-hover:block">
+                            {user?.displayName}
                         </div>
                     </div>
+
                     <div className='grid grid-cols-2 border-2 p-1 mx-1 min-w-14  rounded-md'>
                         <div className='mx-auto my-auto text-lg'>{0}</div>
                         <div><img className='w-8' src={bank} alt="" /></div>
