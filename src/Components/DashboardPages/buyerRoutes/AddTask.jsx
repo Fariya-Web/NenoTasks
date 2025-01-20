@@ -1,31 +1,57 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Provider/AuthProvider';
+import useImageHosting from '../../../Hooks/useImageHosting';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import { toast } from 'react-toastify';
 
 const AddTask = () => {
 
   const {user} = useContext(AuthContext)
+  const image_hosting_api = useImageHosting()
+  const axiosPublic = useAxiosPublic()
 
   const {
     register, handleSubmit, formState: { errors }} = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
     console.log(data);
-    
-    const task = {
-      ...data,
-      buyer_email: user?.email
+
+    const totalPay = data.required_workers*data.payable_amount
+    console.log(totalPay);
+
+    const imageFile = {image: data.task_image_url[0]}
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    console.log(res.data);
+
+    if(res.data.success){
+      const task = {
+        ...data,
+        task_image_url: res.data.data.display_url ,
+        buyer_email: user?.email
+      }
+      console.log(task);
+
+      
+
+    }else{
+      toast.error("Couldn't upload image")
     }
-    console.log(task);
+
+    
   };
 
   return (
-    <div className='p-10'>
+    <div className='md:p-10'>
 
-      <div className='max-w-screen-xl w-[92%] mx-auto border-2 border-white bg-gradient-to-br from-[#f1f5fb] to-[#e9f0fb] p-12 my-12 rounded-lg'>
-        <form onSubmit={handleSubmit(onSubmit)} className="card-body grid gap-3 grid-cols-2">
+      <div className='max-w-screen-xl w-[92%] mx-auto border-2 border-white bg-gradient-to-br from-[#f1f5fb] to-[#e9f0fb] lg:p-12 my-12 rounded-lg'>
+        <form onSubmit={handleSubmit(onSubmit)} className="card-body grid gap-3 md:grid-cols-2">
 
-          <div className="form-control col-span-2">
+          <div className="form-control md:col-span-2">
             <label className="label">
               <span className="label-text">Title</span>
             </label>
@@ -38,7 +64,7 @@ const AddTask = () => {
 
           </div>
 
-          <div className="form-control col-span-2">
+          <div className="form-control md:col-span-2">
             <label className="label">
               <span className="label-text">Task Details</span>
             </label>
@@ -102,7 +128,7 @@ const AddTask = () => {
 
           </div>
 
-          <div className="form-control col-span-2">
+          <div className="form-control md:col-span-2">
             <label className="label">
               <span className="label-text">Submission information</span>
             </label>
@@ -115,7 +141,7 @@ const AddTask = () => {
 
           </div>
 
-          <div className="form-control mt-6 col-span-2">
+          <div className="form-control mt-6 md:col-span-2">
             <button className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Login</button>
           </div>
         </form>
