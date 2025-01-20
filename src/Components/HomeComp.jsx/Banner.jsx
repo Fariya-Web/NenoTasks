@@ -54,9 +54,9 @@ const Banner = () => {
 
 
                 <SwiperSlide>
-                    <div className='flex flex-col lg:flex-row-reverse justify-around md:bg-white py-10 max-w-screen-2xl mx-auto'>
+                    <div className='flex flex-col lg:flex-row-reverse justify-around md:bg-white py-10 w-[94%] max-w-screen-2xl mx-auto'>
 
-                        <div className='relative md:hidden'>
+                        <div className='relative w-2/3 mx-auto md:hidden'>
 
                             <img
                                 className='w-56 rounded-xl shadow-2xl'
@@ -88,7 +88,7 @@ const Banner = () => {
                             animate={{ x: [0] }}
                             transition={{ duration: 2, delay: 0, ease: 'easeIn' }} className=' mt-28 md:my-auto' >
 
-                            <h1 className='text-3xl md:text-5xl font-bold md:w-[90%] lg:w-[70%]'>NanoTasks, Flexibility at Your Fingertips</h1>
+                            <h1 className='text-3xl md:text-5xl font-bold md:w-[90%] lg:w-[60%]'>NanoTasks, Flexibility at Your Fingertips</h1>
 
                             <p className='text-lg font-medium my-6 md:w-[90%] lg:w-[60%]'>Welcome to a platform where opportunities meet convenience. Start your journey today and make every moment rewarding.</p>
                             <Link to={'/auth/register'} className='btn bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
