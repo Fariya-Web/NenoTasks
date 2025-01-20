@@ -4,11 +4,15 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import bank from '../../assets/icons/piggy-bank.png'
 import logo from '../../assets/logo/image.png'
+import useUser from '../../Hooks/useUser';
 
 const Navbar = () => {
 
     const { user, logOut, setLoading } = useContext(AuthContext)
+    const [dbuser, isLoading] = useUser()
     const navigate = useNavigate()
+
+    console.log(dbuser);
 
     const handleSignout = () => {
         logOut()
@@ -50,7 +54,7 @@ const Navbar = () => {
                     </div>
 
                     <div className='grid grid-cols-2 border-2 p-1 mx-1 my-2 min-w-14  rounded-md'>
-                        <div className='mx-auto my-auto text-lg'>{0}</div>
+                        <div className=' my-auto md:mx-auto text-lg'>{dbuser?.coin}</div>
                         <div><img className='w-8' src={bank} alt="" /></div>
                     </div>
                 </>

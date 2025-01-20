@@ -72,21 +72,27 @@ const Register = () => {
                             }
                             console.log(userInfo);
                             axiosPublic.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.acknowledged) {
-                                    toast.success('User created successfully')
-                                    setLoading(false)
-                                    navigate('/')
+                                .then(res => {
+                                    if (res.data.acknowledged) {
+                                        toast.success('User created successfully')
+                                        setLoading(false)
+                                        navigate('/')
                                     }
                                 })
-                                .catch(err => { console.log(err) })
+                                .catch(err => {
+                                    console.log(err)
+
+                                })
                         })
                         .catch(err => {
                             console.log(err)
                             toast.error("couldn't update user profile")
                         })
                 })
-                .catch(err => console.log(err))
+                .catch(err => {
+                    console.log(err)
+                    toast.error('Something went wrong, try again')
+                })
         }
 
 
