@@ -35,7 +35,7 @@ const Dashboard = () => {
 
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content bg-[#F6F6F6]">
+                <div className="drawer-content bg-[#f0efef]">
                     {/* Page content here */}
                     {/* sidewbar button */}
                     <label htmlFor="my-drawer-2" className=" drawer-button absolute left-5 top-3 lg:hidden">
