@@ -29,12 +29,14 @@ const Navbar = () => {
                 user &&
                 <li><Link to={'/dashboard'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
             }
-            <li><a href='' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text '>Join as Developer</a></li>
-            {/* className="tooltip" data-tip="hello" */}
+
+            <li><a href='https://github.com/Fariya-Khan-Web/NanoTasks' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text '>Join as Developer</a></li>
+
+
             {
                 user &&
                 <>
-                    <div className='relative group'>
+                    <div className='relative group hidden lg:block'>
                         <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img
@@ -47,7 +49,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <div className='grid grid-cols-2 border-2 p-1 mx-1 min-w-14  rounded-md'>
+                    <div className='grid grid-cols-2 border-2 p-1 mx-1 my-2 min-w-14  rounded-md'>
                         <div className='mx-auto my-auto text-lg'>{0}</div>
                         <div><img className='w-8' src={bank} alt="" /></div>
                     </div>
@@ -59,7 +61,7 @@ const Navbar = () => {
 
     return (
         <div className='sticky top-0 bg-white bg-opacity-50'>
-            <div className="navbar bg-base-100 lg:w-[90%] md:w-[96%]  mx-auto flex justify-between">
+            <div className="navbar bg-base-100 lg:w-[94%] md:w-[98%]  mx-auto flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -95,7 +97,23 @@ const Navbar = () => {
                     <div className="text-lg font-medium">
                         {
                             user ?
-                                <button onClick={handleSignout} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 rounded-lg border">Log Out</button>
+                                <div className='flex items-center'>
+                                    <div className='relative group lg:hidden'>
+                                        <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
+                                            <div className="w-10 rounded-full">
+                                                <img
+                                                    alt="Tailwind CSS Navbar component"
+                                                    src={user?.photoURL} />
+                                            </div>
+                                        </div>
+                                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 rounded group-hover:block">
+                                            {user?.displayName}
+                                        </div>
+                                    </div>
+                                    
+                                    <button onClick={handleSignout} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 rounded-lg border">Log Out</button>
+
+                                </div>
                                 :
                                 <div className="join">
                                     <div className='join-item my-auto rounded-lg'>
