@@ -20,26 +20,59 @@ const AllUsers = () => {
         }
     })
 
+    const handleRoleChange = async (user, id, newRole) => {
+        const result = await Swal.fire({
+            title: "Are you sure you want to change this user's role?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#8cbefa",
+            confirmButtonText: "Yes, change"
+        });
+        console.log(result);
+        if (result.isConfirmed) {
+
+            try {
+                const res = await axiosSecure.patch(`/users/${id}`, { role: newRole });
+                console.log(res.data);
+                if (res.data.modifiedCount) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: `${user.name} is now a ${newRole}.`,
+                        icon: "success"
+                    });
+                    refetch();
+                }
+            } catch (error) {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Failed to update user role.",
+                    icon: "error"
+                });
+                console.error(error);
+            }
+        }
+    };
 
     const deleteAlert = (id) => {
         Swal.fire({
-            title: "Are you sure?",
+            title: "Are you sure you want to remove this user?",
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#8cbefa",
 
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, remove"
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.delete(`/task/${id}`)
+                axiosSecure.delete(`/users/${id}`)
                     .then(res => {
-                        console.log(res.data)
+
                         if (res.data.acknowledged) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "This task has been deleted.",
+                                text: "This user has been removed.",
                                 icon: "success"
                             });
                             refetch()
@@ -69,6 +102,7 @@ const AllUsers = () => {
                                 <th>Email</th>
                                 <th>Coin</th>
                                 <th>Role</th>
+                                <th>Change</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -81,7 +115,7 @@ const AllUsers = () => {
                                         <td>
                                             <img className='w-14 h-16 mx-auto rounded-2xl' src={user.photo_url} alt="" />
                                         </td>
-                                        
+
                                         <td className='font-medium'>{user.name}</td>
 
                                         <td>{user.email}</td>
@@ -95,15 +129,28 @@ const AllUsers = () => {
 
                                         <td className=''>
                                             {
-                                                user?.role == 'worker'? 
-                                                <div className='flex gap-1 items-center justify-center'>Worker <img className='w-6 h-6' src={worker} alt="" /></div>
-                                                :
-                                                <div className='flex gap-1 items-center justify-center'>Buyer <img className='w-6 h-6' src={buyer} alt="" /></div>
+                                                user?.role == 'worker' ?
+                                                    <div className='flex gap-1 items-center justify-center'>Worker <img className='w-6 h-6' src={worker} alt="" /></div>
+                                                    :
+                                                    <div className='flex gap-1 items-center justify-center'>Buyer <img className='w-6 h-6' src={buyer} alt="" /></div>
 
                                             }
                                         </td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
+
+                                        <td>
+                                            <select
+                                                defaultValue={user.role}
+                                                onChange={(e) => handleRoleChange(user, user._id, e.target.value)}
+                                                className="p-1 my-3 rounded-md shadow-md"
+                                            >
+                                                <option disabled={user.role == 'buyer'} value="buyer">Buyer</option>
+                                                <option disabled={user.role == 'worker'} value="worker">Worker</option>
+                                                <option disabled={user.role == 'admin'} value="admin">Admin</option>
+                                            </select>
+                                        </td>
+
+                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(user._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
 
                                     </tr>
                                 )
