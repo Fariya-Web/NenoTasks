@@ -3,25 +3,32 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css'
 import { toast } from 'react-toastify';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import useImageHosting from '../../Hooks/useImageHosting';
 
 
 const Register = () => {
 
     const { user, setUser, loginWithGoogle, createUser, updateUserProfile, setLoading } = useContext(AuthContext)
     const navigate = useNavigate()
-    // const axiosPublic = useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
+    const image_hosting_api = useImageHosting()
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
         const form = e.target
         const name = form.name.value
-        const photo = form.photo.value
         const email = form.email.value
+        const role = form.role.value
         const password = form.password.value
 
-        console.log(photo);
+        // role required
+        if (role === 'default') {
+            return toast.warning('Please select a role');
+        }
 
-
+        // password validation
         if (!/[A-Z]/.test(password)) {
             return toast.warning('Password must contain at leaste one uppercase')
         }
@@ -36,35 +43,53 @@ const Register = () => {
         }
 
 
-        createUser(email, password)
-            .then(result => {
-                console.log(result.user)
-                setUser(result.user)
-                updateUserProfile(name, photo)
-                    .then(()=> {
-                        console.log('in update user');
-                        const userInfo = {
-                            name: name,
-                            email: email,
-                            photoUrl: photo
-                        }
-                        navigate('/')
-                        toast.success('User created successfully')
-                        // axiosPublic.post('/users', userInfo)
-                        //     .then(res => {
-                        //         if (res.data.acknowledged) {
-                        //             setLoading(false)
-                        //         }
-                        //     })
-                        //     .catch(err => { console.log(err) })
-                    })
-                    .catch(err => {
-                        console.log(err)
-                        toast.error("couldn't update user profile")
-                    })
-            })
-            .catch(err => console.log(err))
-        navigate('/')
+        const imagefile = { image: form.photo.files[0] }
+        console.log(imagefile);
+        const res = await axiosPublic.post(image_hosting_api, imagefile, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+        console.log(res.data);
+
+        const photo = res.data.data.display_url
+
+        if (res.data.success) {
+
+            createUser(email, password)
+                .then(result => {
+                    console.log(result.user)
+                    setUser(result.user)
+                    updateUserProfile(name, photo)
+                        .then(() => {
+                            console.log('in update user');
+                            const userInfo = {
+                                name: name,
+                                email: email,
+                                photo_url: photo,
+                                role: role,
+                                coin: role == 'worker' ? 10 : 50
+                            }
+                            console.log(userInfo);
+                            axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.acknowledged) {
+                                    toast.success('User created successfully')
+                                    setLoading(false)
+                                    navigate('/')
+                                    }
+                                })
+                                .catch(err => { console.log(err) })
+                        })
+                        .catch(err => {
+                            console.log(err)
+                            toast.error("couldn't update user profile")
+                        })
+                })
+                .catch(err => console.log(err))
+        }
+
+
     }
 
 
@@ -93,17 +118,17 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo</span>
                         </label>
-                        <input type="url" name='photo' placeholder="your photo url" className="input input-bordered" required />
+                        <input type="file" name='photo' className='file-input file-input-ghost file-input-bordered w-full bg-white mx-auto' required />
                     </div>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Role</span>
                         </label>
-                        <select type="url" name='photo' placeholder="your photo url" className="input input-bordered" required>
-                            <option selected disabled value="">Select a role</option>
+                        <select type="text" name='role' defaultValue={'default'} className="input input-bordered" required>
+                            <option disabled value="default">Select a role</option>
                             <option value="buyer">Buyer</option>
-                            <option value="woker">Worker</option>
+                            <option value="worker">Worker</option>
 
                         </select>
                     </div>
