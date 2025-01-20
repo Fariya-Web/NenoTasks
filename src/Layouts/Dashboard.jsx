@@ -21,7 +21,7 @@ const Dashboard = () => {
     // TODO- get isAdmin fron DB
     // const [isAdmin] = useAdmin()
     const isAdmin = true
-    const isWorker = false
+    const isWorker = true
     const isBuyer = true
     console.log(isAdmin)
 

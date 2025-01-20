@@ -4,23 +4,26 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import useImageHosting from '../../../Hooks/useImageHosting';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const AddTask = () => {
 
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const image_hosting_api = useImageHosting()
   const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
 
   const {
-    register, handleSubmit, formState: { errors }} = useForm();
+    register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     console.log(data);
 
-    const totalPay = data.required_workers*data.payable_amount
+    // TODO: return if totalPay > buyer coin
+    const totalPay = data.required_workers * data.payable_amount
     console.log(totalPay);
 
-    const imageFile = {image: data.task_image_url[0]}
+    const imageFile = { image: data.task_image_url[0] }
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
         'Content-Type': 'multipart/form-data'
@@ -28,21 +31,26 @@ const AddTask = () => {
     })
     console.log(res.data);
 
-    if(res.data.success){
+    if (res.data.success) {
       const task = {
         ...data,
-        task_image_url: res.data.data.display_url ,
+        task_image_url: res.data.data.display_url,
         buyer_email: user?.email
       }
       console.log(task);
 
-      
+      const TaskRes = await axiosSecure.post('/tasks', task)
+      console.log(TaskRes.data)
+      if (TaskRes.data.insertedId) {
+        toast.success('New task added')
+        reset()
+      }
 
-    }else{
+    } else {
       toast.error("Couldn't upload image")
     }
 
-    
+
   };
 
   return (
