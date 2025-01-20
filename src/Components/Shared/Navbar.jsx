@@ -3,6 +3,7 @@ import { Link, Links, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import bank from '../../assets/icons/piggy-bank.png'
+import logo from '../../assets/logo/image.png'
 
 const Navbar = () => {
 
@@ -54,6 +55,8 @@ const Navbar = () => {
             }
         </>
 
+
+
     return (
         <div className='sticky top-0 bg-white bg-opacity-50'>
             <div className="navbar bg-base-100 lg:w-[90%] md:w-[96%]  mx-auto flex justify-between">
@@ -79,6 +82,7 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
+                    <img className='w-10 mx-2 hidden md:block' src={logo} alt="" />
                     <Link to={'/'} className=" md:text-3xl font-bold text-xl  bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-transparent bg-clip-text">NanoTasks</Link>
                 </div>
                 <div className=' flex items-center'>

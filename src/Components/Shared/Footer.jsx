@@ -1,6 +1,9 @@
 import React from 'react';
 import { FaFacebookF, FaGithub, FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
 import logo from '../../assets/logo/exchanging.png'
+import logo2 from '../../assets/logo/parchment.png'
+import logo3 from '../../assets/logo/parchment (1).png'
+import logo4 from '../../assets/logo/image.png'
 
 const Footer = () => {
     return (
@@ -29,10 +32,9 @@ const Footer = () => {
             </footer>
             <footer className="footer  text-base-content max-w-screen-2xl mx-auto border-t-2 border-white px-10 py-4">
                 <aside className="grid-flow-col gap-4 items-center">
-                    <img className='w-10' src={logo} alt="" />
+                    <img className='w-10' src={logo4} alt="" />
                     <p>
                         <h3 className=" md:text-3xl font-bold text-xl  bg-gradient-to-r from-[#5ca3f9] to-[#f49efb] text-transparent bg-clip-text">NanoTasks</h3>
-                        Providing reliable tech since 1992
                     </p>
                 </aside>
                 <nav className="md:place-self-center md:justify-self-end">

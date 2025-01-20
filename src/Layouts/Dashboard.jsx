@@ -5,12 +5,16 @@ import { IoMdHome } from 'react-icons/io';
 import { IoMenu } from 'react-icons/io5';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import logo from '../assets/logo/exchanging.png'
+import logo2 from '../assets/logo/parchment.png'
+import logo3 from '../assets/logo/parchment (1).png'
+import logo4 from '../assets/logo/image.png'
 import { ImSpoonKnife } from 'react-icons/im';
 import { FaBook, FaListUl, FaTasks } from 'react-icons/fa';
 import { MdGroups } from 'react-icons/md';
 import { TbNetwork } from 'react-icons/tb';
 import { BsCurrencyExchange, BsListTask } from 'react-icons/bs';
 import { RiPlayListAddLine } from 'react-icons/ri';
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
 
@@ -23,6 +27,11 @@ const Dashboard = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <title>NanoTasks | Dashboard</title>
+                <link rel="canonical" href="https://www.tacobell.com/" />
+            </Helmet>
 
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -41,7 +50,7 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
 
                         <div className=' flex gap-4 mx-auto py-14'>
-                            <img className='w-10' src={logo} alt="" />
+                            <img className='w-10' src={logo4} alt="" />
                             <h2 className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</h2>
                         </div>
 
