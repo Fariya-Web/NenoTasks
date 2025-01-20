@@ -1,8 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaGithub, FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
-import logo from '../../assets/logo/exchanging.png'
-import logo2 from '../../assets/logo/parchment.png'
-import logo3 from '../../assets/logo/parchment (1).png'
+
 import logo4 from '../../assets/logo/image.png'
 
 const Footer = () => {

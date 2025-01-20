@@ -7,7 +7,6 @@ const Root = () => {
   return (
     <>
       <Navbar />
-      root
       <Outlet/>
       <Footer />
     </>

@@ -4,9 +4,6 @@ import { HiMiniShoppingBag } from 'react-icons/hi2';
 import { IoMdHome } from 'react-icons/io';
 import { IoMenu } from 'react-icons/io5';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import logo from '../assets/logo/exchanging.png'
-import logo2 from '../assets/logo/parchment.png'
-import logo3 from '../assets/logo/parchment (1).png'
 import logo4 from '../assets/logo/image.png'
 import { ImSpoonKnife } from 'react-icons/im';
 import { FaBook, FaListUl, FaTasks } from 'react-icons/fa';
@@ -23,7 +20,7 @@ const Dashboard = () => {
     const isAdmin = true
     const isWorker = true
     const isBuyer = true
-    console.log(isAdmin)
+
 
     return (
         <div>

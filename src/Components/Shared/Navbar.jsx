@@ -64,8 +64,8 @@ const Navbar = () => {
 
 
     return (
-        <div className='sticky top-0 bg-white bg-opacity-50'>
-            <div className="navbar bg-base-100 lg:w-[94%] md:w-[98%]  mx-auto flex justify-between">
+        <div className='sticky top-0 z-10 bg-white bg-opacity-50'>
+            <div className="navbar lg:w-[94%] md:w-[98%]  mx-auto flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -110,12 +110,12 @@ const Navbar = () => {
                                                     src={user?.photoURL} />
                                             </div>
                                         </div>
-                                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 rounded group-hover:block">
+                                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#c6defc] to-[#fcdaff] border border-white rounded group-hover:block">
                                             {user?.displayName}
                                         </div>
                                     </div>
                                     
-                                    <button onClick={handleSignout} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 rounded-lg border">Log Out</button>
+                                    <button onClick={handleSignout} className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] rounded-lg border">Log Out</button>
 
                                 </div>
                                 :
