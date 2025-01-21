@@ -13,8 +13,7 @@ const AddTask = () => {
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
 
-  const {
-    register, handleSubmit, reset, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
 
