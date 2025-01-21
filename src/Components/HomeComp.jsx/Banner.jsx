@@ -12,6 +12,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// import 'swiper/css/scrollbar';
 
 // import required modules
 import { Parallax, Pagination, Navigation, Scrollbar, A11y, Autoplay } from 'swiper/modules';
@@ -32,7 +34,7 @@ const Banner = () => {
     return (
         <div>
             <Swiper
-                modules={[Parallax, Pagination, Scrollbar, A11y, Autoplay]}
+                modules={[Parallax, Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                 spaceBetween={0}
                 slidesPerView={1}
                 navigation

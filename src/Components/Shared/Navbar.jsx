@@ -64,7 +64,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='sticky top-0 z-10 bg-white bg-opacity-50'>
+        <div className='sticky top-0 z-10 bg-white bg-opacity-70'>
             <div className="navbar lg:w-[94%] md:w-[98%]  mx-auto flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -89,7 +89,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <img className='w-10 mx-2 hidden md:block' src={logo} alt="" />
-                    <Link to={'/'} className=" md:text-3xl font-bold text-xl  bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-transparent bg-clip-text">NanoTasks</Link>
+                    <Link to={'/'} className=" md:text-4xl font-bold text-xl  bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-transparent bg-clip-text">NanoTasks</Link>
                 </div>
                 <div className=' flex items-center'>
 

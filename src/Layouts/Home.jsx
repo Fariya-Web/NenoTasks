@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Banner from '../Components/HomeComp.jsx/Banner';
+import TopWorkers from '../Components/HomeComp.jsx/TopWorkers';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
             <Banner/>
+            <TopWorkers/>
 
         </div>
     );
