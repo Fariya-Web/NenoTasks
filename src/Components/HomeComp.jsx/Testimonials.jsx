@@ -43,7 +43,7 @@ const Testimonials = () => {
                 }}
                 loop={true}
                 autoplay={{
-                    delay: 3500,
+                    delay: 4000,
                     disableOnInteraction: false,
                 }}
                 modules={[EffectCoverflow, Pagination, A11y, Autoplay]}

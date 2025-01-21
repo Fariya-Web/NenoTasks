@@ -19,12 +19,14 @@ import AddTask from "../Components/DashboardPages/buyerRoutes/AddTask";
 import MyTasks from "../Components/DashboardPages/buyerRoutes/MyTasks";
 import Purchase from "../Components/DashboardPages/buyerRoutes/Purchase";
 import Transaction from "../Components/DashboardPages/buyerRoutes/Transaction";
+import ErrorPage from "../Layouts/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root/>,
+        errorElement: <ErrorPage/> ,
         children: [
             {
                 path: '/',
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
     {
         path: "/auth",
         element: <Auth/>,
+        errorElement: <ErrorPage/> ,
         children: [
             {
                 path: '/auth',
@@ -49,6 +52,7 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <Dashboard/>,
+        errorElement: <ErrorPage/> ,
         children: [
             // admin routes
             {

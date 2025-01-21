@@ -121,10 +121,10 @@ const Navbar = () => {
                                 :
                                 <div className="join">
                                     <div className='join-item my-auto rounded-lg'>
-                                        <Link to={'/auth'} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 join-item">Login</Link>
+                                        <Link to={'/auth'} className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] join-item">Login</Link>
                                     </div>
                                     <div className='join-item my-auto rounded-lg'>
-                                        <Link to={'/auth/register'} className="p-2 px-4 bg-gradient-to-r from-[#8cbefa]/30 to-[#f4b4fa]/35 hover:from-[#8cbefa]/70 hover:to-[#f4b4fa]/70 join-item">Register</Link>
+                                        <Link to={'/auth/register'} className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] join-item">Register</Link>
                                     </div>
                                 </div>
                         }
