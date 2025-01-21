@@ -49,7 +49,7 @@ const TaskCard = ({ task }) => {
                         </ul>
 
                         <div className='pb-0'>
-                            <Link className="btn w-full mt-2 text-lg bg-gradient-to-r from-[#b2d4fd] to-[#fac8fe]">View Details</Link>
+                            <Link to={'/'} className="btn w-full mt-2 text-lg bg-gradient-to-r from-[#b2d4fd] to-[#fac8fe]">View Details</Link>
                         </div>
                     </div>
                 </div>

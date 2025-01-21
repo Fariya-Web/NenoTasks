@@ -23,7 +23,7 @@ const DashNav = () => {
                     </label>
 
                     {/* logo */}
-                    <div className="ml-12 flex gap-2 lg:hidden">
+                    <div className="ml-12 hidden md:flex gap-2 lg:hidden">
                         <img className='w-10' src={logo} alt="" />
                         <Link to={'/'} className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</Link>
                     </div>
@@ -36,15 +36,15 @@ const DashNav = () => {
                     {/* name role */}
                     <div className='mx-2 text-end'>
                         <h3 className='font-bold text-lg'>{user?.displayName}</h3>
-                        <p className='font-semibold text-xs'>{user?.displayName} is a {dbuser?.role}</p>
+                        <p className='font-semibold text-xs flex gap-1'><span className='hidden md:block'>{user?.displayName} is a </span> {dbuser?.role}</p>
                     </div>
 
                     {/* picture */}
                     <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
+                        <div className="w-11 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
-                                src={user?.photoURL} />
+                                src={dbuser?.photo_url} />
                         </div>
                     </div>
 
@@ -57,7 +57,7 @@ const DashNav = () => {
                     {/* notification */}
                     <button className="btn btn-ghost btn-circle">
                         <div className="indicator">
-                        <IoMdNotificationsOutline className='text-4xl' />
+                            <IoMdNotificationsOutline className='text-4xl' />
                             <span className="badge badge-sm bg-red-600 indicator-item"></span>
                         </div>
                     </button>

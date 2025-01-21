@@ -13,7 +13,7 @@ import { BsCurrencyExchange, BsListTask } from 'react-icons/bs';
 import { RiPlayListAddLine } from 'react-icons/ri';
 import { Helmet } from 'react-helmet-async';
 import Footer from '../Components/Shared/Footer';
-import DashNav from '../Components/DashboardPages/DashNav';
+import DashNav from '../Components/Shared/DashNav';
 
 // TODO- get isAdmin fron DB
 // const [isAdmin] = useAdmin()
@@ -51,7 +51,7 @@ const Dashboard = () => {
 
                         <div className=' flex gap-4 mx-auto py-14'>
                             <img className='w-10' src={logo} alt="" />
-                            <h2 className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</h2>
+                            <Link to={'/'} className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</Link>
                         </div>
 
 

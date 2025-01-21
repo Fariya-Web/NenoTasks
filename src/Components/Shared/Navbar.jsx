@@ -30,8 +30,16 @@ const Navbar = () => {
     const links =
         <>
             {
-                user &&
-                <li><Link to={'/dashboard'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
+                user && dbuser?.role == 'admin' &&
+                <li><Link to={'/dashboard/adminhome'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
+            }
+            {
+                user && dbuser?.role == 'worker' &&
+                <li><Link to={'/dashboard/userhome'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
+            }
+            {
+                user && dbuser?.role == 'buyer' &&
+                <li><Link to={'/dashboard/buyerhome'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
             }
 
             <li><a href='https://github.com/Fariya-Khan-Web/NanoTasks' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text '>Join as Developer</a></li>
@@ -42,10 +50,10 @@ const Navbar = () => {
                 <>
                     <div className='relative group hidden lg:block'>
                         <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
+                            <div className="w-11 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
-                                    src={user?.photoURL} />
+                                    src={dbuser?.photo_url} />
                             </div>
                         </div>
                         <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#afd3ff] to-[#fbceff] rounded group-hover:block">
