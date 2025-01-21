@@ -20,6 +20,7 @@ import MyTasks from "../Components/DashboardPages/buyerRoutes/MyTasks";
 import Purchase from "../Components/DashboardPages/buyerRoutes/Purchase";
 import Transaction from "../Components/DashboardPages/buyerRoutes/Transaction";
 import ErrorPage from "../Layouts/ErrorPage";
+import Details from "../Components/DashboardPages/workerRoutes/Details";
 
 
 const router = createBrowserRouter([
@@ -77,6 +78,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/tasklist',
                 element: <Tasklist/>
+            },
+            {
+                path: '/dashboard/tasklist/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/task/${params.id}`),
+                element: <Details/>
             },
             {
                 path: '/dashboard/submissions',

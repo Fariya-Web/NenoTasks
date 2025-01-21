@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const TaskCard = ({ task }) => {
 
-    const { task_title, task_image_url, buyer_email, buyer_name, required_workers, payable_amount, completion_date } = task
+    const { _id, task_title, task_image_url, buyer_email, buyer_name, required_workers, payable_amount, completion_date } = task
 
     return (
         <div className='p-1 h-fit rounded-lg bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
@@ -49,7 +49,7 @@ const TaskCard = ({ task }) => {
                         </ul>
 
                         <div className='pb-0'>
-                            <Link to={'/'} className="btn w-full mt-2 text-lg bg-gradient-to-r from-[#b2d4fd] to-[#fac8fe]">View Details</Link>
+                            <Link to={`/dashboard/tasklist/${_id}`} className="btn w-full mt-2 text-lg bg-gradient-to-r from-[#b2d4fd] to-[#fac8fe]">View Details</Link>
                         </div>
                     </div>
                 </div>
