@@ -48,7 +48,7 @@ const Navbar = () => {
                                     src={user?.photoURL} />
                             </div>
                         </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#8cbefa]/35 to-[#f4b4fa]/35 rounded group-hover:block">
+                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#afd3ff] to-[#fbceff] rounded group-hover:block">
                             {user?.displayName}
                         </div>
                     </div>

@@ -24,7 +24,7 @@ const Testimonials = () => {
     console.log(testimonials);
 
     return (
-        <div className='max-w-screen-2xl mx-auto my-24'>
+        <div className='max-w-screen-2xl w-[94%] mx-auto my-24'>
             <div className='my-10 text-center'>
                 <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold'>Reviews that speaks volumes</h1>
                 <p className='text-lg font-medium w-[90%] lg:w-[60%] my-5 mx-auto'>Hear firsthand how our platform has transformed their lives, providing flexibility, financial freedom, and an engaging experience.</p>
@@ -33,7 +33,15 @@ const Testimonials = () => {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={'3'}
+                breakpoints={{
+                    360: {
+                        slidesPerView: 1, // For small devices (screen width >= 360px)
+                    },
+                    800: {
+                        slidesPerView: 3, // For small devices (screen width >= 640px)
+                    },
+                    
+                }}
                 coverflowEffect={{
                     rotate: 50,
                     stretch: 0,
@@ -53,20 +61,20 @@ const Testimonials = () => {
                 {
                     testimonials.map(person =>
                         <SwiperSlide>
-                            <div className='h-72 p-1 font-medium border rounded-lg bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
+                            <div className=' md:h-96 lg:h-72 p-1 font-medium border rounded-lg bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
                                 <div className='bg-white h-full rounded-lg p-4 flex flex-col'>
                                     <div className='flex justify-between '>
-                                        <div className='flex gap-2'>
-                                            <img className='rounded-full w-14 h-14' src={person.photo_url} alt="" />
+                                        <div className='flex gap-2 items-center'>
+                                            <img className='rounded-full w-8 h-8 lg:w-14 lg:h-14' src={person.photo_url} alt="" />
                                             <div>
-                                                <h3 className='text-xl font-semibold'>{person.name}</h3>
+                                                <h3 className='text-lg lg:text-xl font-semibold'>{person.name}</h3>
                                                 <p>{person.email}</p>
                                             </div>
                                         </div>
-                                        <p className='pb-12'>{person.date}</p>
+                                        <p className='hidden lg:block'>{person.date}</p>
                                     </div>
-                                    <p className='mt-6'>{person.testimonial}</p>
-
+                                    <p className='mt-2 lg:mt-6'>{person.testimonial}</p>
+<p className='lg:hidden text-end'>- {person.date}</p>
                                 </div>
                             </div>
                         </SwiperSlide>
