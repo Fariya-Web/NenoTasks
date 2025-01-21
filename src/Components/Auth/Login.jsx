@@ -109,7 +109,7 @@ const Login = () => {
                         </div>
 
                         <div className='border border-[#444444] rounded-full p-1 '>
-                            <FaGoogle className='text-xl text-[#444444] hover:text-[#8cbefa]' />
+                            <FaGoogle onClick={handleGoogle} className='text-xl text-[#444444] hover:text-[#8cbefa]' />
                         </div>
 
                         <div className='border border-[#444444] rounded-full p-1'>

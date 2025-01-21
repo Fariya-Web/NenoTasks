@@ -53,7 +53,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <div className='grid grid-cols-2 border-2 p-1 mx-1 my-2 min-w-14  rounded-md'>
+                    <div className='grid grid-cols-2 border-2 p-1 px-2 mx-1 my-2 min-w-14  rounded-md'>
                         <div className=' my-auto md:mx-auto text-lg'>{dbuser?.coin}</div>
                         <div><img className='w-8' src={bank} alt="" /></div>
                     </div>

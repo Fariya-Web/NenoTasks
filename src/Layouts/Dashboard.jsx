@@ -4,7 +4,7 @@ import { HiMiniShoppingBag } from 'react-icons/hi2';
 import { IoMdHome } from 'react-icons/io';
 import { IoMenu } from 'react-icons/io5';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import logo4 from '../assets/logo/image.png'
+import logo from '../assets/logo/image.png'
 import { ImSpoonKnife } from 'react-icons/im';
 import { FaBook, FaListUl, FaTasks } from 'react-icons/fa';
 import { MdGroups } from 'react-icons/md';
@@ -12,15 +12,16 @@ import { TbNetwork } from 'react-icons/tb';
 import { BsCurrencyExchange, BsListTask } from 'react-icons/bs';
 import { RiPlayListAddLine } from 'react-icons/ri';
 import { Helmet } from 'react-helmet-async';
+import Footer from '../Components/Shared/Footer';
+import DashNav from '../Components/DashboardPages/DashNav';
+
+// TODO- get isAdmin fron DB
+// const [isAdmin] = useAdmin()
+export const isAdmin = false
+export const isWorker = false
+export const isBuyer = true
 
 const Dashboard = () => {
-
-    // TODO- get isAdmin fron DB
-    // const [isAdmin] = useAdmin()
-    const isAdmin = true
-    const isWorker = true
-    const isBuyer = true
-
 
     return (
         <div>
@@ -32,22 +33,24 @@ const Dashboard = () => {
 
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content bg-[#f0efef]">
+                <div className="drawer-content bg-[#edeff0]">
                     {/* Page content here */}
                     {/* sidewbar button */}
-                    <label htmlFor="my-drawer-2" className=" drawer-button absolute left-5 top-3 lg:hidden">
+                    {/* <label htmlFor="my-drawer-2" className=" drawer-button absolute left-5 top-3 lg:hidden">
                         <IoMenu className='text-2xl' />
-                    </label>
+                    </label> */}
+                    <DashNav/>
                     <Outlet />
+                    <Footer/>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side border-r border-white">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-gradient-to-br from-[#f1f5fb] to-[#d2e3fb] text-xl min-h-full w-80 p-4">
                         {/* Sidebar content here */}
 
                         <div className=' flex gap-4 mx-auto py-14'>
-                            <img className='w-10' src={logo4} alt="" />
+                            <img className='w-10' src={logo} alt="" />
                             <h2 className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</h2>
                         </div>
 

@@ -91,7 +91,7 @@ const Register = () => {
                 })
                 .catch(err => {
                     console.log(err)
-                    toast.error('Something went wrong, try again')
+                    toast.error('This email already exists, try with another email')
                 })
         }
 

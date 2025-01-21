@@ -5,7 +5,7 @@ import logo4 from '../../assets/logo/image.png'
 
 const Footer = () => {
     return (
-        <div className='bg-gradient-to-br from-[#dce9fb] to-[#fbe4fc]'>
+        <div className='bg-gradient-to-br from-[#dce9fb] to-[#fbe4fc] border-t-2 border-white'>
             <footer className="footer  text-base-content max-w-screen-2xl mx-auto p-10">
                 <nav>
                     <h6 className="footer-title text-lg">Services</h6>
