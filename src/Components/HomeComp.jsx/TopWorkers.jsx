@@ -14,7 +14,6 @@ const TopWorkers = () => {
             return res.data
         }
     })
-    console.log(topworkers);
 
     return (
         <div className='w-[96%] max-w-screen-2xl mx-auto my-16'>

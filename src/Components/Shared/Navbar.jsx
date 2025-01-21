@@ -12,7 +12,7 @@ const Navbar = () => {
     const [dbuser, isLoading] = useUser()
     const navigate = useNavigate()
 
-    console.log(dbuser);
+
 
     const handleSignout = () => {
         logOut()
@@ -21,7 +21,7 @@ const Navbar = () => {
                 navigate('/')
             })
             .catch(err => {
-                console.log(err)
+
                 toast.error('Failed to sign out. try again')
             })
         setLoading(false)

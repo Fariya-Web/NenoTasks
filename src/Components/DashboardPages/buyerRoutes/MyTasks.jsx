@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 const MyTasks = () => {
 
     const { user } = useContext(AuthContext)
-    console.log(user?.email);
+
     const axiosSecure = useAxiosSecure()
 
     const { data: mytasks = [], isLoading, refetch } = useQuery({
@@ -23,7 +23,6 @@ const MyTasks = () => {
             return res.data
         }
     })
-    console.log(mytasks);
 
     const deleteAlert = (id) => {
         Swal.fire({
@@ -39,7 +38,7 @@ const MyTasks = () => {
 
                 axiosSecure.delete(`/task/${id}`)
                     .then(res => {
-                        console.log(res.data)
+          
                         if (res.data.acknowledged) {
                             Swal.fire({
                                 title: "Deleted!",

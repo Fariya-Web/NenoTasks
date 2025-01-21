@@ -21,8 +21,6 @@ const Testimonials = () => {
             .then(data => setTestimonials(data))
     }, [])
 
-    console.log(testimonials);
-
     return (
         <div className='max-w-screen-2xl w-[94%] mx-auto my-24'>
             <div className='my-10 text-center'>

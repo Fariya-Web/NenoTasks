@@ -21,7 +21,6 @@ const AllTasks = () => {
             return res.data
         },
     })
-    console.log(tasks);
 
 
     const deleteAlert = (id) => {
@@ -38,7 +37,7 @@ const AllTasks = () => {
 
                 axiosSecure.delete(`/task/${id}`)
                     .then(res => {
-                        console.log(res.data)
+                       
                         if (res.data.acknowledged) {
                             Swal.fire({
                                 title: "Deleted!",

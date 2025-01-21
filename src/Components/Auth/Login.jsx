@@ -24,18 +24,17 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
 
-        console.log({ email, password })
 
         loginWithEmailPass(email, password)
             .then(result => {
-                console.log(result.user)
+     
                 setUser(result.user)
                 navigate(location.state?.from?.pathname || '/')
                 setLoading(false)
                 toast.success('logged in successfully')
             })
             .catch(err => {
-                console.log(err)
+      
                 toast.error('Invalid email or password')
             })
     }

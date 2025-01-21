@@ -29,16 +29,16 @@ const AllUsers = () => {
             confirmButtonColor: "#8cbefa",
             confirmButtonText: "Yes, change"
         });
-        console.log(result);
+        
         if (result.isConfirmed) {
 
             try {
                 const res = await axiosSecure.patch(`/users/${id}`, { role: newRole });
-                console.log(res.data);
+            
                 if (res.data.modifiedCount) {
                     Swal.fire({
                         title: "Success!",
-                        text: `${user.name} is now a ${newRole}.`,
+                        text: `${user?.name} is now a ${newRole}.`,
                         icon: "success"
                     });
                     refetch();
@@ -113,16 +113,16 @@ const AllUsers = () => {
                                         <th>{index + 1}</th>
 
                                         <td>
-                                            <img className='w-14 h-16 mx-auto rounded-2xl' src={user.photo_url} alt="" />
+                                            <img className='w-14 h-16 mx-auto rounded-2xl' src={user?.photo_url} alt="" />
                                         </td>
 
-                                        <td className='font-medium'>{user.name}</td>
+                                        <td className='font-medium'>{user?.name}</td>
 
-                                        <td>{user.email}</td>
+                                        <td>{user?.email}</td>
 
                                         <td>
                                             <div className='flex gap-1 items-center justify-center'>
-                                                {user.coin}
+                                                {user?.coin}
                                                 <img className='w-6 h-6' src={coinicon} alt="" />
                                             </div>
                                         </td>
@@ -140,17 +140,17 @@ const AllUsers = () => {
 
                                         <td>
                                             <select
-                                                defaultValue={user.role}
-                                                onChange={(e) => handleRoleChange(user, user._id, e.target.value)}
+                                                defaultValue={user?.role}
+                                                onChange={(e) => handleRoleChange(user, user?._id, e.target.value)}
                                                 className="p-1 my-3 rounded-md shadow-md"
                                             >
-                                                <option disabled={user.role == 'buyer'} value="buyer">Buyer</option>
-                                                <option disabled={user.role == 'worker'} value="worker">Worker</option>
-                                                <option disabled={user.role == 'admin'} value="admin">Admin</option>
+                                                <option disabled={user?.role == 'buyer'} value="buyer">Buyer</option>
+                                                <option disabled={user?.role == 'worker'} value="worker">Worker</option>
+                                                <option disabled={user?.role == 'admin'} value="admin">Admin</option>
                                             </select>
                                         </td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(user._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(user?._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
 
                                     </tr>
                                 )

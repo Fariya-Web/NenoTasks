@@ -44,13 +44,12 @@ const Register = () => {
 
 
         const imagefile = { image: form.photo.files[0] }
-        console.log(imagefile);
         const res = await axiosPublic.post(image_hosting_api, imagefile, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
-        console.log(res.data);
+   
 
         const photo = res.data.data.display_url
 
@@ -58,11 +57,11 @@ const Register = () => {
 
             createUser(email, password)
                 .then(result => {
-                    console.log(result.user)
+                  
                     setUser(result.user)
                     updateUserProfile(name, photo)
                         .then(() => {
-                            console.log('in update user');
+                            
                             const userInfo = {
                                 name: name,
                                 email: email,
@@ -70,7 +69,7 @@ const Register = () => {
                                 role: role,
                                 coin: role == 'worker' ? 10 : 50
                             }
-                            console.log(userInfo);
+                            
                             axiosPublic.post('/users', userInfo)
                                 .then(res => {
                                     if (res.data.acknowledged) {
@@ -80,17 +79,16 @@ const Register = () => {
                                     }
                                 })
                                 .catch(err => {
-                                    console.log(err)
 
                                 })
                         })
                         .catch(err => {
-                            console.log(err)
+                            
                             toast.error("couldn't update user profile")
                         })
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                     toast.error('This email already exists, try with another email')
                 })
         }

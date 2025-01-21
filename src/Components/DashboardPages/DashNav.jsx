@@ -34,8 +34,8 @@ const DashNav = () => {
 
                     {/* name role */}
                     <div className='mx-2 text-end'>
-                        <h3 className='font-bold text-lg'>{user.displayName}</h3>
-                        <p className='font-semibold text-xs'>{user.displayName} is a {dbuser.role}</p>
+                        <h3 className='font-bold text-lg'>{user?.displayName}</h3>
+                        <p className='font-semibold text-xs'>{user?.displayName} is a {dbuser?.role}</p>
                     </div>
 
                     {/* picture */}

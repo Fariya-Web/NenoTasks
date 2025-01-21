@@ -17,11 +17,11 @@ const AddTask = () => {
     register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+
 
     // TODO: return if totalPay > buyer coin
     const totalPay = data.required_workers * data.payable_amount
-    console.log(totalPay);
+
 
     const imageFile = { image: data.task_image_url[0] }
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -29,7 +29,6 @@ const AddTask = () => {
         'Content-Type': 'multipart/form-data'
       }
     })
-    console.log(res.data);
 
     if (res.data.success) {
       const task = {
@@ -37,10 +36,8 @@ const AddTask = () => {
         task_image_url: res.data.data.display_url,
         buyer_email: user?.email
       }
-      console.log(task);
 
       const TaskRes = await axiosSecure.post('/tasks', task)
-      console.log(TaskRes.data)
       if (TaskRes.data.insertedId) {
         toast.success('New task added')
         reset()
