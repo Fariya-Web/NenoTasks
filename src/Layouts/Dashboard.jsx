@@ -17,8 +17,8 @@ import DashNav from '../Components/DashboardPages/DashNav';
 
 // TODO- get isAdmin fron DB
 // const [isAdmin] = useAdmin()
-export const isAdmin = false
-export const isWorker = false
+export const isAdmin = true
+export const isWorker = true
 export const isBuyer = true
 
 const Dashboard = () => {

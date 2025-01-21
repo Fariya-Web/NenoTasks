@@ -17,7 +17,7 @@ const AllTasks = () => {
     const { data: tasks = [], isLoading, refetch } = useQuery({
         queryKey: ['task'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/tasks')
+            const res = await axiosSecure.get('/tasks')
             return res.data
         },
     })

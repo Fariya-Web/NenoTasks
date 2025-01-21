@@ -34,7 +34,8 @@ const AddTask = () => {
       const task = {
         ...data,
         task_image_url: res.data.data.display_url,
-        buyer_email: user?.email
+        buyer_email: user?.email,
+        buyer_name: user?.displayName
       }
 
       const TaskRes = await axiosSecure.post('/tasks', task)
