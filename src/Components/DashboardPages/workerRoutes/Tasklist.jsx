@@ -15,7 +15,11 @@ const Tasklist = () => {
         },
     })
 
-    const availableTask = tasks.filter(task => task?.required_workers > 0)
+    if (isLoading) {
+        return <div>Loading tasks...</div>; // Handle loading state
+    }
+
+    const availableTask = Array.isArray(tasks) ? tasks.filter(task => task?.required_workers > 0) : []
 
     return (
         <div className='py-10'>

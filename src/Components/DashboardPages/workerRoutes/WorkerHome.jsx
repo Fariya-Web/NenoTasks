@@ -1,13 +1,31 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useUser from '../../../Hooks/useUser';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { useQuery } from '@tanstack/react-query';
+import coin from '../../../assets/icons/coin.png' 
+import buyer from '../../../assets/icons/business-women.png' 
 
 const WorkerHome = () => {
 
-    const [dbuser, isLoading] = useUser()
+    const axiosSecure = useAxiosSecure()
+    const [dbuser] = useUser()
     console.log(dbuser);
     const { user } = useContext(AuthContext)
     console.log(user);
+
+
+    const { data: mysubmissions = [], isLoading, refetch } = useQuery({
+        queryKey: ['submission'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/submissions/${dbuser?.email}`)
+            return res.data || []
+        }
+    })
+    console.log(mysubmissions);
+
+    const approved = mysubmissions.filter(submission => submission.status == 'approved')
+    console.log(approved);
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto'>
@@ -42,41 +60,38 @@ const WorkerHome = () => {
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Task</th>
+                                <th>Buyer</th>
                                 <th>Pay Amount</th>
-                                <th>Buyer Name</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody className='text-lg'>
                             {
-                                // mytasks?.map((task, index) =>
-                                //     <tr >
-                                //         <th>{index + 1}</th>
+                                approved?.map((task, index) =>
+                                    <tr >
+                                        <th>{index + 1}</th>
 
-                                //         <td className='w-[24%] text-start font-medium'>{task.task_title}</td>
+                                        <td className='w-[24%] text-start font-medium'>{task.task_title}</td>
 
-                                //         <td>
-                                //             <div className='flex gap-1 items-center justify-center'>
-                                //                 {task.required_workers}
-                                //                 <img className='w-6 h-6' src={worker} alt="" />
-                                //             </div>
-                                //         </td>
+                                        <td>
+                                            <div className='flex gap-1 items-center justify-center'>
+                                                {task.buyer_name}
+                                                <img className='w-6 h-6' src={buyer} alt="" />
+                                            </div>
+                                        </td>
+                                        
+                                        <td >
+                                            <div className='flex gap-1 items-center justify-center'>
+                                                {task.payable_amount}
+                                                <img className='w-6 h-6' src={coin} alt="" />
+                                            </div>
+                                        </td>
 
-                                //         <td >
-                                //             <div className='flex gap-1 items-center justify-center'>
-                                //                 {task.payable_amount * task.required_workers}
-                                //                 <img className='w-6 h-6' src={coin} alt="" />
-                                //             </div>
-                                //         </td>
 
-                                //         <td>{task.completion_date}</td>
 
-                                //         <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><CiEdit className=' hover:text-[#8cbefa]' /></button></td>
-
-                                //         <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><AiOutlineDelete className=' hover:text-[#8cbefa]' /></button></td>
-
-                                //     </tr>
-                                // )
+                                        <td>{task.status}</td>
+                                    </tr>
+                                )
                             }
                         </tbody>
                     </table>
