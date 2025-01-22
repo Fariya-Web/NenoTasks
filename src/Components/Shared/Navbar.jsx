@@ -53,7 +53,7 @@ const Navbar = () => {
                             <div className="w-11 rounded-full">
                                 <img
                                     alt="Tailwind CSS Navbar component"
-                                    src={dbuser?.photo_url} />
+                                    src={user?.photoURL|| dbuser?.photo_url} />
                             </div>
                         </div>
                         <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#afd3ff] to-[#fbceff] rounded group-hover:block">

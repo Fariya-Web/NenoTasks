@@ -4,6 +4,7 @@ import useUser from '../../../Hooks/useUser';
 const BuyerHome = () => {
 
     const [dbuser, isLoading] = useUser()
+    console.log(dbuser);
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto'>
@@ -39,7 +40,7 @@ const BuyerHome = () => {
                                     <th></th>
                                     <th>Task</th>
                                     <th>Worker</th>
-                                    <th>Pay ammount</th>
+                                    <th>Pay amount</th>
                                     <th>Submission</th>
                                     <th>Approve</th>
                                     <th>Reject</th>

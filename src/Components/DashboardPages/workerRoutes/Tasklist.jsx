@@ -11,12 +11,11 @@ const Tasklist = () => {
         queryKey: ['task'],
         queryFn: async () => {
             const res = await axiosSecure.get('/tasks')
-            return res.data
+            return res.data || []
         },
     })
 
     const availableTask = tasks.filter(task => task?.required_workers > 0)
-    console.log(availableTask);
 
     return (
         <div className='py-10'>

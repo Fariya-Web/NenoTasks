@@ -28,7 +28,7 @@ const TaskCard = ({ task }) => {
 
                             <li className='flex items-center gap-2'>
                                 <img className='w-5 h-5' src={coin} alt="" />
-                                Pay Ammount: {payable_amount}
+                                Pay Amount: {payable_amount}
                             </li>
 
                             <li className='flex items-center gap-2'>

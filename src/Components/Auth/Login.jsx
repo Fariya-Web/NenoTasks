@@ -6,6 +6,7 @@ import { TbEyeglass, TbEyeglassOff } from 'react-icons/tb';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
+import useAxiosPublic from './../../Hooks/useAxiosPublic';
 
 const Login = () => {
 
@@ -15,6 +16,7 @@ const Login = () => {
     const [disable, setDisable] = useState(true)
     const [show, setShow] = useState(false)
     const [captchaInpLen, setCaptchaInpLen] = useState(null)
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -27,22 +29,56 @@ const Login = () => {
 
         loginWithEmailPass(email, password)
             .then(result => {
-     
+
                 setUser(result.user)
                 navigate(location.state?.from?.pathname || '/')
                 setLoading(false)
                 toast.success('logged in successfully')
             })
             .catch(err => {
-      
+
                 toast.error('Invalid email or password')
             })
     }
 
+    // google login as worker
+    const handleGoogle = () => {
+        loginWithGoogle()
+            .then(res => {
+                console.log(res.user)
+                toast.success('Logged in with google')
+                navigate('/')
+                const userInfo = {
+                    name: res.user.displayName,
+                    email: res.user.email,
+                    photo_url: res.user.photoURL,
+                    role: 'worker',
+                    coin: 10,
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        if (res.data.acknowledged) {
+                            setLoading(false)
+                        }
+                    })
+                    .catch(err => { console.log(err) })
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error('Something went wrong. try again')
+            })
+    }
+
+
+
+    // show password
     const handleShow = () => {
         setShow(!show)
     }
 
+
+
+    // captcha varify
     const handleValidateCaptcha = e => {
         const user_captcha_value = captchaRef.current.value
         setCaptchaInpLen(user_captcha_value.length)
@@ -60,7 +96,7 @@ const Login = () => {
 
     return (
         <div className='blur-bg shadow-2xl p-12  w-[94%] max-w-lg rounded-lg border'>
-            
+
             <div className='relative md:w-96 mx-auto'>
                 <h1 className='text-3xl font-bold text-center pt-3 pb-7'>Login</h1>
                 <form onSubmit={handleSubmit} className="">

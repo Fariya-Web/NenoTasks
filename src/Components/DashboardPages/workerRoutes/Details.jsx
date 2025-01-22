@@ -11,22 +11,23 @@ import pin from '../../../assets/icons/pin.png'
 import requirement from '../../../assets/logo/parchment.png'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import useUser from '../../../Hooks/useUser';
 
 
 const Details = () => {
 
     const { id } = useParams()
     const axiosSecure = useAxiosSecure()
+    const [dbuser ] = useUser()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-    const { data: task, isLoading } = useQuery({
+    const { data: task, isLoading, refetch } = useQuery({
         queryKey: ['task'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/task/${id}`)
             return res.data
         }
     })
-    console.log(task);
 
 
     const onSubmit = async (data) => {
@@ -43,10 +44,25 @@ const Details = () => {
             if (result.isConfirmed) {
 
                 const submitinfo = {
+                    task_id: task._id,
+                    task_title: task?.task_title,
+                    payable_amount: task?.payable_amount,
+                    worker_name: dbuser.name,
+                    worker_email: dbuser.email,
                     ...data,
-                    
+                    buyer_name: task?.buyer_name,
+                    buyer_email: task?.buyer_email,
+                    current_date: new Date(),
+                    status: 'pending'
                 }
-                console.log(data);
+                console.log(submitinfo);
+
+                axiosSecure.post('/submissions', submitinfo)
+                .then(res => {
+                    console.log(res);
+                    refetch()
+                })
+
                 Swal.fire({
                     title: "Submitted!",
                     text: "Your task has been submitted.",
@@ -74,7 +90,7 @@ const Details = () => {
                     <div className='text-xl font-medium space-y-2'>
 
                         <li className='flex items-center gap-2'>
-                            Pay Ammount: {task?.payable_amount}
+                            Pay Amount: {task?.payable_amount}
                             <img className='w-7 h-7' src={coin} alt="" />
                         </li>
 
