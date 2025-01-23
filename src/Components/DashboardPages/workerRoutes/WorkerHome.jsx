@@ -15,6 +15,15 @@ const WorkerHome = () => {
     console.log(user);
 
 
+    const { data: stats = {}, refetch: statsRefetch } = useQuery({
+        queryKey: ['stat'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/workerStats/${dbuser?.email}`)
+            return res.data || {}
+        }
+    })
+    console.log(stats);
+
     const { data: mysubmissions = [], isLoading, refetch } = useQuery({
         queryKey: ['submission'],
         queryFn: async () => {
@@ -23,7 +32,7 @@ const WorkerHome = () => {
         }
     })
 
-    const approved = mysubmissions.filter(submission => submission.status == 'approved')
+    const approved = Array.isArray(mysubmissions) ? mysubmissions.filter(submission => submission.status == 'approved') : []
     console.log(approved);
 
     return (
@@ -37,10 +46,10 @@ const WorkerHome = () => {
 
                 <div className='text-xl font-medium my-auto'>
                     <h2 className='text-3xl font-bold text-center mb-6'>Your Activities</h2>
-                    <div className='space-y-2 px-32'>
-                        <p>Total Submission:</p>
-                        <p>Total pending submission:</p>
-                        <p>Total Earning:</p>
+                    <div className='space-y-2 px-32 py-12'>
+                        <p>Total Submission: {stats.submissions}</p>
+                        <p>Total pending submission: {stats.pendingSubmissions}</p>
+                        <p>Total Earning: {stats.totalPayAmount}</p>
 
                     </div>
                 </div>

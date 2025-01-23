@@ -37,6 +37,16 @@ const BuyerHome = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+ 
+    const { data: stats = {}, refetch: statrefetch } = useQuery({
+        queryKey: ['stat'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/buyerStats/${dbuser?.email}`)
+            return res.data || {}
+        }
+    })
+    console.log(stats)
+
     const { data: submissions = [], isLoading, refetch } = useQuery({
         queryKey: ['submission'],
         queryFn: async () => {
@@ -119,10 +129,9 @@ const BuyerHome = () => {
 
                 <div className='text-xl font-medium my-auto'>
                     <h2 className='text-3xl font-bold text-center mb-6'>Your Activities</h2>
-                    <div className='space-y-2 px-32'>
-                        <p>Total Task:</p>
-                        <p>Pending Task:</p>
-                        <p>Required Workers:</p>
+                    <div className='space-y-2 px-32 py-12'>
+                        <p>Total Task: {stats.tasks}</p>
+                        <p>Pending Work: {stats.totalPendingTasks}</p>
                         <p>Total Payment:</p>
 
                     </div>

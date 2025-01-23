@@ -18,6 +18,10 @@ const Submission = () => {
         }
     })
 
+    if (isLoading) {
+        return <div>Loading submissions...</div>; // Handle loading state
+    }
+
     return (
         <div className='py-10'>
 
@@ -41,6 +45,7 @@ const Submission = () => {
                         </thead>
                         <tbody className='text-lg'>
                             {
+                                Array.isArray(mysubmissions)? 
                                 mysubmissions?.map((submission, index) =>
                                     <tr >
                                         <th>{index + 1}</th>
@@ -66,6 +71,8 @@ const Submission = () => {
                                         <td>{submission.status}</td>
                                     </tr>
                                 )
+                                :
+                                []
                             }
                         </tbody>
                     </table>
