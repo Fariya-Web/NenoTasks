@@ -8,17 +8,19 @@ import Swal from 'sweetalert2';
 import coin from '../../../assets/icons/coin.png'
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import worker from '../../../assets/icons/employee.png'
+import useUser from '../../../Hooks/useUser';
 
 const AllTasks = () => {
 
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
+    const [, , refetchUser] = useUser()
 
     const { data: tasks = [], isLoading, refetch } = useQuery({
         queryKey: ['task'],
         queryFn: async () => {
             const res = await axiosSecure.get('/tasks')
-            return res.data
+            return res.data || []
         },
     })
 
@@ -45,6 +47,7 @@ const AllTasks = () => {
                                 icon: "success"
                             });
                             refetch()
+                            refetchUser()
                         }
                     })
             }

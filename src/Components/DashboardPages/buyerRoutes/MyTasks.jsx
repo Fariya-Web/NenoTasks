@@ -9,11 +9,12 @@ import { CiEdit } from 'react-icons/ci';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import useUser from '../../../Hooks/useUser';
 
 const MyTasks = () => {
 
     const { user } = useContext(AuthContext)
-
+    const [, , refetchUser] = useUser()
     const axiosSecure = useAxiosSecure()
 
     const { data: mytasks = [], isLoading, refetch } = useQuery({
@@ -46,6 +47,7 @@ const MyTasks = () => {
                                 icon: "success"
                             });
                             refetch()
+                            refetchUser()
                         }
                     })
             }

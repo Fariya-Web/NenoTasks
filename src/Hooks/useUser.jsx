@@ -8,7 +8,7 @@ const useUser = () => {
     const axiosSecure = useAxiosSecure()
     const { user } = useContext(AuthContext)
 
-    const { data: dbuser, isLoading } = useQuery({
+    const { data: dbuser, isLoading, refetch: refetchUser } = useQuery({
         queryKey: [user?.email, 'user'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/user/${user?.email}`)
@@ -16,7 +16,7 @@ const useUser = () => {
         }
     })
 
-    return [dbuser, isLoading];
+    return [dbuser, isLoading, refetchUser];
 };
 
 export default useUser;

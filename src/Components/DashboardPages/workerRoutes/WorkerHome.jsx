@@ -22,7 +22,6 @@ const WorkerHome = () => {
             return res.data || []
         }
     })
-    console.log(mysubmissions);
 
     const approved = mysubmissions.filter(submission => submission.status == 'approved')
     console.log(approved);
@@ -50,7 +49,7 @@ const WorkerHome = () => {
 
             <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded'>
                 <div className='flex justify-between uppercase'>
-                    <h2 className='text-xl md:text-2xl font-semibold'>Approved Tasks: {0}</h2>
+                    <h2 className='text-xl md:text-2xl font-semibold'>Approved Tasks: {approved.length}</h2>
                 </div>
 
                 <div className="overflow-x-auto rounded-xl my-8">
@@ -79,7 +78,7 @@ const WorkerHome = () => {
                                                 <img className='w-6 h-6' src={buyer} alt="" />
                                             </div>
                                         </td>
-                                        
+
                                         <td >
                                             <div className='flex gap-1 items-center justify-center'>
                                                 {task.payable_amount}
