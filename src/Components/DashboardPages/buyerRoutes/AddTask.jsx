@@ -5,10 +5,12 @@ import useImageHosting from '../../../Hooks/useImageHosting';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useUser from '../../../Hooks/useUser';
 
 const AddTask = () => {
 
   const { user } = useContext(AuthContext)
+  const [dbuser] = useUser()
   const image_hosting_api = useImageHosting()
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
@@ -18,8 +20,10 @@ const AddTask = () => {
   const onSubmit = async (data) => {
 
 
-    // TODO: return if totalPay > buyer coin
     const totalPay = data.required_workers * data.payable_amount
+    if(totalPay > dbuser?.coin){
+      return toast.warning("You don't have enoung coins for this task")
+    }
 
 
     const imageFile = { image: data.task_image_url[0] }

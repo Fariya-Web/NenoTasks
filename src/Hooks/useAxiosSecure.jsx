@@ -32,6 +32,11 @@ const useAxiosSecure = () => {
             (response) => response,
     
             async (error) => {
+
+                if (!error.response) {
+                    console.error("Network/Server error:", error);
+                    return Promise.reject(error);
+                }
     
                 const status = error.response.status
                 console.log('status error in interceptor', status, error);
