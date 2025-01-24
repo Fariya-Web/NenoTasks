@@ -26,11 +26,11 @@ const useAxiosSecure = () => {
     }, async(error)=> {
         const status = error.response.status
         console.log('status error in interceptor', status, error);
-        if (status === 401 || 403) {
+        if (status === 401 || status === 403) {
             await logOut()
             navigate('/auth')
         }
-        return Promise.reject(error)
+        return Promise.project(error)
     })
 
     return axiosSecure

@@ -21,6 +21,7 @@ import Purchase from "../Components/DashboardPages/buyerRoutes/Purchase";
 import Transaction from "../Components/DashboardPages/buyerRoutes/Transaction";
 import ErrorPage from "../Layouts/ErrorPage";
 import Details from "../Components/DashboardPages/workerRoutes/Details";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -58,11 +59,11 @@ const router = createBrowserRouter([
             // admin routes
             {
                 path: '/dashboard/adminhome',
-                element: <AdminHome/>
+                element: <PrivateRoute><AdminHome/></PrivateRoute>
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUsers/>
+                element: <PrivateRoute><AllUsers/></PrivateRoute>
             },
             {
                 path: '/dashboard/alltasks',
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
             // worker routes
             {
                 path: '/dashboard/userhome',
-                element: <WorkerHome/>
+                element: <PrivateRoute><WorkerHome/></PrivateRoute>
             },
             {
                 path: '/dashboard/tasklist',

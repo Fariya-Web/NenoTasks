@@ -47,7 +47,7 @@ const Submission = () => {
                             {
                                 Array.isArray(mysubmissions)? 
                                 mysubmissions?.map((submission, index) =>
-                                    <tr >
+                                    <tr key={index}>
                                         <th>{index + 1}</th>
 
                                         <td className='w-[30%] text-start font-medium'>{submission.task_title}</td>

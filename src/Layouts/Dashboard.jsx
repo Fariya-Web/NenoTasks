@@ -15,16 +15,17 @@ import { Helmet } from 'react-helmet-async';
 import Footer from '../Components/Shared/Footer';
 import DashNav from '../Components/Shared/DashNav';
 import useAdmin from '../Hooks/useAdmin';
+import useBuyer from '../Hooks/useBuyer';
+import useWorker from '../Hooks/useWorker';
 
-// TODO- get isAdmin fron DB
-// const [isAdmin] = useAdmin()
-// export const isAdmin = true
-export const isWorker = true
-export const isBuyer = true
+
 
 const Dashboard = () => {
 
     const [isAdmin] = useAdmin()
+    const [isBuyer] = useBuyer()
+    const [isWorker] = useWorker()
+    console.log({isAdmin, isBuyer, isWorker});
 
     return (
         <div>
