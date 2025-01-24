@@ -20,6 +20,10 @@ const AllUsers = () => {
         }
     })
 
+    if (isLoading) {
+        return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
+    }
+
     const handleRoleChange = async (user, id, newRole) => {
         const result = await Swal.fire({
             title: "Are you sure you want to change this user's role?",
