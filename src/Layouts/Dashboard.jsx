@@ -14,14 +14,17 @@ import { RiPlayListAddLine } from 'react-icons/ri';
 import { Helmet } from 'react-helmet-async';
 import Footer from '../Components/Shared/Footer';
 import DashNav from '../Components/Shared/DashNav';
+import useAdmin from '../Hooks/useAdmin';
 
 // TODO- get isAdmin fron DB
 // const [isAdmin] = useAdmin()
-export const isAdmin = true
+// export const isAdmin = true
 export const isWorker = true
 export const isBuyer = true
 
 const Dashboard = () => {
+
+    const [isAdmin] = useAdmin()
 
     return (
         <div>
@@ -39,9 +42,9 @@ const Dashboard = () => {
                     {/* <label htmlFor="my-drawer-2" className=" drawer-button absolute left-5 top-3 lg:hidden">
                         <IoMenu className='text-2xl' />
                     </label> */}
-                    <DashNav/>
+                    <DashNav />
                     <Outlet />
-                    <Footer/>
+                    <Footer />
 
                 </div>
                 <div className="drawer-side border-r border-white">

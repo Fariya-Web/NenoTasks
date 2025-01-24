@@ -29,12 +29,12 @@ const AllUsers = () => {
             confirmButtonColor: "#8cbefa",
             confirmButtonText: "Yes, change"
         });
-        
+
         if (result.isConfirmed) {
 
             try {
                 const res = await axiosSecure.patch(`/users/${id}`, { role: newRole });
-            
+
                 if (res.data.modifiedCount) {
                     Swal.fire({
                         title: "Success!",
@@ -129,11 +129,19 @@ const AllUsers = () => {
 
                                         <td className=''>
                                             {
-                                                user?.role == 'worker' ?
-                                                    <div className='flex gap-1 items-center justify-center'>Worker <img className='w-6 h-6' src={worker} alt="" /></div>
-                                                    :
-                                                    <div className='flex gap-1 items-center justify-center'>Buyer <img className='w-6 h-6' src={buyer} alt="" /></div>
-
+                                                user?.role == 'worker' &&
+                                                <div className='flex gap-1 items-center justify-center'>Worker <img className='w-6 h-6' src={worker} alt="" /></div>
+                                            }
+                                            {
+                                                user?.role == 'buyer' &&
+                                                <div className='flex gap-1 items-center justify-center'>Buyer <img className='w-6 h-6' src={buyer} alt="" /></div>
+                                            }
+                                            {
+                                                user?.role == 'admin' &&
+                                                <div className='flex gap-1 items-center justify-center'>
+                                                    ADMIN
+                                                    {/* <img className='w-6 h-6' src={buyer} alt="" /> */}
+                                                </div>
                                             }
                                         </td>
 
