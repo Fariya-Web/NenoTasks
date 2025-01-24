@@ -109,7 +109,7 @@ const AllUsers = () => {
                         <tbody className='text-lg'>
                             {
                                 users?.map((user, index) =>
-                                    <tr >
+                                    <tr key={index}>
                                         <th>{index + 1}</th>
 
                                         <td>

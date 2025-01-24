@@ -58,7 +58,7 @@ const Testimonials = () => {
 
                 {
                     testimonials.map(person =>
-                        <SwiperSlide>
+                        <SwiperSlide key={person.id}>
                             <div className=' md:h-96 lg:h-72 p-1 font-medium border rounded-lg bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
                                 <div className='bg-white h-full rounded-lg p-4 flex flex-col'>
                                     <div className='flex justify-between '>

@@ -79,7 +79,7 @@ const AllTasks = () => {
                         <tbody className='text-lg'>
                             {
                                 tasks?.map((task, index) =>
-                                    <tr >
+                                    <tr key={index}>
                                         <th>{index + 1}</th>
 
                                         <td className='w-[28%] text-start font-medium'>{task.task_title}</td>

@@ -16,7 +16,7 @@ const Tasklist = () => {
     })
 
     if (isLoading) {
-        return <div>Loading tasks...</div>; // Handle loading state
+        return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
     }
 
     const availableTask = Array.isArray(tasks) ? tasks.filter(task => task?.required_workers > 0) : []

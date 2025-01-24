@@ -62,7 +62,7 @@ const Dashboard = () => {
                         {/* admin routes */}
                         {
                             isAdmin &&
-                            <div className='uppercase'>
+                            <div className='uppercase py-16'>
 
                                 <li><NavLink to='/dashboard/adminhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Admin Home</NavLink></li>
 
@@ -78,7 +78,7 @@ const Dashboard = () => {
                         {/* worker routes */}
                         {
                             isWorker &&
-                            <div className='uppercase'>
+                            <div className='uppercase py-16'>
 
                                 <li><NavLink to='/dashboard/userhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />User Home</NavLink></li>
 
@@ -95,7 +95,7 @@ const Dashboard = () => {
                         {/* buyer routes */}
                         {
                             isBuyer &&
-                            <div className='uppercase'>
+                            <div className='uppercase py-14'>
 
                                 <li><NavLink to='/dashboard/buyerhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Buyer Home</NavLink></li>
 

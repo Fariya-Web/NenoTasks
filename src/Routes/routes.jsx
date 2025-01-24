@@ -22,6 +22,9 @@ import Transaction from "../Components/DashboardPages/buyerRoutes/Transaction";
 import ErrorPage from "../Layouts/ErrorPage";
 import Details from "../Components/DashboardPages/workerRoutes/Details";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import WorkerRoute from "./WorkerRoute";
+import BuyerRoute from "./BuyerRoute";
 
 
 const router = createBrowserRouter([
@@ -59,61 +62,61 @@ const router = createBrowserRouter([
             // admin routes
             {
                 path: '/dashboard/adminhome',
-                element: <PrivateRoute><AdminHome/></PrivateRoute>
+                element: <AdminRoute><AdminHome/></AdminRoute>
             },
             {
                 path: '/dashboard/allusers',
-                element: <PrivateRoute><AllUsers/></PrivateRoute>
+                element: <AdminRoute><AllUsers/></AdminRoute>
             },
             {
                 path: '/dashboard/alltasks',
-                element: <AllTasks/>
+                element: <AdminRoute><AllTasks/></AdminRoute>
             },
 
 
             // worker routes
             {
                 path: '/dashboard/userhome',
-                element: <PrivateRoute><WorkerHome/></PrivateRoute>
+                element: <WorkerRoute><WorkerHome/></WorkerRoute>
             },
             {
                 path: '/dashboard/tasklist',
-                element: <Tasklist/>
+                element: <WorkerRoute><Tasklist/></WorkerRoute>
             },
             {
                 path: '/dashboard/tasklist/:id',
                 loader: ({params})=> fetch(`http://localhost:5000/task/${params.id}`),
-                element: <Details/>
+                element: <WorkerRoute><Details/></WorkerRoute>
             },
             {
                 path: '/dashboard/submissions',
-                element: <Submission/>
+                element: <WorkerRoute><Submission/></WorkerRoute>
             },
             {
                 path: '/dashboard/withdrawals',
-                element: <Withdrawals/>
+                element: <WorkerRoute><Withdrawals/></WorkerRoute>  
             },
 
             // buyer routes
             {
                 path: '/dashboard/buyerhome',
-                element: <BuyerHome/>
+                element: <BuyerRoute><BuyerHome/></BuyerRoute>  
             },
             {
                 path: '/dashboard/addtask',
-                element: <AddTask/>
+                element: <BuyerRoute><AddTask/></BuyerRoute>  
             },
             {
                 path: '/dashboard/mytasks',
-                element: <MyTasks/>
+                element: <BuyerRoute><MyTasks/></BuyerRoute>  
             },
             {
                 path: '/dashboard/purchase',
-                element: <Purchase/>
+                element: <BuyerRoute><Purchase/></BuyerRoute>  
             },
             {
                 path: '/dashboard/transactions',
-                element: <Transaction/>
+                element: <BuyerRoute><Transaction/></BuyerRoute>  
             },
         ]
     },
