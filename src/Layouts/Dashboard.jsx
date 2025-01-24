@@ -121,8 +121,8 @@ const Dashboard = () => {
                         <div className='uppercase'>
                             <li className='my-2'><Link to={'/'}><IoMdHome className='text-2xl' />Home</Link></li>
                             <li className='my-2'><Link to={'/'}><IoMenu className='text-2xl' />Menu</Link></li>
-                            <li className='my-2'><Link to={'/ourshop'}><HiMiniShoppingBag className='text-2xl' />Shop</Link></li>
-                            <li className='my-2'><Link to={'/contact'}><GrMail className='text-2xl' />Contact</Link></li>
+                            <li className='my-2'><Link to={'/'}><HiMiniShoppingBag className='text-2xl' />Shop</Link></li>
+                            <li className='my-2'><Link to={'/'}><GrMail className='text-2xl' />Contact</Link></li>
 
                         </div>
                     </ul>

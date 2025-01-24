@@ -12,7 +12,9 @@ const Navbar = () => {
     const [dbuser, isLoading] = useUser()
     const navigate = useNavigate()
 
-
+    if (isLoading) {
+        return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
+    }
 
     const handleSignout = () => {
         logOut()
