@@ -1,0 +1,22 @@
+[
+    {
+        "category": "Starter",
+        "pay_amount": 1,
+        "coins": 10
+    },
+    {
+        "category": "Growth",
+        "pay_amount": 10,
+        "coins": 150
+    },
+    {
+        "category": "Advanced",
+        "pay_amount": 20,
+        "coins": 500
+    },
+    {
+        "category": "Ultimate",
+        "pay_amount": 35,
+        "coins": 1000
+    }
+]

@@ -17,14 +17,16 @@ import Withdrawals from "../Components/DashboardPages/workerRoutes/Withdrawals";
 import BuyerHome from "../Components/DashboardPages/buyerRoutes/BuyerHome";
 import AddTask from "../Components/DashboardPages/buyerRoutes/AddTask";
 import MyTasks from "../Components/DashboardPages/buyerRoutes/MyTasks";
-import Purchase from "../Components/DashboardPages/buyerRoutes/Purchase";
+
 import Transaction from "../Components/DashboardPages/buyerRoutes/Transaction";
 import ErrorPage from "../Layouts/ErrorPage";
 import Details from "../Components/DashboardPages/workerRoutes/Details";
-import PrivateRoute from "./PrivateRoute";
+
 import AdminRoute from "./AdminRoute";
 import WorkerRoute from "./WorkerRoute";
 import BuyerRoute from "./BuyerRoute";
+import Purchase from "../Components/DashboardPages/buyerRoutes/Payment/Purchase";
+import Payment from "../Components/DashboardPages/buyerRoutes/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -113,6 +115,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/purchase',
                 element: <BuyerRoute><Purchase/></BuyerRoute>  
+            },
+            {
+                path: '/dashboard/purchase/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/packages/${params.id}`),
+                element: <BuyerRoute><Payment/></BuyerRoute>  
             },
             {
                 path: '/dashboard/transactions',
