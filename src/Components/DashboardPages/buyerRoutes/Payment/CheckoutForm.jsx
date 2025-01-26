@@ -11,7 +11,7 @@ import stripelogo from '../../../../assets/logo/Stripe.png'
 import Swal from 'sweetalert2';
 
 
-const CheckoutForm = ({ price, coin }) => {
+const CheckoutForm = ({ price, coin, category }) => {
 
     const [clientSecret, setClientSecret] = useState('')
     const [transactionId, setTransactionId] = useState('')
@@ -81,6 +81,7 @@ const CheckoutForm = ({ price, coin }) => {
                     name: user?.displayName,
                     price: price,
                     coin: coin,
+                    package: category,
                     transactionId: transactionId,
                     date: new Date(), //TODO: convert with moment js
                 }

@@ -57,7 +57,7 @@ const AddTask = () => {
   return (
     <div className='md:p-10'>
 
-      <div className='max-w-screen-xl w-[92%] mx-auto border-2 border-white bg-gradient-to-br from-[#f1f5fb] to-[#e9f0fb] lg:p-12 my-12 rounded-lg'>
+      <div className='max-w-screen-xl w-[92%] mx-auto border-2 border-white bg-white lg:p-12 my-12 rounded-lg'>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body grid gap-3 md:grid-cols-2">
 
           <div className="form-control md:col-span-2">

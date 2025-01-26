@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useUser from './../../../Hooks/useUser';
+import coin from '../../../assets/icons/coin.png'
+import { format } from 'date-fns';
 
 const Transaction = () => {
+
+    const { user } = useContext(AuthContext)
+    const [dbuser] = useUser()
+    const axiosSecure = useAxiosSecure()
+
+    const { data: payments = [], isLoading } = useQuery({
+        queryKey: ['payment'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/payments/${dbuser.email}`)
+            return res.data || []
+        }
+    })
+    console.log(payments);
+
     return (
         <div className='min-h-[calc(100vh-370px)] py-10'>
 
@@ -16,42 +36,36 @@ const Transaction = () => {
                         <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
+                                <th>Transaction ID</th>
                                 <th>Payment</th>
                                 <th>Coins Recived</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
                         <tbody className='text-lg'>
-                            {/* {
-                                transactions?.map((tran, index) =>
+                            {
+                                payments?.map((pay, index) =>
                                     <tr key={index}>
                                         <th>{index + 1}</th>
 
-                                        <td className='w-[24%] text-start font-medium'>{task.task_title}</td>
+                                        <td className='font-medium'>{pay?.transactionId || 'No transaction ID'}</td>
 
-                                        <td>
-                                            <div className='flex gap-1 items-center justify-center'>
-                                                {task.required_workers}
-                                                <img className='w-6 h-6' src={worker} alt="" />
-                                            </div>
-                                        </td>
+                                        <td> {pay.price} $</td>
 
                                         <td >
                                             <div className='flex gap-1 items-center justify-center'>
-                                                {task.payable_amount * task.required_workers}
+                                                {pay.coin}
                                                 <img className='w-6 h-6' src={coin} alt="" />
                                             </div>
                                         </td>
 
-                                        <td>{task.completion_date}</td>
+                                        <td>{format(pay.date, 'dd-MM-yyyy')}</td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><CiEdit className=' hover:text-[#8cbefa]' /></button></td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><AiOutlineDelete className=' hover:text-[#8cbefa]' /></button></td>
 
                                     </tr>
                                 )
-                            } */}
+                            }
                         </tbody>
                     </table>
                 </div>

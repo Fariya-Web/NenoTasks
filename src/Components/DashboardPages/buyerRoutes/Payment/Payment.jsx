@@ -30,13 +30,14 @@ const Payment = () => {
     const pack = packs.find(pack => pack._id == id)
     const price = pack.pay_amount
     const coin = pack.coins
+    const category = pack.category
     console.log(pack);
     console.log({price, coin});
 
     return (
         <div className='min-h-[calc(100vh-370px)] p-16 py-48 '>
             <Elements className='my-auto bg-red-700' stripe={stripePromise}>
-                <CheckoutForm  price={price} coin={coin}/>
+                <CheckoutForm  price={price} coin={coin} category={category}/>
             </Elements>
         </div>
     );

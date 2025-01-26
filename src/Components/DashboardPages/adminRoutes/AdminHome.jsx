@@ -60,7 +60,7 @@ const AdminHome = () => {
 
     return (
         <div className='min-h-[calc(100vh-370px)] py-10 w-[92%]  max-w-screen-xl mx-auto '>
-            <div className='p-8 md:p-14 border border-white rounded-lg bg-gradient-to-br from-[#dce9fb] to-[#fbe4fc] text-center'>
+            <div className='p-8 md:p-14 border border-white rounded-lg bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] text-center'>
 
             </div>
             <div className='bg-white p-12 my-12 rounded'>

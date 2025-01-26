@@ -37,7 +37,7 @@ const WorkerHome = () => {
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto'>
-            <div className='py-20 border border-white rounded-lg grid grid-cols-2 bg-gradient-to-br from-[#dce9fb] to-[#fbe4fc] '>
+            <div className='py-20 border border-white rounded-lg grid grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
 
                 <div className='text-center border-r-4 border-white'>
                     <img className='rounded-full border border-white my-2    p-1 w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />

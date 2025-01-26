@@ -27,8 +27,8 @@ const Purchase = () => {
                 {
                     Array.isArray(packages) ?
                         packages.map((pack, index) =>
-                            <div key={index} className='w-[90%] mx-auto text-center border-2 border-white rounded-xl bg-gradient-to-br from-[#e3effd] to-[#fcebfc] flex flex-col'>
-                                <div className='bg-gradient-to-br from-[#cde2fd] to-[#fbccfe] rounded-xl rounded-b-none'>
+                            <div key={index} className='w-[90%] mx-auto text-center border-2 border-white rounded-xl bg-white flex flex-col'>
+                                <div className='bg-gradient-to-br from-[#bedaff] to-[#f9adfe] rounded-xl rounded-b-none'>
                                     <h2 className='text-3xl font-bold py-4'>{pack.category}</h2>
                                 </div>
                                 <Link to={`/dashboard/purchase/${pack._id}`} className='py-14 '>
