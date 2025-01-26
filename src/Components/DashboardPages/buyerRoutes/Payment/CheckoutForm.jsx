@@ -82,7 +82,7 @@ const CheckoutForm = ({ price, coin, category }) => {
                     price: price,
                     coin: coin,
                     package: category,
-                    transactionId: transactionId,
+                    transactionId: paymentIntent.id,
                     date: new Date(), //TODO: convert with moment js
                 }
                 console.log({ payment });

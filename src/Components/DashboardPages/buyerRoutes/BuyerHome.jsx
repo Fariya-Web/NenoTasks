@@ -29,13 +29,11 @@ const style = {
 
 const BuyerHome = () => {
 
-    const [showmodal, setShowmodal] = useState(false)
     const [dbuser] = useUser()
     console.log(dbuser);
     const axiosSecure = useAxiosSecure()
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const [showModal, setShowmodal] = useState(false)
+    const [selected, setSelected] = useState()
 
  
     const { data: stats = {}, refetch: statrefetch } = useQuery({
@@ -57,9 +55,15 @@ const BuyerHome = () => {
 
     const pendings = Array.isArray(submissions) ? submissions.filter(submission => submission?.status == 'pending') : []
 
-    const handleShow = () => {
+    const handleModal = (task) => {
+        setSelected(task)
         setShowmodal(true)
     }
+
+    const closeModal = () => {
+        setShowmodal(false);
+        setSelected(null);
+    };
 
     const handleApproved = (id) => {
         Swal.fire({
@@ -180,48 +184,11 @@ const BuyerHome = () => {
                                             </td>
 
                                             <td>
-                                                {/* Open the modal using document.getElementById('ID').showModal() method */}
+                                                {/* Open the modal */}
                                                 <button
-                                                    // onClick={setShowmodal(true)}
+                                                    onClick={()=>handleModal(task)}
                                                     className='btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]'
                                                 >View</button>
-
-                                                {/* <div className={showmodal?'absolute p-3 bg-blue-400' : 'hidden'}>
-                                                    <h3 className='text-2xl font-bold'>
-                                                    {task.task_title}
-                                                    </h3>
-                                                    <button className='btn' onClick={setShowmodal(false)}>close</button>
-                                                </div> */}
-
-                                                {/* <Modal
-                                                    open={open}
-                                                    onClose={handleClose}
-                                                    aria-labelledby="modal-modal-title"
-                                                    aria-describedby="modal-modal-description"
-                                                >
-                                                    <Box sx={style}>
-                                                        <Typography id="modal-modal-title" variant="h6" component="h2">
-                                                            {task.task_title}
-                                                        </Typography>
-                                                        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                                        </Typography>
-                                                    </Box>
-                                                </Modal> */}
-
-                                                {/* <dialog id="my_modal_2" className="modal">
-                                                    <div className="modal-box p-8 text-start text-xl space-y-2 font-semibold">
-
-                                                        <h3 className="font-bold mb-6 text-2xl  text-center">{task.task_title}</h3>
-                                                        <p>Worker Name: <span className='font-normal'>{task.worker_name}</span></p>
-                                                        <p>Submission Details: <span className='font-normal'>{task.submission_Details}</span></p>
-                                                        <p>Submission Date: <span className='font-normal'>{format(task.current_date, 'dd-MM-yyyy , hh:mm:ss')}</span></p>
-                                                    </div>
-                                                    <form method="dialog" className="modal-backdrop">
-                                                        <button>close</button>
-                                                    </form>
-                                                </dialog> */}
-
                                             </td>
 
                                             <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(task._id)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
@@ -237,7 +204,35 @@ const BuyerHome = () => {
 
                 </div>
             </div>
-
+            {showModal && selected && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <div className="bg-white p-8 rounded-lg w-[80%] max-w-xl text-xl space-y-2">
+                        <h3 className="text-2xl font-bold text-center mb-6">
+                            {selected.task_title}
+                        </h3>
+                        <p>
+                            <strong>Worker Name:</strong>{' '}
+                            {selected.worker_name}
+                        </p>
+                        <p>
+                            <strong>Submission Details:</strong>{' '}
+                            {selected.submission_Details}
+                        </p>
+                        <p>
+                            <strong>Submission Date:</strong>{' '}
+                            {format(selected.current_date, 'dd-MM-yyyy')}
+                        </p>
+                        <div className="mt-6 text-center">
+                            <button
+                                className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe] text-white text-lg px-6 py-2 mt-2 rounded"
+                                onClick={closeModal}
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

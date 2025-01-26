@@ -17,8 +17,8 @@ const Payment = () => {
     const { data: packs = [], isLoading } = useQuery({
         queryKey: ['pack'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/packages`)
-            return res.send || []
+            const res = await axiosSecure.get(`/packages`)
+            return res.data || []
         }
     })
 
@@ -28,9 +28,14 @@ const Payment = () => {
     console.log(packs);
 
     const pack = packs.find(pack => pack._id == id)
-    const price = pack.pay_amount
-    const coin = pack.coins
-    const category = pack.category
+
+    if (!pack) {
+        return <div className="text-center text-red-500">Package not found</div>;
+    }
+    
+    const price = Math.round(pack?.pay_amount * 100)
+    const coin = pack?.coins
+    const category = pack?.category
     console.log(pack);
     console.log({price, coin});
 

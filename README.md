@@ -56,4 +56,8 @@ Nanotasks is a micro-tasking and earning platform designed to help users complet
 
 ---
 
-Feel free to contribute to the project or report issues to help us improve this platform. Enjoy exploring Nanotasks!
+
+## Admin Access
+
+**Email**: fariya@gmail.com
+**Password**: Fariya-22
