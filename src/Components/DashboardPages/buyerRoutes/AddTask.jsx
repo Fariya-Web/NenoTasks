@@ -6,6 +6,7 @@ import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useUser from '../../../Hooks/useUser';
+import { useNavigate } from 'react-router-dom';
 
 const AddTask = () => {
 
@@ -14,6 +15,7 @@ const AddTask = () => {
   const image_hosting_api = useImageHosting()
   const axiosPublic = useAxiosPublic()
   const axiosSecure = useAxiosSecure()
+  const navigate = useNavigate()
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -22,7 +24,8 @@ const AddTask = () => {
 
     const totalPay = data.required_workers * data.payable_amount
     if(totalPay > dbuser?.coin){
-      return toast.warning("You don't have enoung coins for this task")
+      navigate('/dashboard/purchase')
+      return toast.warning("Not enoung coins for this task. Purchase Coin")
     }
 
 

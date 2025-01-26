@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css'
@@ -13,6 +13,8 @@ const Register = () => {
     const navigate = useNavigate()
     const axiosPublic = useAxiosPublic()
     const image_hosting_api = useImageHosting()
+    const [emailErr, setEmailErr] = useState(null)
+    const [passErr, setPassErr] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -23,6 +25,9 @@ const Register = () => {
         const role = form.role.value
         const password = form.password.value
 
+        setEmailErr(null)
+        setPassErr(null)
+
         // role required
         if (role === 'default') {
             return toast.warning('Please select a role');
@@ -30,16 +35,16 @@ const Register = () => {
 
         // password validation
         if (!/[A-Z]/.test(password)) {
-            return toast.warning('Password must contain at leaste one uppercase')
+            return setPassErr('Password must contain at leaste one uppercase')
         }
         if (!/[a-z]/.test(password)) {
-            return toast.warning('Password must contain at leaste one lowercase')
+            return setPassErr('Password must contain at leaste one lowercase')
         }
         if (!/\d/.test(password)) {
-            return toast.warning('Password must contain at leaste one digit')
+            return setPassErr('Password must contain at leaste one digit')
         }
         if (!/.{6,}/.test(password)) {
-            return toast.warning('Password must contain at leaste six characters')
+            return setPassErr('Password must contain at leaste six characters')
         }
 
 
@@ -89,7 +94,7 @@ const Register = () => {
                 })
                 .catch(err => {
                     
-                    toast.error('This email already exists, try with another email')
+                    setEmailErr('This email already exists, try with another email')
                 })
         }
 
@@ -116,6 +121,10 @@ const Register = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="your email" className="input input-bordered" required />
+                        {
+                            emailErr &&
+                            <div className='text-center text-red-600'>{emailErr}</div>
+                        }
                     </div>
 
                     <div className="form-control">
@@ -143,6 +152,10 @@ const Register = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                        {
+                            passErr &&
+                            <div className='text-center text-red-600'>{passErr}</div>
+                        }
                     </div>
 
                     <div className="form-control mt-6">

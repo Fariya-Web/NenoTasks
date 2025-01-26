@@ -27,6 +27,7 @@ import WorkerRoute from "./WorkerRoute";
 import BuyerRoute from "./BuyerRoute";
 import Purchase from "../Components/DashboardPages/buyerRoutes/Payment/Purchase";
 import Payment from "../Components/DashboardPages/buyerRoutes/Payment/Payment";
+import Update from "../Components/DashboardPages/buyerRoutes/Update";
 
 
 const router = createBrowserRouter([
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addtask',
                 element: <BuyerRoute><AddTask/></BuyerRoute>  
+            },
+            {
+                path: '/dashboard/update/:id',
+                element: <BuyerRoute><Update/></BuyerRoute>  
             },
             {
                 path: '/dashboard/mytasks',

@@ -10,6 +10,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { AiOutlineDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 import useUser from '../../../Hooks/useUser';
+import { Link } from 'react-router-dom';
 
 const MyTasks = () => {
 
@@ -101,7 +102,9 @@ const MyTasks = () => {
 
                                         <td>{task.completion_date}</td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><CiEdit className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td className='flex items-center justify-center'>
+                                            <Link to={`/dashboard/update/${task._id}`} className='my-1 text-2xl'><CiEdit className=' hover:text-[#8cbefa]' /></Link>
+                                            </td>
 
                                         <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><AiOutlineDelete className=' hover:text-[#8cbefa]' /></button></td>
 

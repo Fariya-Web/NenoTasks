@@ -19,6 +19,7 @@ const Login = () => {
     const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const location = useLocation()
+    
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -31,8 +32,8 @@ const Login = () => {
             .then(result => {
 
                 setUser(result.user)
-                navigate(location.state?.from?.pathname || '/')
                 setLoading(false)
+                navigate(location.state?.from?.pathname || '/')
                 toast.success('logged in successfully')
             })
             .catch(err => {

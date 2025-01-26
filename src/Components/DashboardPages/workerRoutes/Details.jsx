@@ -29,6 +29,9 @@ const Details = () => {
         }
     })
 
+    if (isLoading) {
+        return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
+    }
 
     const onSubmit = async (data) => {
 
