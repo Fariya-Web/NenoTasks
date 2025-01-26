@@ -118,7 +118,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/purchase/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/packages/${params.id}`),
+                loader: ({params})=> fetch(`http://localhost:5000/package/${params.id}`),
                 element: <BuyerRoute><Payment/></BuyerRoute>  
             },
             {

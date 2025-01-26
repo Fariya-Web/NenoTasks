@@ -15,7 +15,10 @@ const Purchase = () => {
             return res.data || []
         }
     })
-    console.log(packages);
+    
+    if (isLoading) {
+        return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
+    }
 
 
     return (
@@ -23,8 +26,8 @@ const Purchase = () => {
             <div className='grid gap-12 md:grid-cols-2'>
                 {
                     Array.isArray(packages) ?
-                        packages.map(pack =>
-                            <div className='w-[90%] mx-auto text-center border-2 border-white rounded-xl bg-gradient-to-br from-[#e3effd] to-[#fcebfc] flex flex-col'>
+                        packages.map((pack, index) =>
+                            <div key={index} className='w-[90%] mx-auto text-center border-2 border-white rounded-xl bg-gradient-to-br from-[#e3effd] to-[#fcebfc] flex flex-col'>
                                 <div className='bg-gradient-to-br from-[#cde2fd] to-[#fbccfe] rounded-xl rounded-b-none'>
                                     <h2 className='text-3xl font-bold py-4'>{pack.category}</h2>
                                 </div>
