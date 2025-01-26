@@ -132,7 +132,7 @@ const BuyerHome = () => {
                     <div className='space-y-2 px-32 py-12'>
                         <p>Total Task: {stats.tasks}</p>
                         <p>Pending Work: {stats.totalPendingTasks}</p>
-                        <p>Total Payment:</p>
+                        <p>Total Payment: {stats.totalPayments}$</p>
 
                     </div>
                 </div>
