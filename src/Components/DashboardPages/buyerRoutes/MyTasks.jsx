@@ -11,6 +11,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import Swal from 'sweetalert2';
 import useUser from '../../../Hooks/useUser';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const MyTasks = () => {
 
@@ -106,7 +107,10 @@ const MyTasks = () => {
                                             <Link to={`/dashboard/update/${task._id}`} className='my-1 text-2xl'><CiEdit className=' hover:text-[#8cbefa]' /></Link>
                                             </td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><AiOutlineDelete className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td><motion.button
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.8 }} 
+                                        className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><AiOutlineDelete className=' hover:text-[#8cbefa]' /></motion.button></td>
 
                                     </tr>
                                 )

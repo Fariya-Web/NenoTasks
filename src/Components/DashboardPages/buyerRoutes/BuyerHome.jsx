@@ -14,6 +14,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Swal from 'sweetalert2';
+import { motion } from 'motion/react';
+
 
 const style = {
     position: 'absolute',
@@ -199,15 +201,23 @@ const BuyerHome = () => {
 
                                             <td>
                                                 {/* Open the modal */}
-                                                <button
+                                                <motion.button
+                                                whileHover={{ scale: 1.1 }}
+                                                whileTap={{ scale: 0.8 }}
                                                     onClick={() => handleModal(task)}
                                                     className='btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]'
-                                                >View</button>
+                                                >View</motion.button>
                                             </td>
 
-                                            <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(task)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
+                                            <td><motion.button 
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.8 }}
+                                            className='p-1 w-10 text-2xl' onClick={() => handleApproved(task)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></motion.button></td>
 
-                                            <td><button className='p-1 w-10 text-3xl' onClick={() => handleReject(task)}><HiOutlineArchiveBoxXMark className=' hover:text-[#8cbefa]' /></button></td>
+                                            <td><motion.button 
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.8 }}
+                                            className='p-1 w-10 text-3xl' onClick={() => handleReject(task)}><HiOutlineArchiveBoxXMark className=' hover:text-[#8cbefa]' /></motion.button></td>
 
                                         </tr>
                                     )
@@ -237,12 +247,14 @@ const BuyerHome = () => {
                             {format(selected.current_date, 'dd-MM-yyyy')}
                         </p>
                         <div className="mt-6 text-center">
-                            <button
+                            <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.8 }}
                                 className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe] text-white text-lg px-6 py-2 mt-2 rounded"
                                 onClick={closeModal}
                             >
                                 Close
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
                 </div>

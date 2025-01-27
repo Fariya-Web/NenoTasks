@@ -9,6 +9,7 @@ import coin from '../../../assets/icons/coin.png'
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import worker from '../../../assets/icons/employee.png'
 import useUser from '../../../Hooks/useUser';
+import { motion } from 'motion/react';
 
 const AllTasks = () => {
 
@@ -104,7 +105,10 @@ const AllTasks = () => {
                                             </div>
                                         </td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td><motion.button 
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.8 }}
+                                         className='p-1 w-10 text-2xl' onClick={() => deleteAlert(task._id)}><MdDelete className=' hover:text-[#8cbefa]' /></motion.button></td>
 
                                     </tr>
                                 )

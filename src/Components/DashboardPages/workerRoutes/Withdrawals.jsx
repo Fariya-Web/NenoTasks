@@ -4,6 +4,7 @@ import coin from '../../../assets/icons/coin.png'
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { motion } from 'motion/react';
 
 
 const Withdrawals = () => {
@@ -49,7 +50,7 @@ const Withdrawals = () => {
                 Time: new Date(),
             }
             axiosSecure.post('/notifications', notification)
-            .then(res =>{console.log(res);})
+                .then(res => { console.log(res); })
             reset()
         }
 
@@ -141,10 +142,12 @@ const Withdrawals = () => {
                         dbuser?.coin < 200 || withdrawCoin > dbuser?.coin ?
                             <p className='text-xl md:col-span-2 mx-auto py-4 text-red-600'>Insufficient coin</p>
                             :
-                            <button
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.8 }}
                                 className="btn md:col-span-2 mx-12 mt-6 bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">
                                 Withdraw
-                            </button>
+                            </motion.button>
                     }
 
                 </form>

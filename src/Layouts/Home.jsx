@@ -4,6 +4,7 @@ import Banner from '../Components/HomeComp.jsx/Banner';
 import TopWorkers from '../Components/HomeComp.jsx/TopWorkers';
 import Testimonials from '../Components/HomeComp.jsx/Testimonials';
 import Safety from '../Components/HomeComp.jsx/Safety';
+import QnA from '../Components/HomeComp.jsx/QnA';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Banner/>
             <TopWorkers/>
             <Safety/>
+            <QnA/>
             <Testimonials/>
 
         </div>

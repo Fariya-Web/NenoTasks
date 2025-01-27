@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useUser from '../../../Hooks/useUser';
+import { motion } from 'motion/react';
 
 
 const AdminHome = () => {
@@ -134,7 +135,10 @@ const AdminHome = () => {
 
                                         <td>{format(req.withdraw_date, 'dd-MM-yyyy')}</td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(req)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td><motion.button
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.8 }}
+                                        className='p-1 w-10 text-2xl' onClick={() => handleApproved(req)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></motion.button></td>
 
                                     </tr>
                                 )

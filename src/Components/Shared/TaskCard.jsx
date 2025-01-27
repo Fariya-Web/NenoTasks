@@ -5,6 +5,7 @@ import worker from '../../assets/icons/employee.png'
 import deadline from '../../assets/icons/schedule.png'
 import buyer from '../../assets/icons/business-women.png'
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const TaskCard = ({ task }) => {
 
@@ -48,9 +49,12 @@ const TaskCard = ({ task }) => {
 
                         </ul>
 
-                        <div className='pb-0'>
+                        <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.8 }}
+                        className='pb-0'>
                             <Link to={`/dashboard/tasklist/${_id}`} className="btn w-full mt-2 text-lg bg-gradient-to-r from-[#b2d4fd] to-[#fac8fe]">View Details</Link>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

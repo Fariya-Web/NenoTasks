@@ -7,6 +7,7 @@ import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
 import useAxiosPublic from './../../Hooks/useAxiosPublic';
+import { motion } from 'motion/react';
 
 const Login = () => {
 
@@ -124,17 +125,26 @@ const Login = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <button disabled={false} className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Login</button>
+                        <motion.button 
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.8 }}
+                        disabled={false} className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Login</motion.button>
                     </div>
                 </form>
 
-                <button onClick={handleShow} className='absolute right-3 bottom-[348px] text-[#f07ffa]'>
+                <motion.button 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.8 }}
+                onClick={handleShow} className='absolute right-3 bottom-[348px] text-[#f07ffa]'>
                     {show ? <TbEyeglassOff /> : <TbEyeglass />}
-                </button>
+                </motion.button>
 
-                <button onClick={handleValidateCaptcha} className='absolute right-3 bottom-[214px] text-[#f07ffa]'>
+                <motion.button 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.8 }}
+                onClick={handleValidateCaptcha} className='absolute right-3 bottom-[214px] text-[#f07ffa]'>
                     {disable ? <MdCheckBoxOutlineBlank /> : <MdCheckBox />}
-                </button>
+                </motion.button>
 
                 <div className='text-center my-3'>
                     <Link to={'/auth/register'} className='text-center'>New here? Create a <span className='hover:text-[#8cbefa]'>New Account</span></Link>

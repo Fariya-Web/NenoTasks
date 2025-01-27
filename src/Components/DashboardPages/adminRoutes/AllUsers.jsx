@@ -6,6 +6,7 @@ import worker from '../../../assets/icons/employee.png'
 import buyer from '../../../assets/icons/business-women.png'
 import Swal from 'sweetalert2';
 import { MdDelete } from 'react-icons/md';
+import { motion } from 'motion/react';
 
 
 const AllUsers = () => {
@@ -162,7 +163,10 @@ const AllUsers = () => {
                                             </select>
                                         </td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => deleteAlert(user?._id)}><MdDelete className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td><motion.button 
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.8 }}
+                                        className='p-1 w-10 text-2xl' onClick={() => deleteAlert(user?._id)}><MdDelete className=' hover:text-[#8cbefa]' /></motion.button></td>
 
                                     </tr>
                                 )

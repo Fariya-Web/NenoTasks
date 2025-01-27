@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import bank from '../../assets/icons/piggy-bank.png'
 import logo from '../../assets/logo/image.png'
 import useUser from '../../Hooks/useUser';
+import { motion } from 'motion/react';
 
 const Navbar = () => {
 
@@ -125,7 +126,11 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                     
-                                    <button onClick={handleSignout} className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] rounded-lg border">Log Out</button>
+                                    <motion.button
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.8 }}
+                                     onClick={handleSignout} 
+                                     className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] rounded-lg border">Log Out</motion.button>
 
                                 </div>
                                 :

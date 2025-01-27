@@ -11,12 +11,12 @@ const WorkerCard = ({ worker }) => {
 
 
     return (
-        <div className='p-[2px] border rounded-lg bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
+        <div className='p-[2px] border rounded-3xl bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
             <motion.div
-                whileHover={{ scale: 1.2 }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.8 }}
-                className='bg-white p-2 rounded-lg relative group'>
-                <img className='w-full h-64 rounded-md ' src={photo_url} alt="" />
+                className='bg-white p-2 rounded-3xl relative group'>
+                <img className='w-full h-72 rounded-3xl ' src={photo_url} alt="" />
                 
                 <div
                     className='absolute left-10 right-10 bottom-2 mt-2 hidden px-2 py-1 rounded group-hover:block'>

@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useUser from '../../../Hooks/useUser';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const AddTask = () => {
 
@@ -154,7 +155,10 @@ const AddTask = () => {
           </div>
 
           <div className="form-control mt-6 md:col-span-2">
-            <button className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Login</button>
+            <motion.button 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.8 }}
+            className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Login</motion.button>
           </div>
         </form>
       </div>

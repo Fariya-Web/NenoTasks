@@ -5,6 +5,7 @@ import '../../App.css'
 import { toast } from 'react-toastify';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useImageHosting from '../../Hooks/useImageHosting';
+import { motion } from 'motion/react';
 
 
 const Register = () => {
@@ -159,7 +160,10 @@ const Register = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Sign in</button>
+                        <motion.button 
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.8 }}
+                        className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Sign in</motion.button>
                     </div>
                 </form>
                 <div className='text-center my-3'>

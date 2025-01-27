@@ -32,7 +32,7 @@ import Lottie from 'lottie-react';
 const Banner = () => {
 
     return (
-        <div>
+        <div className='bg-base-200 py-10'>
             <Swiper
                 modules={[Parallax, Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                 spaceBetween={0}
@@ -56,7 +56,7 @@ const Banner = () => {
 
 
                 <SwiperSlide>
-                    <div className='flex flex-col lg:flex-row-reverse justify-around md:bg-white py-10 w-[94%] max-w-screen-2xl mx-auto'>
+                    <div className='flex flex-col lg:flex-row-reverse justify-around md:bg-base-200 py-10 w-[94%] max-w-screen-2xl mx-auto'>
 
                         <div className='relative w-2/3 mx-auto md:hidden'>
 

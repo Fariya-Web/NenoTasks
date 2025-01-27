@@ -135,9 +135,12 @@ const CheckoutForm = ({ price, coin, category }) => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe || !clientSecret} className='px-10 py-2 text-xl rounded-md bg-gradient-to-br from-[#b0d4ff] to-[#fbceff] mt-10 border border-white'>
+                <motion.button 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.8 }}
+                type="submit" disabled={!stripe || !clientSecret} className='px-10 py-2 text-xl rounded-md bg-gradient-to-br from-[#b0d4ff] to-[#fbceff] mt-10 border border-white'>
                     Pay
-                </button>
+                </motion.button>
                 {
                     transactionId &&
                     <div className='text-green-500'>Your transaction id is {transactionId}</div>

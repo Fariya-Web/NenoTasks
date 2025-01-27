@@ -12,6 +12,7 @@ import requirement from '../../../assets/logo/parchment.png'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useUser from '../../../Hooks/useUser';
+import { motion } from 'motion/react';
 
 
 const Details = () => {
@@ -150,7 +151,10 @@ const Details = () => {
                     </div>
 
                     <div className="form-control mt-4 md:col-span-2 flex items-end">
-                        <button className="btn w-48 bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Submit</button>
+                        <motion.button 
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.8 }}
+                        className="btn w-48 bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Submit</motion.button>
                     </div>
 
                 </form>
