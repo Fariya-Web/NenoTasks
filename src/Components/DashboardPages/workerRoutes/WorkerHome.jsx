@@ -10,9 +10,9 @@ const WorkerHome = () => {
 
     const axiosSecure = useAxiosSecure()
     const [dbuser] = useUser()
-    console.log(dbuser);
+
     const { user } = useContext(AuthContext)
-    console.log(user);
+
 
 
     const { data: stats = {}, refetch: statsRefetch } = useQuery({
@@ -22,7 +22,7 @@ const WorkerHome = () => {
             return res.data || {}
         }
     })
-    console.log(stats);
+
 
     const { data: mysubmissions = [], isLoading, refetch } = useQuery({
         queryKey: ['submission'],
@@ -33,20 +33,20 @@ const WorkerHome = () => {
     })
 
     const approved = Array.isArray(mysubmissions) ? mysubmissions.filter(submission => submission.status == 'approved') : []
-    console.log(approved);
+  
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto'>
-            <div className='py-20 border border-white rounded-lg grid grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
+            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
 
-                <div className='text-center border-r-4 border-white'>
+                <div className='text-center md:border-r-4 border-white'>
                     <img className='rounded-full border my-2 w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
 
-                <div className='text-xl font-medium my-auto'>
-                    <h2 className='text-3xl font-bold text-center mb-6'>Your Activities</h2>
-                    <div className='space-y-2 px-32 py-12'>
+                <div className='text-xl font-medium my-auto mt-8 md:mt-4'>
+                    <h2 className='text-3xl font-bold text-center md:mb-6'>Your Activities</h2>
+                    <div className='space-y-2 px-16 md:px-32 py-6 md:py-12'>
                         <p>Total Submission: {stats.submissions}</p>
                         <p>Total pending submission: {stats.pendingSubmissions}</p>
                         <p>Total Earning: {stats.totalPayAmount}</p>

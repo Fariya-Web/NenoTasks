@@ -15,7 +15,7 @@ const Payment = () => {
     const price = Math.round(data?.pay_amount * 100)
     const coin = data?.coins
     const category = data?.category
-    console.log({price, coin});
+
 
     return (
         <div className='min-h-[calc(100vh-370px)] p-16 py-48 '>

@@ -88,7 +88,7 @@ const Banner = () => {
 
                         <motion.div
                             animate={{ x: [0] }}
-                            transition={{ duration: 2, delay: 0, ease: 'easeIn' }} className=' mt-28 md:my-auto' >
+                            transition={{ duration: 2, delay: 0, ease: 'easeIn' }} className=' mt-36 md:my-auto ' >
 
                             <h1 className='text-3xl md:text-5xl font-bold md:w-[90%] lg:w-[60%]'>NanoTasks, Flexibility at Your Fingertips</h1>
 

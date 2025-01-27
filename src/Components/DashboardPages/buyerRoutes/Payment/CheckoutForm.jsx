@@ -52,7 +52,7 @@ const CheckoutForm = ({ price, coin, category }) => {
         if (error) {
             toast.error(error.message)
         } else {
-            console.log('payment method', paymentMethod);
+
         }
 
         const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
@@ -65,11 +65,11 @@ const CheckoutForm = ({ price, coin, category }) => {
             }
         })
         if (confirmError) {
-            console.log('confirm error')
+            
         } else {
-            console.log('payment intent-', paymentIntent)
+            // console.log('payment intent-', paymentIntent)
             if (paymentIntent.status === 'succeeded') {
-                console.log('transaction id', paymentIntent.id);
+                // console.log('transaction id', paymentIntent.id);
                 setTransactionId(paymentIntent.id)
 
                 // saveing the payment details in database
@@ -82,10 +82,9 @@ const CheckoutForm = ({ price, coin, category }) => {
                     transactionId: paymentIntent.id,
                     date: new Date(), //TODO: convert with moment js
                 }
-                console.log({ payment });
+
                 const res = await axiosSecure.post('/payments', payment);
-                console.log('payment saved', res)
-                console.log(res.data);
+
                 if (res.data.acknowledged) {
                     Swal.fire({
                         position: "center",

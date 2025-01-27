@@ -33,9 +33,8 @@ const Update = () => {
             task_detail: data.task_detail,
             submission_info: data.submission_info
         }
-        console.log(updateDoc);
         const updateRes = await axiosSecure.patch(`/task/${id}`, updateDoc)
-        console.log(updateRes);
+
         if (updateRes.data.modifiedCount) {
             toast.success('Task informations updated')
         }

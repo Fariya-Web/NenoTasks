@@ -22,7 +22,6 @@ const AdminHome = () => {
             return res.data || {}
         }
     })
-    console.log(stats);
 
     const { data: requests = [], isLoading, refetch } = useQuery({
         queryKey: ['request'],
@@ -63,7 +62,7 @@ const AdminHome = () => {
                                 Time: new Date(),
                             }
                             axiosSecure.post('/notifications', notification)
-                                .then(res => { console.log(res); })
+                                .then(res => { })
                             refetch()
                         }
                     })
@@ -74,16 +73,16 @@ const AdminHome = () => {
 
     return (
         <div className='min-h-[calc(100vh-370px)] py-10 w-[92%]  max-w-screen-xl mx-auto '>
-            <div className='py-20 border border-white rounded-lg grid grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
+            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
 
                 <div className='text-center border-r-4 border-white'>
                     <img className='rounded-full w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
 
-                <div className='text-xl font-medium my-auto'>
-                    <h2 className='text-3xl font-bold text-center mb-6'>Platform Activities</h2>
-                    <div className='space-y-2 px-32 py-12'>
+                <div className='text-xl font-medium my-auto mt-8 md:mt-4'>
+                    <h2 className='text-3xl font-bold text-center md:mb-6'>Platform Activities</h2>
+                    <div className='space-y-2 px-16 md:px-32 py-6 md:py-12'>
                         <p>Total Buyers: {stats.buyers}</p>
                         <p>Total Workers: {stats.workers}</p>
                         <p className='flex items-center gap-1'>

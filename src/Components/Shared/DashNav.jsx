@@ -23,7 +23,7 @@ const DashNav = () => {
             return res.data || []
         }
     })
-    console.log(notifications);
+   
 
 
     return (

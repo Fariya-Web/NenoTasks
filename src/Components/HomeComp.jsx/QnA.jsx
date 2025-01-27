@@ -10,9 +10,11 @@ const QnA = () => {
             <p className='text-lg mt-8 mb-12 font-semibold md:w-[55%]'>Find quick answers to the most common questions about NanoTasks. If you need more help, feel free to reach out to our support team!</p>
 
             <div className='md:flex justify-between flex-row-reverse'>
+                
                 <motion.img 
                 whileHover={{ scale: 1.05 }}
-                className='md:w-[50%] rounded' src={curious} alt="" />
+                className='md:w-[50%] rounded-md' src={curious} alt="" />
+
                 <div className='md:w-[48%] my-auto'>
                     <div className="collapse collapse-arrow border-b border-[#f8d3fc] rounded-none my-2">
                         <input type="radio" name="my-accordion-2"  />

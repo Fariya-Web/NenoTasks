@@ -32,7 +32,6 @@ const style = {
 const BuyerHome = () => {
 
     const [dbuser] = useUser()
-    console.log(dbuser);
     const axiosSecure = useAxiosSecure()
     const [showModal, setShowmodal] = useState(false)
     const [selected, setSelected] = useState()
@@ -45,7 +44,6 @@ const BuyerHome = () => {
             return res.data || {}
         }
     })
-    console.log(stats)
 
     const { data: submissions = [], isLoading, refetch } = useQuery({
         queryKey: ['submission'],
@@ -94,7 +92,7 @@ const BuyerHome = () => {
                                 Time: new Date(),
                             }
                             axiosSecure.post('/notifications', notification)
-                                .then(res => { console.log(res); })
+                                .then(res => {  })
                             refetch()
                         }
                     })
@@ -129,7 +127,7 @@ const BuyerHome = () => {
                                 Time: new Date(),
                             }
                             axiosSecure.post('/notifications', notification)
-                                .then(res => { console.log(res); })
+                                .then(res => { })
                             refetch()
                         }
                     })

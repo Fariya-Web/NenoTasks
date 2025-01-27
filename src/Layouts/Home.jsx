@@ -5,6 +5,7 @@ import TopWorkers from '../Components/HomeComp.jsx/TopWorkers';
 import Testimonials from '../Components/HomeComp.jsx/Testimonials';
 import Safety from '../Components/HomeComp.jsx/Safety';
 import QnA from '../Components/HomeComp.jsx/QnA';
+import Whyus from '../Components/HomeComp.jsx/Whyus';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
             <Banner/>
+            <Whyus/>
             <TopWorkers/>
             <Safety/>
             <QnA/>

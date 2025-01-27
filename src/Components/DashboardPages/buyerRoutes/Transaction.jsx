@@ -19,7 +19,6 @@ const Transaction = () => {
             return res.data || []
         }
     })
-    console.log(payments);
 
     return (
         <div className='min-h-[calc(100vh-370px)] py-10'>

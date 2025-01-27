@@ -25,7 +25,6 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin()
     const [isBuyer] = useBuyer()
     const [isWorker] = useWorker()
-    console.log({isAdmin, isBuyer, isWorker});
 
     return (
         <div>
@@ -48,7 +47,7 @@ const Dashboard = () => {
                     <Footer />
 
                 </div>
-                <div className="drawer-side border-r border-white">
+                <div className="drawer-side z-20 border-r border-white">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-gradient-to-br from-[#f1f5fb] to-[#d2e3fb] text-xl min-h-full w-80 p-4">
                         {/* Sidebar content here */}

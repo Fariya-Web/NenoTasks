@@ -16,7 +16,6 @@ const Withdrawals = () => {
 
     const withdrawCoin = watch("withdrawal_coin") || 0
     const amount = (withdrawCoin * 0.05).toFixed(2)
-    console.log(amount);
 
     const onSubmit = async (data) => {
 
@@ -38,10 +37,10 @@ const Withdrawals = () => {
             withdraw_date: new Date(),
             status: 'pending'
         }
-        console.log(withdrawalReq);
+
 
         const res = await axiosSecure.post('/withdraws', withdrawalReq)
-        console.log(res);
+      
         if (res.data.acknowledged) {
             toast.success('Withdrawal request sent to admin')
             const notification = {
@@ -50,7 +49,7 @@ const Withdrawals = () => {
                 Time: new Date(),
             }
             axiosSecure.post('/notifications', notification)
-                .then(res => { console.log(res); })
+                .then(res => { })
             reset()
         }
 

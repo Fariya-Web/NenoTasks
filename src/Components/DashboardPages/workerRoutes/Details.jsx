@@ -59,11 +59,10 @@ const Details = () => {
                     current_date: new Date(),
                     status: 'pending'
                 }
-                console.log(submitinfo);
+               
 
                 axiosSecure.post('/submissions', submitinfo)
                     .then(res => {
-                        console.log(res);
                         refetch()
                     })
 
@@ -78,7 +77,7 @@ const Details = () => {
                     Time: new Date(),
                 }
                 axiosSecure.post('/notifications', notification)
-                    .then(res => { console.log(res); })
+                    .then(res => {  })
             }
         });
     }

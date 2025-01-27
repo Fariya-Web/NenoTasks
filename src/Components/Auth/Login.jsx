@@ -47,7 +47,6 @@ const Login = () => {
     const handleGoogle = () => {
         loginWithGoogle()
             .then(res => {
-                console.log(res.user)
                 toast.success('Logged in with google')
                 navigate('/')
                 const userInfo = {
@@ -63,10 +62,9 @@ const Login = () => {
                             setLoading(false)
                         }
                     })
-                    .catch(err => { console.log(err) })
+                    .catch(err => {  })
             })
             .catch(err => {
-                console.log(err)
                 toast.error('Something went wrong. try again')
             })
     }
