@@ -17,7 +17,7 @@ const DashNav = () => {
     const axiosSecure = useAxiosSecure()
 
     const { data: notifications = [], isLoading } = useQuery({
-        queryKey: ['notification', user.email],
+        queryKey: ['notification'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/notifacions/${dbuser?.email}`)
             return res.data || []

@@ -88,7 +88,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/tasklist/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/task/${params.id}`),
+                loader: ({params})=> fetch(`https://nanotasks-server.vercel.app/task/${params.id}`),
                 element: <WorkerRoute><Details/></WorkerRoute>
             },
             {
@@ -123,7 +123,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/purchase/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/package/${params.id}`),
+                loader: ({params})=> fetch(`https://nanotasks-server.vercel.app/package/${params.id}`),
                 element: <BuyerRoute><Payment/></BuyerRoute>  
             },
             {

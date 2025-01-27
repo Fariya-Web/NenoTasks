@@ -126,7 +126,7 @@ const Login = () => {
                         <motion.button 
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
-                        disabled={false} className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Login</motion.button>
+                        disabled={disable} className="btn bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa]">Login</motion.button>
                     </div>
                 </form>
 

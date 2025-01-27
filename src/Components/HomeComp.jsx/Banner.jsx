@@ -23,6 +23,7 @@ import lottitask from '../../assets/banner/task.json'
 import lottichange from '../../assets/banner/exchange.json'
 import girlbanner from '../../assets/banner/girlbanner.jpg'
 import boybannner from '../../assets/banner/boybanner.jpg'
+import lottiebanner1 from '../../assets/banner/Lottie/lottiebanner1.json'
 
 import { SlDirection } from "react-icons/sl";
 import { Link } from 'react-router-dom';
@@ -101,11 +102,11 @@ const Banner = () => {
 
                 <SwiperSlide>
                     <div className='h-[650px] lg:h-[550px] grid lg:grid-cols-2 pb-8 max-w-screen-2xl mx-auto'>
-                        <Lottie className='w-72 md:w-[480px] mx-auto'
-                            animationData={lottiework}
+                        <Lottie className='w-80 md:w-[760px] mx-auto'
+                            animationData={lottiebanner1}
                             loop={true}
                             height={400}
-                            width={400} />
+                            width={500} />
                         <div className='w-[94%] md:w-[90%] lg:w-[80%] mx-auto my-auto'>
                             <h1 className='text-3xl md:text-5xl font-bold '>Turn Your Free Time into Income</h1>
 
@@ -116,8 +117,8 @@ const Banner = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <div className='h-[650px] lg:h-[550px] grid lg:flex flex-row-reverse justify-evenly pb-8 max-w-screen-2xl mx-auto'>
-                        <Lottie className='w-72 md:w-[480px] mx-auto'
+                    <div className='h-[650px] lg:h-[550px] grid lg:flex flex-row-reverse justify-evenly pb-8 max-w-screen-2xl w-[96%] mx-auto'>
+                        <Lottie className='w-72 md:w-[800px] mx-auto'
                             animationData={lottitask}
                             loop={true}
                             height={400}
