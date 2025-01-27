@@ -12,7 +12,6 @@ import useUser from '../../../Hooks/useUser';
 const AdminHome = () => {
 
     const axiosSecure = useAxiosSecure()
-    const axiosPublic = useAxiosPublic()
     const [dbuser] = useUser()
 
     const { data: stats = {}, isLoading: loading, refetch: statrefetch } = useQuery({
@@ -23,9 +22,6 @@ const AdminHome = () => {
         }
     })
     console.log(stats);
-    if (loading) {
-        return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
-    }
 
     const { data: requests = [], isLoading, refetch } = useQuery({
         queryKey: ['request'],
@@ -34,13 +30,12 @@ const AdminHome = () => {
             return res.data || []
         }
     })
-    if (isLoading) {
+    if (isLoading || loading) {
         return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
     }
 
 
-    const handleApproved = (id) => {
-        console.log(id);
+    const handleApproved = (req) => {
         Swal.fire({
             title: "Do you want to approve this request?",
             text: "You won't be able to revert this!",
@@ -52,7 +47,7 @@ const AdminHome = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.patch(`/withdraw/${id}`)
+                axiosSecure.patch(`/withdraw/${req._id}`)
                     .then(res => {
 
                         if (res.data.acknowledged) {
@@ -61,6 +56,13 @@ const AdminHome = () => {
                                 text: "This withdrawal request has been approved.",
                                 icon: "success"
                             });
+                            const notification = {
+                                message: `Your withdrawal request for ${req.withdrawal_coin} coins was approved. ${req.withdrawal_amount}$ was sent to your ${req.payment_system} account`,
+                                ToEmail: req.worker_email,
+                                Time: new Date(),
+                            }
+                            axiosSecure.post('/notifications', notification)
+                                .then(res => { console.log(res); })
                             refetch()
                         }
                     })
@@ -86,7 +88,7 @@ const AdminHome = () => {
                         <p className='flex items-center gap-1'>
                             Total Coins: {stats.totalCoins}
                             <img className='w-6 h-6' src={coin} alt="" />
-                            </p>
+                        </p>
 
                     </div>
                 </div>
@@ -132,7 +134,7 @@ const AdminHome = () => {
 
                                         <td>{format(req.withdraw_date, 'dd-MM-yyyy')}</td>
 
-                                        <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(req._id)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
+                                        <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(req)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
 
                                     </tr>
                                 )

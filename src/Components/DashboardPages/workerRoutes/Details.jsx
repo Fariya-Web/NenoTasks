@@ -18,7 +18,7 @@ const Details = () => {
 
     const { id } = useParams()
     const axiosSecure = useAxiosSecure()
-    const [dbuser ] = useUser()
+    const [dbuser] = useUser()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const { data: task, isLoading, refetch } = useQuery({
@@ -41,7 +41,7 @@ const Details = () => {
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#8cbefa",
-           
+
             confirmButtonText: "Yes, submit!"
         }).then((result) => {
             if (result.isConfirmed) {
@@ -61,16 +61,23 @@ const Details = () => {
                 console.log(submitinfo);
 
                 axiosSecure.post('/submissions', submitinfo)
-                .then(res => {
-                    console.log(res);
-                    refetch()
-                })
+                    .then(res => {
+                        console.log(res);
+                        refetch()
+                    })
 
                 Swal.fire({
                     title: "Submitted!",
                     text: "Your task has been submitted.",
                     icon: "success"
                 });
+                const notification = {
+                    message: `Review ${task.task_title} submition by ${dbuser?.email}`,
+                    ToEmail: task.buyer_email,
+                    Time: new Date(),
+                }
+                axiosSecure.post('/notifications', notification)
+                    .then(res => { console.log(res); })
             }
         });
     }

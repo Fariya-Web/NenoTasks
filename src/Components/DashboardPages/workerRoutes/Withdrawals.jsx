@@ -43,6 +43,13 @@ const Withdrawals = () => {
         console.log(res);
         if (res.data.acknowledged) {
             toast.success('Withdrawal request sent to admin')
+            const notification = {
+                message: `${dbuser.email} has requested to withdraw ${data.withdrawal_coin} coins. `,
+                ToEmail: 'fariya@gmail.com',
+                Time: new Date(),
+            }
+            axiosSecure.post('/notifications', notification)
+            .then(res =>{console.log(res);})
             reset()
         }
 

@@ -24,12 +24,10 @@ const CheckoutForm = ({ price, coin, category }) => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
 
-    console.log({ price, coin });
 
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price })
             .then(res => {
-                console.log(res.data.clientSecret)
                 setClientSecret(res.data.clientSecret)
             })
     }, [axiosSecure, price])
@@ -52,7 +50,6 @@ const CheckoutForm = ({ price, coin, category }) => {
         })
 
         if (error) {
-            console.log('error', error);
             toast.error(error.message)
         } else {
             console.log('payment method', paymentMethod);

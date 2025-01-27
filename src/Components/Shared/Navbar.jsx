@@ -24,7 +24,7 @@ const Navbar = () => {
             })
             .catch(err => {
 
-                toast.error('Failed to sign out. try again', {position: 'top-center'})
+                toast.error('Failed to sign out. try again')
             })
         setLoading(false)
     }

@@ -6,15 +6,29 @@ import { AuthContext } from '../Provider/AuthProvider';
 import logo from '../../assets/logo/image.png'
 import { Link } from 'react-router-dom';
 import { IoMdNotificationsOutline } from 'react-icons/io';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { format } from 'date-fns';
 
 const DashNav = () => {
 
-    const [dbuser, isLoading] = useUser()
+    const [dbuser] = useUser()
     const { user } = useContext(AuthContext)
+    const axiosSecure = useAxiosSecure()
+
+    const { data: notifications = [], isLoading } = useQuery({
+        queryKey: ['notification', user.email],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/notifacions/${dbuser?.email}`)
+            return res.data || []
+        }
+    })
+    console.log(notifications);
+
 
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className='sticky top-0 z-10 bg-white bg-opacity-80'>
+            <div className="navbar">
                 <div className="navbar-start">
 
                     {/* sidebar button */}
@@ -40,7 +54,7 @@ const DashNav = () => {
                     </div>
 
                     {/* picture */}
-                    <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
+                    <div role="button" className="btn mx-2 btn-ghost btn-circle avatar">
                         <div className="w-11 rounded-full">
                             <img
                                 alt="Tailwind CSS Navbar component"
@@ -55,12 +69,26 @@ const DashNav = () => {
                     </div>
 
                     {/* notification */}
-                    <button className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                            <IoMdNotificationsOutline className='text-4xl' />
-                            <span className="badge badge-sm bg-red-600 indicator-item"></span>
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-9 rounded-full">
+                                <IoMdNotificationsOutline className='text-4xl' />
+                            </div>
                         </div>
-                    </button>
+                        <ul
+                            tabIndex={0}
+                            className=" dropdown-content h-fit max-h-96 overflow-x-auto bg-base-100 rounded-box z-[1] mt-6 mr-39 w-96 p-4 px-6 text- shadow">
+                            {
+                                notifications?.map((notif, index) => (
+                                    <div className='border-b py-2'>
+                                        <li key={index} className=' font-medium'>{notif.message}</li>
+                                        <p className='text-end'>{format(notif.Time, 'dd-MM-yyyy')}</p>
+                                    </div>
+                                ))
+                            }
+                            
+                        </ul>
+                    </div>
 
                 </div>
             </div>

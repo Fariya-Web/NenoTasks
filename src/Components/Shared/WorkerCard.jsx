@@ -16,7 +16,7 @@ const WorkerCard = ({ worker }) => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
                 className='bg-white p-2 rounded-lg relative group'>
-                <img className='w-full h-52 rounded-md ' src={photo_url} alt="" />
+                <img className='w-full h-64 rounded-md ' src={photo_url} alt="" />
                 
                 <div
                     className='absolute left-10 right-10 bottom-2 mt-2 hidden px-2 py-1 rounded group-hover:block'>

@@ -40,7 +40,7 @@ const WorkerHome = () => {
             <div className='py-20 border border-white rounded-lg grid grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
 
                 <div className='text-center border-r-4 border-white'>
-                    <img className='rounded-full border border-white my-2    p-1 w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
+                    <img className='rounded-full border my-2 w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
 
@@ -76,7 +76,7 @@ const WorkerHome = () => {
                         <tbody className='text-lg'>
                             {
                                 approved?.map((task, index) =>
-                                    <tr >
+                                    <tr key={index}>
                                         <th>{index + 1}</th>
 
                                         <td className='w-[24%] text-start font-medium'>{task.task_title}</td>

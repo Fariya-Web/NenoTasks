@@ -35,7 +35,7 @@ const BuyerHome = () => {
     const [showModal, setShowmodal] = useState(false)
     const [selected, setSelected] = useState()
 
- 
+
     const { data: stats = {}, refetch: statrefetch } = useQuery({
         queryKey: ['stat'],
         queryFn: async () => {
@@ -65,7 +65,7 @@ const BuyerHome = () => {
         setSelected(null);
     };
 
-    const handleApproved = (id) => {
+    const handleApproved = (task) => {
         Swal.fire({
             title: "Do you want to approve this submission?",
             text: "You won't be able to revert this!",
@@ -77,7 +77,7 @@ const BuyerHome = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.patch(`/submit/${id}`)
+                axiosSecure.patch(`/submit/${task._id}`)
                     .then(res => {
 
                         if (res.data.acknowledged) {
@@ -86,6 +86,13 @@ const BuyerHome = () => {
                                 text: "This submission has been approved.",
                                 icon: "success"
                             });
+                            const notification = {
+                                message: `You have earned ${task.payable_amount} from ${task.buyer_email} for completing ${task.task_title}`,
+                                ToEmail: task.worker_email,
+                                Time: new Date(),
+                            }
+                            axiosSecure.post('/notifications', notification)
+                                .then(res => { console.log(res); })
                             refetch()
                         }
                     })
@@ -93,7 +100,7 @@ const BuyerHome = () => {
         });
     }
 
-    const handleReject = (id) => {
+    const handleReject = (task) => {
         Swal.fire({
             title: "Do you want to reject this submission?",
             text: "You won't be able to revert this!",
@@ -105,7 +112,7 @@ const BuyerHome = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                axiosSecure.patch(`/submitR/${id}`)
+                axiosSecure.patch(`/submitR/${task._id}`)
                     .then(res => {
 
                         if (res.data.acknowledged) {
@@ -114,6 +121,13 @@ const BuyerHome = () => {
                                 text: "This submission has been rejected.",
                                 icon: "success"
                             });
+                            const notification = {
+                                message: `${task.buyer_email} rejected your submission for ${task.task_title}`,
+                                ToEmail: task.worker_email,
+                                Time: new Date(),
+                            }
+                            axiosSecure.post('/notifications', notification)
+                                .then(res => { console.log(res); })
                             refetch()
                         }
                     })
@@ -124,16 +138,16 @@ const BuyerHome = () => {
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto relative'>
-            <div className='py-20 border border-white rounded-lg grid grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
+            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
 
                 <div className='text-center border-r-4 border-white'>
                     <img className='rounded-full w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
 
-                <div className='text-xl font-medium my-auto'>
-                    <h2 className='text-3xl font-bold text-center mb-6'>Your Activities</h2>
-                    <div className='space-y-2 px-32 py-12'>
+                <div className='text-xl font-medium my-auto mt-8 md:mt-4'>
+                    <h2 className='text-3xl font-bold text-center md:mb-6'>Your Activities</h2>
+                    <div className='space-y-2 px-24 md:px-32 py-6 md:py-12'>
                         <p>Total Task: {stats.tasks}</p>
                         <p>Pending Work: {stats.totalPendingTasks}</p>
                         <p>Total Payment: {stats.totalPayments}$</p>
@@ -186,14 +200,14 @@ const BuyerHome = () => {
                                             <td>
                                                 {/* Open the modal */}
                                                 <button
-                                                    onClick={()=>handleModal(task)}
+                                                    onClick={() => handleModal(task)}
                                                     className='btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]'
                                                 >View</button>
                                             </td>
 
-                                            <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(task._id)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
+                                            <td><button className='p-1 w-10 text-2xl' onClick={() => handleApproved(task)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></button></td>
 
-                                            <td><button className='p-1 w-10 text-3xl' onClick={() => handleReject(task._id)}><HiOutlineArchiveBoxXMark className=' hover:text-[#8cbefa]' /></button></td>
+                                            <td><button className='p-1 w-10 text-3xl' onClick={() => handleReject(task)}><HiOutlineArchiveBoxXMark className=' hover:text-[#8cbefa]' /></button></td>
 
                                         </tr>
                                     )
