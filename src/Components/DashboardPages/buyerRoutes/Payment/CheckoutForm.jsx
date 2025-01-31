@@ -9,6 +9,7 @@ import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import logo from '../../../../assets/logo/image.png'
 import stripelogo from '../../../../assets/logo/Stripe.png'
 import Swal from 'sweetalert2';
+import { motion } from 'motion/react';
 
 
 const CheckoutForm = ({ price, coin, category }) => {
@@ -113,7 +114,7 @@ const CheckoutForm = ({ price, coin, category }) => {
                     <img className='w-32 rounded-lg mx-4' src={stripelogo} alt="" />
                 </div>
                 <div className='text-2xl lg:text-3xl py-8 mx-4 font-medium'>
-                    Pay Amount: {price} $
+                    Pay Amount: {price/100} $
                 </div>
             </div>
 

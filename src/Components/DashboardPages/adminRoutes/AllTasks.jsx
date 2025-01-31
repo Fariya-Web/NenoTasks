@@ -83,6 +83,7 @@ const AllTasks = () => {
                         </thead>
                         <tbody className='text-lg'>
                             {
+                                Array.isArray(tasks)? 
                                 tasks?.map((task, index) =>
                                     <tr key={index}>
                                         <th>{index + 1}</th>
@@ -112,6 +113,7 @@ const AllTasks = () => {
 
                                     </tr>
                                 )
+                                : []
                             }
                         </tbody>
                     </table>

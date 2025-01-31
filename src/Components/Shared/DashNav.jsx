@@ -23,7 +23,6 @@ const DashNav = () => {
             return res.data || []
         }
     })
-   
 
 
     return (
@@ -80,7 +79,7 @@ const DashNav = () => {
                             className=" dropdown-content h-fit max-h-96 overflow-x-auto bg-base-100 rounded-box z-[1] mt-6 mr-39 w-96 p-4 px-6 text- shadow">
                             {
                                 notifications?.map((notif, index) => (
-                                    <div className='border-b py-2'>
+                                    <div key={index} className='border-b py-2'>
                                         <li key={index} className=' font-medium'>{notif.message}</li>
                                         <p className='text-end'>{format(notif.Time, 'dd-MM-yyyy')}</p>
                                     </div>
