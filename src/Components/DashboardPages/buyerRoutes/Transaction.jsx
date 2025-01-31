@@ -49,7 +49,7 @@ const Transaction = () => {
 
                                         <td className='font-medium'>{pay?.transactionId || 'No transaction ID'}</td>
 
-                                        <td> {pay.price} $</td>
+                                        <td> {pay.price/100} $</td>
 
                                         <td >
                                             <div className='flex gap-1 items-center justify-center'>
