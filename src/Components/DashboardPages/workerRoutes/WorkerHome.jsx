@@ -11,7 +11,7 @@ const WorkerHome = () => {
     const axiosSecure = useAxiosSecure()
     const [dbuser] = useUser()
 
-    const { user } = useContext(AuthContext)
+    const { user, dark } = useContext(AuthContext)
 
 
 
@@ -37,9 +37,9 @@ const WorkerHome = () => {
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto'>
-            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
+            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 dark:border-none bg-gradient-to-br dark:from-[#2c275f] dark:to-[#4a1542] from-[#cae0ff] to-[#fcc3ff] '>
 
-                <div className='text-center md:border-r-4 border-white'>
+                <div className='text-center md:border-r-4 dark:md:border-r  border-white'>
                     <img className='rounded-full border my-2 w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
@@ -56,16 +56,16 @@ const WorkerHome = () => {
             </div>
 
 
-            <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded'>
+            <div className='max-w-screen-xl w-[92%] mx-auto bg-white dark:bg-[#271c2d] p-12 my-12 rounded'>
                 <div className='flex justify-between uppercase'>
                     <h2 className='text-xl md:text-2xl font-semibold'>Approved Tasks: {approved.length}</h2>
                 </div>
 
                 <div className="overflow-x-auto rounded-xl my-8">
-                    <table className="table table-zebra text-center ">
+                    <table className={dark? "table text-center" : "table table-zebra text-center" }>
                         {/* head */}
-                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
-                            <tr className='h-16'>
+                        <thead className='bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                            <tr className='h-16 dark:text-white'>
                                 <th></th>
                                 <th>Task</th>
                                 <th>Buyer</th>

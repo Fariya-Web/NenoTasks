@@ -57,7 +57,7 @@ const Withdrawals = () => {
 
     return (
         <div className='min-h-[calc(100vh-370px)] py-10 w-[92%]  max-w-screen-xl mx-auto '>
-            <div className='p-8 md:p-14 border border-white rounded-lg bg-gradient-to-br from-[#dce9fb] to-[#fbe4fc] text-center'>
+            <div className='p-8 md:p-14 border border-white rounded-lg dark:border-none bg-gradient-to-br dark:from-[#2c275f] dark:to-[#4a1542] from-[#dce9fb] to-[#fbe4fc] text-center'>
                 <h3 className='text-4xl font-semibold'>Your Earning</h3>
                 <div className='md:flex justify-evenly my-10 font-semibold text-2xl'>
 
@@ -73,62 +73,62 @@ const Withdrawals = () => {
 
             </div>
 
-            <div className='p-5 md:p-10 my-10 rounded-lg bg-white'>
+            <div className='p-5 md:p-10 my-10 rounded-lg bg-white dark:bg-[#271c2d] '>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body grid gap-3 md:grid-cols-2">
 
                     {/* coin */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Withdrawal Coin</span>
+                            <span className="label-text text-white">Withdrawal Coin</span>
                         </label>
 
                         <input
                             type="number"
                             placeholder="Enter coins"
                             {...register("withdrawal_coin")}
-                            className="input input-bordered" required />
+                            className="input input-bordered dark:border-white dark:bg-[#271c2d]" required />
                     </div>
 
 
                     {/* amount */}
-                    <div className="form-control">
+                    <div className="form-control dark:text-white">
                         <label className="label">
-                            <span className="label-text">Withdrawal Amount</span>
+                            <span className="label-text text-white">Withdrawal Amount</span>
                         </label>
 
                         <input
-                            disabled
+                            // disabled
                             value={`${amount} $`}
                             {...register("withdrawal_amount")}
-                            className="input input-bordered" required />
+                            className="input input-bordered dark:border-white dark:text-white dark:bg-[#271c2d] font-semibold text-xl" required />
                     </div>
 
 
                     {/* account number */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Account number</span>
+                            <span className="label-text text-white">Account number</span>
                         </label>
 
                         <input
                             type="text"
                             placeholder="Enter account number"
                             {...register("account_number")}
-                            className="input input-bordered" required />
+                            className="input input-bordered dark:bg-[#271c2d] dark:border-white" required />
                     </div>
 
 
                     {/* system select */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Payment System</span>
+                            <span className="label-text text-white">Payment System</span>
                         </label>
 
                         <select
                             type="number"
                             defaultValue={'default'}
                             {...register("payment_system")}
-                            className="input input-bordered" required >
+                            className="input input-bordered dark:bg-[#271c2d] dark:border-white" required >
                             <option disabled value="default">Select Payment System</option>
                             <option value='bkash'>Bkash</option>
                             <option value='rocket'>Rocket</option>
@@ -144,7 +144,7 @@ const Withdrawals = () => {
                             <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.8 }}
-                                className="btn md:col-span-2 mx-12 mt-6 bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">
+                                className="btn md:col-span-2 mx-12 mt-6 dark:border-none dark:text-white bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#97c4fa] to-[#f9c0fe]">
                                 Withdraw
                             </motion.button>
                     }

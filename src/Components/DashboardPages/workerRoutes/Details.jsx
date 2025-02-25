@@ -86,7 +86,7 @@ const Details = () => {
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto'>
-            <div className='p-4 border border-white rounded-lg grid gap-5 md:grid-cols-2 bg-gradient-to-br from-[#dce9fb] to-[#fbe4fc] '>
+            <div className='p-4 border border-white rounded-lg grid gap-5 md:grid-cols-2 dark:border-none bg-gradient-to-br dark:from-[#342e70] dark:to-[#5b1a51] from-[#dce9fb] to-[#fbe4fc] '>
                 <img className='rounded-md' src={task?.task_image_url} alt="" />
                 <div>
                     <h2 className='text-4xl font-bold'>{task?.task_title}</h2>
@@ -132,28 +132,28 @@ const Details = () => {
             </div>
 
             {/* form */}
-            <div className='bg-white my-12 p-6 lg:p-12 rounded-lg'>
+            <div className='bg-white my-12 p-6 lg:p-12 rounded-lg dark:bg-[#221827]'>
                 <h2 className='text-3xl font-semibold'>Submission form -</h2>
                 {/* title */}
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                     <div className="form-control md:col-span-2">
                         <label className="label">
-                            <span className="label-text text-lg">Submission Details</span>
+                            <span className="label-text text-lg dark:text-white">Submission Details</span>
                         </label>
 
                         <input
                             type="text"
                             placeholder="Enter submission details"
                             {...register("submission_Details")}
-                            className="textarea textarea-bordered h-32" required />
+                            className="textarea textarea-bordered h-32 dark:bg-[#221827] dark:border-white" required />
                     </div>
 
                     <div className="form-control mt-4 md:col-span-2 flex items-end">
                         <motion.button 
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
-                        className="btn w-48 bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Submit</motion.button>
+                        className="btn w-48 dark:text-white dark:border-none bg-gradient-to-r dark:from-[#342e70] dark:to-[#5b1a51] from-[#97c4fa] to-[#f9c0fe]">Submit</motion.button>
                     </div>
 
                 </form>

@@ -77,7 +77,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content dark:bg-[#271c2d] bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl">
                             {links}
                         </ul>
                     </div>
@@ -120,7 +120,7 @@ const Navbar = () => {
 
                                 </div>
                                 :
-                                <div className="join">
+                                <div className="join mx-1">
                                     <div className='join-item my-auto rounded-lg'>
                                         <Link to={'/auth'} className="p-2 px-4 border-2 border-white join-item">Login</Link>
                                     </div>
@@ -131,7 +131,7 @@ const Navbar = () => {
                         }
 
                     </div>
-                    <div className="">
+                    <div className="flex">
                         <label className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
                             <input type="checkbox" onClick={handleTheme} />

@@ -10,10 +10,12 @@ const WorkerRoute = ({ children }) => {
     const location = useLocation()
 
     if (loading || isLoading) {
+        console.log(loading, isLoading);
         return <div className='min-h-screen flex justify-center items-center'><span className="loading loading-ring loading-lg"></span></div>
     }
 
     if (user && isWorker) {
+        console.log(user, isWorker);
         setLoading(false)
         return children
     }

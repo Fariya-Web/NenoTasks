@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useUser from '../../../Hooks/useUser';
 import coin from '../../../assets/icons/coin.png'
 import buyer from '../../../assets/icons/business-women.png'
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Submission = () => {
 
+    const {dark} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
     const [dbuser] = useUser()
 
@@ -25,16 +27,16 @@ const Submission = () => {
     return (
         <div className='py-10'>
 
-            <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded'>
+            <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded dark:bg-[#271c2d]'>
 
                 <div className='flex justify-between uppercase'>
                     <h2 className='text-xl md:text-2xl font-semibold'>Total Tasks: {mysubmissions.length}</h2>
                 </div>
 
-                <div className="overflow-x-auto rounded-xl my-8">
-                    <table className="table table-zebra text-center ">
+                <div className="overflow-x-auto rounded-xl my-8 ">
+                    <table className={dark?"table text-center ": "table table-zebra text-center "}>
 
-                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                        <thead className='dark:text-white bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Task</th>

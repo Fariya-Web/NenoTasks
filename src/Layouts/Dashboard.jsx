@@ -34,9 +34,9 @@ const Dashboard = () => {
                 <link rel="canonical" href="https://www.tacobell.com/" />
             </Helmet>
 
-            <div className="drawer lg:drawer-open">
+            <div className="drawer lg:drawer-open dark:text-white">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content bg-[#edeff0]">
+                <div className="drawer-content bg-[#edeff0] dark:bg-[#110b14]">
                     {/* Page content here */}
                     {/* sidewbar button */}
                     {/* <label htmlFor="my-drawer-2" className=" drawer-button absolute left-5 top-3 lg:hidden">
@@ -47,14 +47,14 @@ const Dashboard = () => {
                     <Footer />
 
                 </div>
-                <div className="drawer-side z-20 border-r border-white">
+                <div className="drawer-side z-20 border-r border-white dark:border-none">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-gradient-to-br from-[#f1f5fb] to-[#d2e3fb] text-xl min-h-full w-80 p-4">
+                    <ul className="menu bg-gradient-to-br dark:from-[#2c1d34] dark:to-[#4a1542] from-[#f1f5fb] to-[#d2e3fb] text-xl min-h-full w-80 p-4">
                         {/* Sidebar content here */}
 
                         <div className=' flex gap-4 mx-auto py-14'>
                             <img className='w-10' src={logo} alt="" />
-                            <Link to={'/'} className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#88bcfc] to-[#f2aef8] text-transparent bg-clip-text">NanoTasks</Link>
+                            <Link to={'/'} className=" text-2xl md:text-3xl font-bold ">NanoTasks</Link>
                         </div>
 
 
@@ -114,7 +114,7 @@ const Dashboard = () => {
                         }
 
 
-                        <hr className='my-10 bg-white h-1' />
+                        <hr className='my-10 bg-white dark:h-[1px] h-1' />
 
                         {/* shared routes */}
                         <div className='uppercase'>
