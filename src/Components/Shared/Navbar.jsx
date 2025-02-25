@@ -45,38 +45,15 @@ const Navbar = () => {
                 <li><Link to={'/dashboard/buyerhome'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
             }
 
-            <li><a href='https://github.com/Fariya-Khan-Web/NanoTasks' className='mx-3 underline text-lg hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text '>Join as Developer</a></li>
+            <li><a href='https://github.com/Fariya-Khan-Web/NanoTasks' className='mx-3 underline text-lg hover:text-[#b0d4ff] '>Join as Developer</a></li>
 
-
-            {
-                user &&
-                <>
-                    <div className='relative group hidden lg:block'>
-                        <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
-                            <div className="w-11 rounded-full">
-                                <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src={dbuser?.photo_url || user?.photoURL} />
-                            </div>
-                        </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#afd3ff] to-[#fbceff] rounded group-hover:block">
-                            {user?.displayName}
-                        </div>
-                    </div>
-
-                    <div className='grid grid-cols-2 border-2 p-1 px-2 mx-1 my-2 min-w-14  rounded-md'>
-                        <div className=' my-auto md:mx-auto text-lg'>{dbuser?.coin}</div>
-                        <div><img className='w-8' src={bank} alt="" /></div>
-                    </div>
-                </>
-            }
         </>
 
 
 
     return (
-        <div className='sticky top-0 z-10 bg-white bg-opacity-70'>
-            <div className="navbar lg:w-[94%] md:w-[98%]  mx-auto flex justify-between">
+        <div className='sticky top-0 z-10 bg-whit bg-gradient-to-r from-[#8cbefa]/50 to-[#f4b4fa]/40 bg-opacity-70 font-medium'>
+            <div className="navbar lg:w-[94%] md:w-[98%] max-w-screen-2xl mx-auto flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -99,8 +76,8 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <img className='w-10 mx-2 hidden md:block' src={logo} alt="" />
-                    <Link to={'/'} className=" md:text-4xl font-bold text-xl  bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] text-transparent bg-clip-text">NanoTasks</Link>
+                    <img className='w-10 mr-2 hidden md:block' src={logo} alt="" />
+                    <Link to={'/'} className=" md:text-4xl font-bold text-xl  bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] bg-clip-text">NanoTasks</Link>
                 </div>
                 <div className=' flex items-center'>
 
@@ -113,7 +90,13 @@ const Navbar = () => {
                         {
                             user ?
                                 <div className='flex items-center'>
-                                    <div className='relative group lg:hidden'>
+
+                                    <div className='grid grid-cols-2 border-2 p-1 px-2 mx-1 my-2 min-w-14  rounded-md'>
+                                        <div className=' my-auto md:mx-auto text-lg'>{dbuser?.coin}</div>
+                                        <div><img className='w-8' src={bank} alt="" /></div>
+                                    </div>
+
+                                    <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn mx-2 btn-ghost btn-circle avatar">
                                             <div className="w-10 rounded-full">
                                                 <img
@@ -121,25 +104,23 @@ const Navbar = () => {
                                                     src={dbuser?.photo_url || user?.photoURL} />
                                             </div>
                                         </div>
-                                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden px-2 py-1 bg-gradient-to-r from-[#c6defc] to-[#fcdaff] border border-white rounded group-hover:block">
-                                            {user?.displayName}
-                                        </div>
+                                        <ul
+                                            tabIndex={0}
+                                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                            <li><a>{user?.displayName}</a></li>
+                                            <li><a>Update Profile</a></li>
+                                            <li onClick={handleSignout}><a>Logout</a></li>
+                                        </ul>
                                     </div>
-                                    
-                                    <motion.button
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.8 }}
-                                     onClick={handleSignout} 
-                                     className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] rounded-lg border">Log Out</motion.button>
 
                                 </div>
                                 :
                                 <div className="join">
                                     <div className='join-item my-auto rounded-lg'>
-                                        <Link to={'/auth'} className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] join-item">Login</Link>
+                                        <Link to={'/auth'} className="p-2 px-4 border-2 border-white join-item">Login</Link>
                                     </div>
                                     <div className='join-item my-auto rounded-lg'>
-                                        <Link to={'/auth/register'} className="p-2 px-4 bg-gradient-to-r from-[#b0d4ff] to-[#f9d8fc] hover:from-[#a9cffc] hover:to-[#fac8ff] join-item">Register</Link>
+                                        <Link to={'/auth/register'} className="p-2 px-4 border-2 border-white join-item">Register</Link>
                                     </div>
                                 </div>
                         }
