@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import coin from '../../../assets/icons/coin.png'
 import { MdDoneOutline } from 'react-icons/md';
@@ -8,11 +8,13 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useUser from '../../../Hooks/useUser';
 import { motion } from 'motion/react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const AdminHome = () => {
 
     const axiosSecure = useAxiosSecure()
+    const { user, dark } = useContext(AuthContext)
     const [dbuser] = useUser()
 
     const { data: stats = {}, isLoading: loading, refetch: statrefetch } = useQuery({
@@ -73,9 +75,9 @@ const AdminHome = () => {
 
     return (
         <div className='min-h-[calc(100vh-370px)] py-10 w-[92%]  max-w-screen-xl mx-auto '>
-            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
+            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 dark:border-none bg-gradient-to-br dark:from-[#2c275f] dark:to-[#4a1542] from-[#cae0ff] to-[#fcc3ff] '>
 
-                <div className='text-center border-r-4 border-white'>
+                <div className='text-center border-r-4 dark:border-r-[1px] border-white'>
                     <img className='rounded-full w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
@@ -96,12 +98,12 @@ const AdminHome = () => {
             </div>
 
 
-            <div className='bg-white p-12 my-12 rounded'>
+            <div className='bg-white p-12 my-12 rounded dark:bg-[#271c2d]'>
 
                 <div className="overflow-x-auto rounded-xl my-8">
-                    <table className="table table-zebra text-center ">
+                    <table className={dark?"table text-center ": "table table-zebra text-center "}>
 
-                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                        <thead className='dark:text-white bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Worker Name</th>
@@ -114,7 +116,7 @@ const AdminHome = () => {
                         <tbody className='text-lg'>
                             {
                                 requests?.map((req, index) =>
-                                    <tr key={index}>
+                                    <tr key={index} className='border-y dark:border-gray-600'>
                                         <th>{index + 1}</th>
 
                                         <td className='font-medium'>{req.worker_name}</td>
@@ -135,9 +137,9 @@ const AdminHome = () => {
                                         <td>{format(req.withdraw_date, 'dd-MM-yyyy')}</td>
 
                                         <td><motion.button
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.8 }}
-                                        className='p-1 w-10 text-2xl' onClick={() => handleApproved(req)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></motion.button></td>
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.8 }}
+                                            className='p-1 w-10 text-2xl' onClick={() => handleApproved(req)}><MdDoneOutline className=' hover:text-[#8cbefa]' /></motion.button></td>
 
                                     </tr>
                                 )

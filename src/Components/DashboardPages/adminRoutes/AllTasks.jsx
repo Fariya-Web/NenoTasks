@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import { CiEdit } from 'react-icons/ci';
 import { Link } from 'react-router-dom';
@@ -10,10 +10,11 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import worker from '../../../assets/icons/employee.png'
 import useUser from '../../../Hooks/useUser';
 import { motion } from 'motion/react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AllTasks = () => {
 
-    const axiosPublic = useAxiosPublic()
+    const {dark} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
     const [, , refetchUser] = useUser()
 
@@ -62,16 +63,16 @@ const AllTasks = () => {
     return (
         <div className='py-10'>
 
-            <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded'>
+            <div className='max-w-screen-xl w-[92%] mx-auto bg-white dark:bg-[#271c2d] p-12 my-12 rounded'>
 
                 <div className='flex justify-between uppercase'>
                     <h2 className='text-xl md:text-2xl font-semibold'>Total Tasks: {tasks.length}</h2>
                 </div>
 
                 <div className="overflow-x-auto rounded-xl my-8">
-                    <table className="table table-zebra text-center ">
+                    <table  className={dark?"table text-center ": "table table-zebra text-center "}>
                         {/* head */}
-                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                        <thead className='bg-gradient-to-r dark:text-white dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Task</th>
@@ -85,7 +86,7 @@ const AllTasks = () => {
                             {
                                 Array.isArray(tasks)? 
                                 tasks?.map((task, index) =>
-                                    <tr key={index}>
+                                    <tr key={index} className='border-y dark:border-gray-600'>
                                         <th>{index + 1}</th>
 
                                         <td className='w-[28%] text-start font-medium'>{task.task_title}</td>

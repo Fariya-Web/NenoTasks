@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import coinicon from '../../../assets/icons/coin.png'
 import worker from '../../../assets/icons/employee.png'
@@ -7,11 +7,13 @@ import buyer from '../../../assets/icons/business-women.png'
 import Swal from 'sweetalert2';
 import { MdDelete } from 'react-icons/md';
 import { motion } from 'motion/react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const AllUsers = () => {
 
     const axiosSecure = useAxiosSecure()
+    const { dark } = useContext(AuthContext)
 
     const { data: users, isLoading, refetch } = useQuery({
         queryKey: ['user'],
@@ -88,18 +90,18 @@ const AllUsers = () => {
     }
 
     return (
-        <div className='py-10'>
+        <div className='py-10 '>
 
-            <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded'>
+            <div className='max-w-screen-xl w-[92%] mx-auto bg-white dark:bg-[#271c2d] p-12 my-12 rounded'>
 
                 <div className='flex justify-between uppercase'>
                     {/* <h2 className='text-xl md:text-2xl font-semibold'>Total Tasks: {users.length}</h2> */}
                 </div>
 
                 <div className="overflow-x-auto rounded-xl my-8">
-                    <table className="table table-zebra text-center ">
+                    <table className={dark?"table text-center ": "table table-zebra text-center "}>
                         {/* head */}
-                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                        <thead className='bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] dark:text-white from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
                             <tr className='h-16'>
                                 <th></th>
                                 <th>Image</th>
@@ -114,7 +116,7 @@ const AllUsers = () => {
                         <tbody className='text-lg'>
                             {
                                 users?.map((user, index) =>
-                                    <tr key={index}>
+                                    <tr key={index} className='border-y dark:border-gray-600'>
                                         <th>{index + 1}</th>
 
                                         <td>
@@ -155,9 +157,9 @@ const AllUsers = () => {
                                             <select
                                                 defaultValue={user?.role}
                                                 onChange={(e) => handleRoleChange(user, user?._id, e.target.value)}
-                                                className="p-1 my-3 rounded-md shadow-md"
+                                                className="p-1 my-3 rounded-md dark:bg-transparent dark:text-gray-400 shadow-md"
                                             >
-                                                <option disabled={user?.role == 'buyer'} value="buyer">Buyer</option>
+                                                <option  disabled={user?.role == 'buyer'} value="buyer">Buyer</option>
                                                 <option disabled={user?.role == 'worker'} value="worker">Worker</option>
                                                 <option disabled={user?.role == 'admin'} value="admin">Admin</option>
                                             </select>
