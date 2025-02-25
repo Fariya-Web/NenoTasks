@@ -9,6 +9,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState()
     const [loading, setLoading] = useState()
+    const [dark, setDark] = useState(false)
     const axiosPublic = useAxiosPublic()
 
     const auth = getAuth(app)
@@ -76,6 +77,8 @@ const AuthProvider = ({ children }) => {
         setUser,
         loading,
         setLoading,
+        dark, 
+        setDark,
         loginWithGoogle,
         loginWithEmailPass,
         createUser,

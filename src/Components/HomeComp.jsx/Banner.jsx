@@ -33,7 +33,7 @@ import Lottie from 'lottie-react';
 const Banner = () => {
 
     return (
-        <div className='bg-base-200 py-10'>
+        <div className='bg-base-200 dark:bg-[#1b1220] py-10'>
             <Swiper
                 modules={[Parallax, Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                 spaceBetween={0}
@@ -57,7 +57,7 @@ const Banner = () => {
 
 
                 <SwiperSlide>
-                    <div className='flex flex-col lg:flex-row-reverse justify-around md:bg-base-200 py-10 w-[94%] max-w-screen-2xl mx-auto'>
+                    <div className='flex flex-col lg:flex-row-reverse justify-around md:bg-base-200 dark:bg-[#1b1220] py-10 w-[94%] max-w-screen-2xl mx-auto'>
 
                         <div className='relative w-2/3 mx-auto md:hidden'>
 
@@ -94,7 +94,7 @@ const Banner = () => {
                             <h1 className='text-3xl md:text-5xl font-bold md:w-[90%] lg:w-[60%]'>NanoTasks, Flexibility at Your Fingertips</h1>
 
                             <p className='text-lg font-medium my-6 md:w-[90%] lg:w-[60%]'>Welcome to a platform where opportunities meet convenience. Start your journey today and make every moment rewarding.</p>
-                            <Link to={'/auth/register'} className='btn bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
+                            <Link to={'/auth/register'} className='btn dark:text-white dark:border-none bg-gradient-to-r dark:from-[#4d46b0] dark:to-[#872a79] from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
 
                         </motion.div>
                     </div>
@@ -111,7 +111,7 @@ const Banner = () => {
                             <h1 className='text-3xl md:text-5xl font-bold '>Turn Your Free Time into Income</h1>
 
                             <p className='text-lg font-medium my-6 '>Discover a world of simple tasks that let you earn extra money whenever and wherever you want. Your time, your rules!</p>
-                            <Link to={'/auth/register'} className='btn bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
+                            <Link to={'/auth/register'} className='btn dark:text-white dark:border-none dark:from-[#4d46b0] dark:to-[#872a79] bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -127,7 +127,7 @@ const Banner = () => {
                             <h1 className='text-3xl md:text-5xl font-bold '>Unlock Your Earning Potential with Simple Tasks</h1>
 
                             <p className='text-lg font-medium my-6 '>Discover a world of simple tasks that let you earn extra money whenever and wherever you want. Your time, your rules!</p>
-                            <Link to={'/auth/register'} className='btn bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
+                            <Link to={'/auth/register'} className='btn dark:text-white dark:border-none dark:from-[#4d46b0] dark:to-[#872a79] bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -144,7 +144,7 @@ const Banner = () => {
                             <h1 className='text-3xl md:text-5xl font-bold '>Cash Out Your Hard-Earned Coins</h1>
 
                             <p className='text-lg font-medium my-6 '>Your efforts deserve rewards! Easily withdraw the coins you’ve earned and turn them into real money with just a few clicks.</p>
-                            <Link to={'/auth/register'} className='btn bg-gradient-to-r from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
+                            <Link to={'/auth/register'} className='btn bg-gradient-to-r dark:text-white dark:border-none dark:from-[#4d46b0] dark:to-[#872a79] from-[#aed0fa] to-[#f8cefb] text-xl text-gray-700'>Get Started<SlDirection /></Link>
                         </div>
                     </div>
                 </SwiperSlide>

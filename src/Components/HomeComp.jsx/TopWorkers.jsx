@@ -22,7 +22,7 @@ const TopWorkers = () => {
                 <p className='hidden md:block text-lg font-medium w-[90%] lg:w-[60%] my-4'>Meet our top-performing workers who have earned the most coins through their hard work and dedication. These individuals are setting the bar high, showing what it means to excel in the world of micro-tasking! </p>
                 <p className='md:hidden text-lg font-medium w-[94%] my-4'>Meet our top-performing workers who have earned the most coins through their hard work and dedication.</p>
             </div>
-            <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-screen-2xl mx-auto my-8 lg:my-14'>
+            <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-screen-2xl mx-auto my-8 lg:my-14'>
                 {
                     topworkers?.map(worker => <WorkerCard key={worker._id} worker={worker}/>)
                 }

@@ -62,3 +62,13 @@ Nanotasks is a micro-tasking and earning platform designed to help users complet
 
 **Email**: fariya@gmail.com
 **Password**: Fariya-22
+
+
+🟣 Purple: #7E22CE
+🔵 Blue: #2563EB
+🟢 Green: #22C55E
+Secondary & Neutral Colors:
+
+⚪ White: #FFFFFF
+⚫ Dark Gray/Black: #1E1E1E
+🔘 Light Gray: #F3F4F6

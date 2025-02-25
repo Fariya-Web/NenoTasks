@@ -60,10 +60,10 @@ const Testimonials = () => {
                 {
                     testimonials.map(person =>
                         <SwiperSlide key={person.id}>
-                            <div 
-                            className=' md:h-[450px] mx-2 lg:h-72 p-1 font-medium border rounded-lg bg-gradient-to-r from-[#abcffb] to-[#fbcfff]'>
-                                <div 
-                                className='bg-white h-full rounded-lg p-4 flex flex-col'>
+                            <div
+                                className=' md:h-[450px] mx-2 lg:h-72 p-1 font-medium border rounded-lg dark:border-none bg-gradient-to-r dark:from-[#2d2961] dark:to-[#571e4f] from-[#abcffb] to-[#fbcfff]'>
+                                <div
+                                    className='bg-white  dark:bg-[#1b1220] h-full rounded-lg p-4 flex flex-col'>
                                     <div className='flex justify-between '>
                                         <div className='flex gap-2 items-center'>
                                             <img className='rounded-full w-8 h-8 lg:w-14 lg:h-14' src={person.photo_url} alt="" />
@@ -74,9 +74,9 @@ const Testimonials = () => {
                                         </div>
                                         <p className='hidden lg:block'>{person.date}</p>
                                     </div>
-                                    <motion.p 
-                                    whileHover={{ scale: 1.03 }}
-                                    className='mt-2 lg:mt-6'>{person.testimonial}</motion.p>
+                                    <motion.p
+                                        whileHover={{ scale: 1.03 }}
+                                        className='mt-2 lg:mt-6'>{person.testimonial}</motion.p>
                                     <p className='lg:hidden text-end'>- {person.date}</p>
                                 </div>
                             </div>
