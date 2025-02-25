@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import useUser from '../../../Hooks/useUser';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Swal from 'sweetalert2';
 import { motion } from 'motion/react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const style = {
@@ -33,6 +34,7 @@ const BuyerHome = () => {
 
     const [dbuser] = useUser()
     const axiosSecure = useAxiosSecure()
+    const {dark} = useContext(AuthContext)
     const [showModal, setShowmodal] = useState(false)
     const [selected, setSelected] = useState()
 
@@ -138,9 +140,9 @@ const BuyerHome = () => {
 
     return (
         <div className='py-10 w-[92%]  max-w-screen-xl mx-auto relative'>
-            <div className='py-20 border border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br from-[#cae0ff] to-[#fcc3ff] '>
+            <div className='py-20 border dark:border-none border-white rounded-lg grid md:grid-cols-2 bg-gradient-to-br dark:from-[#2c275f] dark:to-[#4a1542] from-[#cae0ff] to-[#fcc3ff] '>
 
-                <div className='text-center border-r-4 border-white'>
+                <div className='text-center border-r-4 dark:border-r-[1px] border-white'>
                     <img className='rounded-full w-60 h-60 mx-auto' src={dbuser?.photo_url} alt="" />
                     <h2 className='text-4xl font-bold'>{dbuser?.name} <span className='text-lg font-medium'>({dbuser?.role})</span> </h2>
                 </div>
@@ -159,13 +161,13 @@ const BuyerHome = () => {
 
             {/* table */}
             <div>
-                <div className=' bg-white p-12 my-12 rounded'>
+                <div className=' bg-white p-12 my-12 dark:bg-[#271c2d] rounded'>
 
                     <div className="overflow-x-auto rounded-xl my-8">
-                        <table className="table table-zebra text-center ">
+                        <table  className={dark?"table text-center ": "table table-zebra text-center "}>
                             {/* head */}
-                            <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
-                                <tr className='h-16'>
+                            <thead className='dark:text-white bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                                <tr className='h-16 dark:border-b-gray-600'>
                                     <th></th>
                                     <th>Task</th>
                                     <th>Worker</th>
@@ -178,7 +180,7 @@ const BuyerHome = () => {
                             <tbody className='text-lg'>
                                 {
                                     pendings?.map((task, index) =>
-                                        <tr >
+                                        <tr key={index} className='border-y dark:border-gray-600'>
                                             <th>{index + 1}</th>
 
                                             <td className='w-[24%] text-start font-medium'>{task.task_title}</td>
@@ -203,7 +205,7 @@ const BuyerHome = () => {
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.8 }}
                                                     onClick={() => handleModal(task)}
-                                                    className='btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]'
+                                                    className='btn btn-sm px-6 dark:text-white dark:border-none bg-gradient-to-r dark:from-[#3a347e] dark:to-[#5d1b53] from-[#97c4fa] to-[#f9c0fe]'
                                                 >View</motion.button>
                                             </td>
 

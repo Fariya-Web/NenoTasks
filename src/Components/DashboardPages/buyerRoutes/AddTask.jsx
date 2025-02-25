@@ -61,104 +61,104 @@ const AddTask = () => {
   return (
     <div className='md:p-10'>
 
-      <div className='max-w-screen-xl w-[92%] mx-auto border-2 border-white bg-white lg:p-12 my-12 rounded-lg'>
+      <div className='max-w-screen-xl w-[92%] mx-auto bg-white dark:bg-[#271c2d] lg:p-12 my-12 rounded-lg'>
         <form onSubmit={handleSubmit(onSubmit)} className="card-body grid gap-3 md:grid-cols-2">
 
           <div className="form-control md:col-span-2">
             <label className="label">
-              <span className="label-text">Title</span>
+              <span className="label-text text-white">Title</span>
             </label>
 
             <input
               type="text"
               placeholder="Enter title"
               {...register("task_title")}
-              className="input input-bordered" required />
+              className="input input-bordered dark:bg-[#271c2d] dark:border-white" required />
 
           </div>
 
           <div className="form-control md:col-span-2">
             <label className="label">
-              <span className="label-text">Task Details</span>
+              <span className="label-text text-white">Task Details</span>
             </label>
 
             <input
               type="text"
               placeholder="Enter details"
               {...register("task_detail")}
-              className="textarea textarea-bordered pb-9 h-20" required />
+              className="textarea textarea-bordered pb-9 h-20 dark:bg-[#271c2d] dark:border-white" required />
 
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Required Workers</span>
+              <span className="label-text text-white">Required Workers</span>
             </label>
 
             <input
               type="number"
               placeholder="Enter worker count"
               {...register("required_workers")}
-              className="input input-bordered" required />
+              className="input input-bordered dark:bg-[#271c2d] dark:border-white" required />
 
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Payable Amount</span>
+              <span className="label-text text-white">Payable Amount</span>
             </label>
 
             <input
               type="number"
               placeholder="Enter payable amount"
               {...register("payable_amount")}
-              className="input input-bordered" required />
+              className="input input-bordered dark:bg-[#271c2d] dark:border-white" required />
 
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Deadline</span>
+              <span className="label-text text-white">Deadline</span>
             </label>
 
             <input
               type="date"
               placeholder="Enter deadline"
               {...register("completion_date")}
-              className="input input-bordered" required />
+              className="input input-bordered dark:bg-[#271c2d] dark:border-white" required />
 
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Enter Image</span>
+              <span className="label-text text-white">Enter Image</span>
             </label>
 
             <input
               type="file"
               {...register("task_image_url")}
-              className='file-input file-input-ghost file-input-bordered w-full bg-white mx-auto' required />
+              className='file-input file-input-ghost file-input-bordered w-full bg-white mx-auto dark:bg-[#271c2d] dark:border-white' required />
 
           </div>
 
           <div className="form-control md:col-span-2">
             <label className="label">
-              <span className="label-text">Submission information</span>
+              <span className="label-text text-white">Submission information</span>
             </label>
 
             <input
               type="text"
               placeholder="Enter submission requirements"
               {...register("task_detail")}
-              className="textarea textarea-bordered pb-9 h-20" required />
+              className="textarea textarea-bordered pb-9 h-20 dark:bg-[#271c2d] dark:border-white" required />
 
           </div>
 
           <div className="form-control mt-6 md:col-span-2">
             <motion.button 
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.8 }}
-            className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe]">Login</motion.button>
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.95 }}
+            className="btn bg-gradient-to-r from-[#97c4fa] to-[#f9c0fe] dark:from-[#2c275f] dark:to-[#4a1542] dark:text-white dark:border-none">Login</motion.button>
           </div>
         </form>
       </div>

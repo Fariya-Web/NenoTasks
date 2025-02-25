@@ -19,7 +19,7 @@ const Payment = () => {
 
     return (
         <div className='min-h-[calc(100vh-370px)] p-16 py-48 '>
-            <Elements className='my-auto bg-red-700' stripe={stripePromise}>
+            <Elements className='my-auto' stripe={stripePromise}>
                 <CheckoutForm  price={price} coin={coin} category={category}/>
             </Elements>
         </div>

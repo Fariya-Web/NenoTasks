@@ -15,7 +15,7 @@ import { motion } from 'motion/react';
 
 const MyTasks = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, dark } = useContext(AuthContext)
     const [, , refetchUser] = useUser()
     const axiosSecure = useAxiosSecure()
 
@@ -59,17 +59,17 @@ const MyTasks = () => {
     return (
         <div className='py-10'>
 
-            <div className='max-w-screen-xl w-[92%] mx-auto bg-white p-12 my-12 rounded'>
+            <div className='max-w-screen-xl w-[92%] mx-auto bg-white dark:bg-[#271c2d] p-12 my-12 rounded'>
 
                 <div className='flex justify-between uppercase'>
                     <h2 className='text-xl md:text-2xl font-semibold'>Total Tasks: {mytasks.length}</h2>
                 </div>
 
                 <div className="overflow-x-auto rounded-xl my-8">
-                    <table className="table table-zebra text-center ">
+                    <table  className={dark?"table text-center ": "table table-zebra text-center "}>
                         {/* head */}
-                        <thead className='bg-gradient-to-r from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
-                            <tr className='h-16'>
+                        <thead className='dark:text-white bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
+                            <tr className='h-16 dark:border-b-gray-600'>
                                 <th></th>
                                 <th>Task</th>
                                 <th>Worker Count</th>
@@ -82,7 +82,7 @@ const MyTasks = () => {
                         <tbody className='text-lg'>
                             {
                                 mytasks?.map((task, index) =>
-                                    <tr key={index}>
+                                    <tr key={index} className='border-y dark:border-gray-600'>
                                         <th>{index + 1}</th>
 
                                         <td className='w-[24%] text-start font-medium'>{task.task_title}</td>

@@ -102,7 +102,7 @@ const AllUsers = () => {
                     <table className={dark?"table text-center ": "table table-zebra text-center "}>
                         {/* head */}
                         <thead className='bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] dark:text-white from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
-                            <tr className='h-16'>
+                            <tr className='h-16 dark:border-b-gray-600'>
                                 <th></th>
                                 <th>Image</th>
                                 <th>Name</th>

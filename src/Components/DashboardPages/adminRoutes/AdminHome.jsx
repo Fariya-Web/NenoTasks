@@ -104,7 +104,7 @@ const AdminHome = () => {
                     <table className={dark?"table text-center ": "table table-zebra text-center "}>
 
                         <thead className='dark:text-white bg-gradient-to-r dark:from-[#2c275f] dark:to-[#4a1542] from-[#c3deff] to-[#fac8ff] text-lg uppercase font-medium '>
-                            <tr className='h-16'>
+                            <tr className='h-16 dark:border-b-gray-600'>
                                 <th></th>
                                 <th>Worker Name</th>
                                 <th>Withdrawal Coins</th>

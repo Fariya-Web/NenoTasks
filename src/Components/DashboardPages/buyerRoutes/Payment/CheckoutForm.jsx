@@ -102,24 +102,25 @@ const CheckoutForm = ({ price, coin, category }) => {
     }
 
     return (
-        <div className='border border-white bg-white bg-gradient-t-r from-[#deebfc] to-[#fde6ff] p-6 rounded-xl'>
+        <div className='dark:bg-[#271c2d] bg-white bg-gradient-t-r from-[#deebfc] to-[#fde6ff] p-6 rounded-xl'>
 
-            <div className=' flex justify-center gap-4 mx-auto py-2 pb-8 border-b '>
+            <div className=' flex justify-center gap-4 mx-auto py-2 pb-8 border-b dark:border-gray-600'>
                 <img className='w-10' src={logo} alt="" />
-                <div className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r from-[#7fb9ff] to-[#f8a9ff] text-transparent bg-clip-text">NanoTasks</div>
+                <div className=" text-2xl md:text-3xl font-bold  bg-gradient-to-r  from-[#7fb9ff] to-[#f8a9ff] text-transparent bg-clip-text">NanoTasks</div>
             </div>
 
-            <div className='flex justify-between items-center bg-gradient-to-r from-[#b0d4ff] to-[#fbceff] rounded-lg lg:mx-34 my-6'>
+            <div className='flex justify-between items-center bg-gradient-to-r dark:from-[#373177] dark:to-[#712065] from-[#b0d4ff] to-[#fbceff] rounded-lg lg:mx-34 my-6'>
                 <div>
                     <img className='w-32 rounded-lg mx-4' src={stripelogo} alt="" />
                 </div>
                 <div className='text-2xl lg:text-3xl py-8 mx-4 font-medium'>
-                    Pay Amount: {price/100} $
+                    Pay Amount : {price/100} $
                 </div>
             </div>
 
-            <form className='lg:px-32 py-4' onSubmit={handleSubmit}>
+            <form className='lg:px-32 pb-4' onSubmit={handleSubmit}>
                 <CardElement
+                className='border-b dark:border-gray-600 p-4'
                     options={{
                         style: {
                             base: {
@@ -138,7 +139,7 @@ const CheckoutForm = ({ price, coin, category }) => {
                 <motion.button 
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.8 }}
-                type="submit" disabled={!stripe || !clientSecret} className='px-10 py-2 text-xl rounded-md bg-gradient-to-br from-[#b0d4ff] to-[#fbceff] mt-10 border border-white'>
+                type="submit" disabled={!stripe || !clientSecret} className='px-10 py-2 text-xl rounded-md bg-gradient-to-br dark:from-[#383278] dark:to-[#6a1e5e] from-[#b0d4ff] to-[#fbceff] mt-10 border border-white dark:border-none'>
                     Pay
                 </motion.button>
                 {
