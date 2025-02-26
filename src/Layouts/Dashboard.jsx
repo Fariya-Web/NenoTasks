@@ -17,6 +17,7 @@ import DashNav from '../Components/Shared/DashNav';
 import useAdmin from '../Hooks/useAdmin';
 import useBuyer from '../Hooks/useBuyer';
 import useWorker from '../Hooks/useWorker';
+import { CgProfile } from "react-icons/cg";
 
 
 
@@ -65,6 +66,8 @@ const Dashboard = () => {
 
                                 <li><NavLink to='/dashboard/adminhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Admin Home</NavLink></li>
 
+                                <li><NavLink to='/dashboard/adminprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />Admin Profile</NavLink></li>
+
                                 <li><NavLink to='/dashboard/allusers' className={'py-3 my-1'}><MdGroups className='text-2xl' />All Users</NavLink></li>
 
                                 <li><NavLink to='/dashboard/alltasks' className={'py-3 my-1'}><TbNetwork className='text-2xl' />Manage Tasks</NavLink></li>
@@ -81,6 +84,8 @@ const Dashboard = () => {
 
                                 <li><NavLink to='/dashboard/userhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />User Home</NavLink></li>
 
+                                <li><NavLink to='/dashboard/userprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />User Profile</NavLink></li>
+
                                 <li><NavLink to='/dashboard/tasklist' className={'py-3 my-1'}><BsListTask className='text-2xl' />Task List</NavLink></li>
 
                                 <li><NavLink to='/dashboard/submissions' className={'py-3 my-1'}><GrTask className='text-2xl' />My Submissions</NavLink></li>
@@ -94,10 +99,11 @@ const Dashboard = () => {
                         {/* buyer routes */}
                         {
                             isBuyer &&
-                            <div className='uppercase py-14'>
+                            <div className='uppercase pt-12 pb-5'>
 
                                 <li><NavLink to='/dashboard/buyerhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Buyer Home</NavLink></li>
 
+                                <li><NavLink to='/dashboard/buyerprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />Buyer Profile</NavLink></li>
 
                                 <li><NavLink to='/dashboard/addtask' className={'py-3 my-1'}><RiPlayListAddLine className='text-2xl' />Add new tasks</NavLink></li>
 

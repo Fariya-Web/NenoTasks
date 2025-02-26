@@ -37,6 +37,9 @@ const Navbar = () => {
 
     const links =
         <>
+
+            <li><Link to={'/'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Home</Link></li>
+
             {
                 user && dbuser?.role == 'admin' &&
                 <li><Link to={'/dashboard/adminhome'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
@@ -50,7 +53,9 @@ const Navbar = () => {
                 <li><Link to={'/dashboard/buyerhome'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Dashboard</Link></li>
             }
 
-            <li><a href='https://github.com/Fariya-Khan-Web/NanoTasks' className='mx-3 underline text-lg hover:text-[#b0d4ff] '>Join as Developer</a></li>
+            <li><Link to={'/contact'} className='mx-3  text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Contact Dev</Link></li>
+
+            <li><a href='https://github.com/Fariya-Khan-Web/NanoTasks' className='mx-3 underline text-lg  hover:bg-gradient-to-r from-[#8cbefa] to-[#f4b4fa] hover:text-transparent hover:bg-clip-text'>Join as Developer</a></li>
 
         </>
 

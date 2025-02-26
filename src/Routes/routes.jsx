@@ -28,6 +28,10 @@ import BuyerRoute from "./BuyerRoute";
 import Purchase from "../Components/DashboardPages/buyerRoutes/Payment/Purchase";
 import Payment from "../Components/DashboardPages/buyerRoutes/Payment/Payment";
 import Update from "../Components/DashboardPages/buyerRoutes/Update";
+import Contact from "../Layouts/Contact";
+import AdminProfile from "../Components/DashboardPages/adminRoutes/AdminProfile";
+import WorkerProfile from "../Components/DashboardPages/workerRoutes/WorkerProfile";
+import BuyerProfile from "../Components/DashboardPages/buyerRoutes/BuyerProfile";
 
 
 const router = createBrowserRouter([
@@ -40,6 +44,10 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home/>
             },
+            {
+                path: '/contact',
+                element: <Contact/>
+            }
         ]
     },
     {
@@ -68,6 +76,10 @@ const router = createBrowserRouter([
                 element: <AdminRoute><AdminHome/></AdminRoute>
             },
             {
+                path: '/dashboard/adminprofile',
+                element: <AdminRoute><AdminProfile/></AdminRoute>
+            },
+            {
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers/></AdminRoute>
             },
@@ -81,6 +93,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/userhome',
                 element: <WorkerRoute><WorkerHome/></WorkerRoute>
+            },
+            {
+                path: '/dashboard/userprofile',
+                element: <WorkerRoute><WorkerProfile/></WorkerRoute>
             },
             {
                 path: '/dashboard/tasklist',
@@ -104,6 +120,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/buyerhome',
                 element: <BuyerRoute><BuyerHome/></BuyerRoute>  
+            },
+            {
+                path: '/dashboard/buyerprofile',
+                element: <BuyerRoute><BuyerProfile/></BuyerRoute>  
             },
             {
                 path: '/dashboard/addtask',
