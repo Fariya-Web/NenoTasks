@@ -2,6 +2,7 @@ import React from 'react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from "motion/react"
+import {Link} from 'react-router-dom'
 
 const TopTasks = () => {
 
@@ -27,16 +28,17 @@ const TopTasks = () => {
             <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-screen-2xl mx-auto my-8 lg:my-14'>
                 {
                     toptasks.map(task => <motion.div
+                    key={task._id}
                         whileHover={{ scale: 1.06 }}
                         className='p-[4px] border dark:border-none rounded-xl bg-gradient-to-r from-[#abcffb] to-[#fbcfff] dark:from-[#2d2961] dark:to-[#571e4f]'>
 
-                        <div className='grid grid-cols-2 bg-white dark:bg-[#1b1220] rounded-xl h-full'>
+                        <div className='grid grid-cols-2 bg-gray-100 dark:bg-[#1b1220] rounded-xl h-full'>
                             <div className='w-full h-64'>
                                 <img className='w-full h-full rounded-l-xl' src={task.task_image_url} alt="" />
                             </div>
 
-                            <div className='p-2'>
-                                <h3 className='text-xl text-center lg:text-2xl font-semibold lg:mb-5'>{task.task_title}</h3>
+                            <div className='p-2 flex flex-col'>
+                                <h3 className='text-xl text-center lg:text-2xl font-semibold lg:mb-2'>{task.task_title}</h3>
 
                                 <div className='my-auto'>
 
@@ -61,6 +63,8 @@ const TopTasks = () => {
 
 
                                 </div>
+
+                                <button className='btn btn-sm px-6 w-fit bg-gradient-to-r from-[#abcffb] to-[#fbcfff] dark:from-[#353173] dark:to-[#6a2561] dark:border-none dark:text-white'><Link to='/dashboard/tasklist'>See More</Link></button>
 
                             </div>
                         </div>
