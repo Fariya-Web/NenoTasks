@@ -6,6 +6,7 @@ import Testimonials from '../Components/HomeComp.jsx/Testimonials';
 import Safety from '../Components/HomeComp.jsx/Safety';
 import QnA from '../Components/HomeComp.jsx/QnA';
 import Whyus from '../Components/HomeComp.jsx/Whyus';
+import TopTasks from '../Components/HomeComp.jsx/TopTasks';
 
 const Home = () => {
     return (
@@ -16,8 +17,9 @@ const Home = () => {
             </Helmet>
             <Banner/>
             <Whyus/>
-            <TopWorkers/>
+            <TopTasks/>
             <Safety/>
+            <TopWorkers/>
             <QnA/>
             <Testimonials/>
 
