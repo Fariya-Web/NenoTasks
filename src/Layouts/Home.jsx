@@ -7,6 +7,7 @@ import Safety from '../Components/HomeComp.jsx/Safety';
 import QnA from '../Components/HomeComp.jsx/QnA';
 import Whyus from '../Components/HomeComp.jsx/Whyus';
 import TopTasks from '../Components/HomeComp.jsx/TopTasks';
+import Community from '../Components/HomeComp.jsx/Community';
 
 const Home = () => {
     return (
@@ -22,6 +23,7 @@ const Home = () => {
             <TopWorkers/>
             <QnA/>
             <Testimonials/>
+            <Community/>
 
         </div>
     );

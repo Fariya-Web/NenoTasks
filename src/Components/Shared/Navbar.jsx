@@ -82,7 +82,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content dark:bg-[#271c2d] bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl">
+                            className="menu menu-sm text-center dropdown-content dark:bg-[#271c2d] bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-xl">
                             {links}
                         </ul>
                     </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
                 <div className=' flex items-center'>
 
                     <div className=" hidden lg:flex">
-                        <ul className="font-medium items-center menu-horizontal px-1">
+                        <ul className="font-medium text-center items-center menu-horizontal px-1">
                             {links}
                         </ul>
                     </div>

@@ -66,7 +66,7 @@ const Dashboard = () => {
 
                                 <li><NavLink to='/dashboard/adminhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Admin Home</NavLink></li>
 
-                                <li><NavLink to='/dashboard/adminprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />Admin Profile</NavLink></li>
+                                {/* <li><NavLink to='/dashboard/adminprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />Admin Profile</NavLink></li> */}
 
                                 <li><NavLink to='/dashboard/allusers' className={'py-3 my-1'}><MdGroups className='text-2xl' />All Users</NavLink></li>
 
@@ -84,7 +84,7 @@ const Dashboard = () => {
 
                                 <li><NavLink to='/dashboard/userhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />User Home</NavLink></li>
 
-                                <li><NavLink to='/dashboard/userprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />User Profile</NavLink></li>
+                                {/* <li><NavLink to='/dashboard/userprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />User Profile</NavLink></li> */}
 
                                 <li><NavLink to='/dashboard/tasklist' className={'py-3 my-1'}><BsListTask className='text-2xl' />Task List</NavLink></li>
 
@@ -103,7 +103,7 @@ const Dashboard = () => {
 
                                 <li><NavLink to='/dashboard/buyerhome' className={'py-3 my-1'}><IoMdHome className='text-2xl' />Buyer Home</NavLink></li>
 
-                                <li><NavLink to='/dashboard/buyerprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />Buyer Profile</NavLink></li>
+                                {/* <li><NavLink to='/dashboard/buyerprofile' className={'py-3 my-1'}><CgProfile className='text-2xl' />Buyer Profile</NavLink></li> */}
 
                                 <li><NavLink to='/dashboard/addtask' className={'py-3 my-1'}><RiPlayListAddLine className='text-2xl' />Add new tasks</NavLink></li>
 
